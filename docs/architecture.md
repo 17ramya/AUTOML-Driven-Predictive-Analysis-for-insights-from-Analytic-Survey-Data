@@ -41,7 +41,13 @@ Single source of truth for paths and constants: `BASE_DIR`, `DATA_DIR`,
 `ensure_directories()`, plus modelling constants (`RANDOM_STATE`, `TEST_SIZE`,
 `CV_FOLDS`, `CV_FOLDS_CROSS_VAL`, `DEFAULT_TARGET`, `DEFAULT_DROP_COLUMNS`,
 `UNIQUE_VALUE_RATIO`, `SUPPORTED_EXTENSIONS`, `CATEGORICAL_PLACEHOLDER`),
-plot/UI constants (`METRIC_ORDER`, `METRIC_LABELS`) and `SCORE_WEIGHTS`.
+`N_JOBS` (the `n_jobs` every `GridSearchCV` receives), plot/UI constants
+(`METRIC_ORDER`, `METRIC_LABELS`) and `SCORE_WEIGHTS`.
+
+Importing this module also exports `LOKY_MAX_CPU_COUNT` (logical cores − 1, unless
+the user set it) so joblib never runs the `wmic`-based physical-core probe that
+recent Windows builds break — that is why `config` must be imported before any
+`GridSearchCV` is constructed.
 
 ## `src/utils.py`
 

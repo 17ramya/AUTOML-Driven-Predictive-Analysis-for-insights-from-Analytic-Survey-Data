@@ -276,6 +276,7 @@ git stash / git stash pop      # park / restore WIP
 | Committed a 40 MB `models/*.pkl` by accident | `git rm --cached models/*.pkl`, add it to `.gitignore`, commit |
 | Wrong branch? | `git switch <correct-branch>`; move the commit with `git cherry-pick` if needed |
 | Want to see everything git ignores | `git status --ignored` |
+| `streamlit : ... is not recognized` | Streamlit is installed but its shim is off `PATH`: run `python -m streamlit run app.py`, or once: `.\scripts\add_streamlit_to_path.ps1` |
 
 ---
 

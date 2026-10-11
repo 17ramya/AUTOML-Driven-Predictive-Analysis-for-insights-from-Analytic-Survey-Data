@@ -14,8 +14,15 @@ be reproduced with two commands.
 pip install -r requirements.txt
 python scripts/make_sample_data.py --full      # build the sample datasets
 python main.py run --target status             # ingest -> EDA -> train -> compare
-streamlit run app.py                          # optional interactive dashboard
+python -m streamlit run app.py                 # optional interactive dashboard
 ```
+
+> **Always launch Streamlit as `python -m streamlit run app.py`.**  If you install
+> the packages with `pip install --user`, the `streamlit.exe` shim lands in
+> `%APPDATA%\Python\Python311\Scripts`, which is *not* on `PATH`, so the bare
+> `streamlit` command fails with *"not recognized"*.  The `python -m` form works
+> regardless of where the package was installed.  To make the short form work
+> too, add that folder to `PATH` once (see [Troubleshooting](#troubleshooting)).
 
 ---
 
@@ -107,8 +114,11 @@ winner plus its preprocessing bundle in `models/`.
 ### 4. Explore the dashboard
 
 ```bash
-streamlit run app.py
+python -m streamlit run app.py
 ```
+
+Windows PowerShell users who would rather type plain `streamlit run app.py` can
+run `.\scripts\add_streamlit_to_path.ps1` once (see the section below).
 
 ### 5. Run the test suite
 
@@ -229,7 +239,13 @@ Every path, seed and constant lives in `src/config.py`:
 | `DEFAULT_TARGET` | `status` | default target column |
 | `DEFAULT_DROP_COLUMNS` | `("order_id", "order_date")` | never used as features |
 | `UNIQUE_VALUE_RATIO` | `0.95` | identifier-detection threshold |
+| `N_JOBS` | `-1` | `n_jobs` handed to `GridSearchCV` (set it to `1` to run single-process) |
 | `SCORE_WEIGHTS` | accuracy .25, F1 .25, precision .15, recall .15, AUC .10, kappa .05, MCC .05 | composite score of Figure 5.12 |
+
+Importing `src.config` also exports `LOKY_MAX_CPU_COUNT` (one less than the
+logical core count, unless you set it yourself) so that joblib never shells out
+to the `wmic` tool that recent Windows builds no longer ship — see
+[Troubleshooting](#troubleshooting).
 
 ---
 
@@ -267,8 +283,13 @@ python main.py predict --input data/sample/amazon_sales_data_2025.csv \
 ## Streamlit dashboard
 
 ```bash
-streamlit run app.py
+python -m streamlit run app.py
 ```
+
+`python -m streamlit` is the launch form used everywhere in this repo because it
+works no matter how Streamlit was installed (system-wide or `--user`).  On
+Windows the app opens at <http://localhost:8501>; press `Ctrl+C` in the terminal
+to stop it.
 
 | Tab | What you can do |
 | --- | --------------- |
@@ -282,21 +303,119 @@ streamlit run app.py
 The app and the CLI call the *same* `run_training_pipeline`, so a model trained in
 the UI is byte-for-byte the model produced by `python main.py train`.
 
+## Troubleshooting
+
+### `streamlit : The term 'streamlit' is not recognized ...`
+
+The package is installed, but its console shim is not on `PATH`.  This happens
+whenever Streamlit was installed with `pip install --user` (or into a Python
+whose `Scripts` folder is missing from `PATH`) — the executable lives in
+
+```
+%APPDATA%\Python\Python311\Scripts\streamlit.exe     # pip install --user
+C:\Program Files\Python311\Scripts\streamlit.exe     # all-users install
+```
+
+Three ways to fix it, easiest first:
+
+1. **Use the module form** (recommended, nothing to configure):
+
+   ```powershell
+   python -m streamlit run app.py
+   ```
+
+2. **Check what Python sees before blaming `PATH`**:
+
+   ```powershell
+   python -c "import streamlit; print(streamlit.__version__, streamlit.__file__)"
+   python -m streamlit --version
+   ```
+
+3. **Put the shim on `PATH` permanently** (user scope, no admin rights needed) —
+   run the bundled helper once and then open a *new* terminal:
+
+   ```powershell
+   .\scripts\add_streamlit_to_path.ps1            # add
+   .\scripts\add_streamlit_to_path.ps1 -DryRun    # show what it would change
+   .\scripts\add_streamlit_to_path.ps1 -Remove    # undo
+   ```
+
+   Or do it by hand:
+
+   ```powershell
+   $scripts = Join-Path $env:APPDATA 'Python\Python311\Scripts'
+   [Environment]::SetEnvironmentVariable(
+       'Path',
+       ([Environment]::GetEnvironmentVariable('Path', 'User') + ';' + $scripts),
+       'User')
+   ```
+
+### Windows: `Could not find the number of physical cores` (joblib)
+
+Running something that tunes hyper-parameters (`python main.py train --tune`,
+`python main.py run`, or the *Train & compare* tab with tuning enabled) used to
+print this before any training output:
+
+```
+...\joblib\externals\loky\backend\context.py:136: UserWarning: Could not find the
+number of physical cores for the following reason:
+[WinError 2] The system cannot find the file specified
+Returning the number of logical cores instead. You can silence this warning by
+setting LOKY_MAX_CPU_COUNT to the number of cores you want to use.
+  warnings.warn(
+  File "...\context.py", line 257, in _count_physical_cores
+    cpu_info = subprocess.run(
+  ...
+```
+
+**It is not a crash.**  `scikit-learn` hands `n_jobs=-1` to `joblib`, and joblib
+counts *physical* cores by running `wmic CPU Get NumberOfCores`.  Windows 11
+(24H2 and later) removed `wmic.exe`, so the probe raises `FileNotFoundError`;
+joblib prints that exception and falls back to the logical core count, which is
+why the message looks like a traceback.
+
+The fix is built in: `import src.config` exports `LOKY_MAX_CPU_COUNT` (one core
+below the logical count) the first time it is loaded, which makes joblib skip the
+hardware probe entirely — `model_training` and `model_comparison` import `config`
+before they ever build a `GridSearchCV`.  Covered by
+`tests/test_config.py::JoblibParallelismGuardTests`.
+
+Should you ever see it again, it means `src.config` was bypassed.  Set the limit
+yourself before starting Python:
+
+```powershell
+$env:LOKY_MAX_CPU_COUNT = 4        # any positive integer you like
+python main.py train --tune
+```
+
+### Other project-specific symptoms
+
+| Symptom | Fix |
+| ------- | --- |
+| `ModuleNotFoundError: No module named 'streamlit'` | `pip install -r requirements.txt`, then launch with the *same* Python: `python -m streamlit run app.py` |
+| `ModuleNotFoundError: No module named 'src'` | start the app from the repository root (Streamlit adds the script's folder to `sys.path`, not your shell's `cwd`) |
+| Two Python installs (`py -0p` lists several) | pick one and stay with it: `py -3.11 -m pip install -r requirements.txt` then `py -3.11 -m streamlit run app.py` |
+| Port 8501 already in use | `python -m streamlit run app.py --server.port 8502` |
+| Browser does not open | `python -m streamlit run app.py --server.headless true` and browse to the printed URL |
+| `UserWarning: Could not find the number of physical cores` | handled automatically by `src.config`; see the section above |
+
 ---
 
 ## Running the tests
 
 ```bash
-python -m unittest discover -s tests -t .          # 150+ tests
+python -m unittest discover -s tests -t .          # 165+ tests
 python -m unittest tests.test_app -v               # dashboard smoke tests only
+python -m unittest tests.test_config -v            # config + joblib guard only
 python -m unittest tests.test_preprocessing -v     # one module
 ```
 
-The suite covers ingestion, header standardisation, ID detection, imputation,
-encoding, scaling, the model zoo, metrics, ranking, bundle persistence, inference
-round-trips, image features, the EDA fallback report, the sample-data generator
-and the Streamlit app (via `streamlit.testing.v1.AppTest`).  It runs offline in
-well under a minute and needs no extra test framework.
+The suite covers the configuration and the joblib parallelism guard, ingestion,
+header standardisation, ID detection, imputation, encoding, scaling, the model
+zoo, metrics, ranking, bundle persistence, inference round-trips, image features,
+the EDA fallback report, the sample-data generator and the Streamlit app (via
+`streamlit.testing.v1.AppTest`).  It runs offline in well under a minute and needs
+no extra test framework.
 
 ---
 
