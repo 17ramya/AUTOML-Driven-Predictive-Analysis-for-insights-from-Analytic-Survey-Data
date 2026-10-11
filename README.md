@@ -139,10 +139,20 @@ the project is reproducible without any external download:
 | `data/sample/product_listings.csv` | Tables 4.3 / 4.4 (listings) | 1 200 / 32 412 | Posting Id, Image, Title, Label Group, title_prep, pos, word_count, char_count, avg_word_length |
 | `data/sample/images/*.png` | Figure 4.6 (sample product images) | 24 / 60 | 96 × 96 RGB renders used by the multi-modal experiment |
 
+The copies committed to this repository were generated with `--full`, i.e. 250
+sales rows, 32 412 listing rows and 60 images — the counts quoted in the report.
+Because the generator is seeded, re-running it produces byte-identical files
+(that is also why the first 24 PNGs are unchanged in `git status` when you switch
+between modes).  Use `--listings-rows` / `--images` when you want the smaller
+demo set instead:
+
+```bash
+python scripts/make_sample_data.py --listings-rows 1200 --images 24
+```
+
 The synthetic `Status` label is a learnable function of the order profile
 (price, quantity, category) plus a small amount of label noise, which is what
-makes the model comparison meaningful.  `--full` reproduces the row counts
-quoted in the report.
+makes the model comparison meaningful.
 
 Any CSV/XLSX file can be used instead — either drop it into `data/raw/`, pass it
 to the CLI with `--input`, or upload it in the dashboard.  Headers are
