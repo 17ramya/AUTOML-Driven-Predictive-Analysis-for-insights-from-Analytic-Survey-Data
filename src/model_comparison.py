@@ -112,7 +112,7 @@ def evaluate_models_with_grid_search(
                     estimator=candidate,
                     param_grid=grids[model_name],
                     cv=cv,
-                    n_jobs=-1,
+                    n_jobs=config.N_JOBS,
                     verbose=1 if verbose else 0,
                 )
                 grid_search.fit(train_x, train_y)

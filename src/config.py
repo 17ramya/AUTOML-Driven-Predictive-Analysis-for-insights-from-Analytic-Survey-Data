@@ -7,6 +7,7 @@ Keeping every path / constant in one module means the Streamlit app, the CLI
 
 from __future__ import annotations
 
+import os
 from pathlib import Path
 
 # --------------------------------------------------------------------------- #
@@ -16,6 +17,31 @@ RANDOM_STATE: int = 42          # used everywhere a random seed is accepted
 TEST_SIZE: float = 0.2          # 80 % train - 20 % test split (thesis S4.4.1)
 CV_FOLDS: int = 3               # cv used by GridSearchCV in the thesis code
 CV_FOLDS_CROSS_VAL: int = 5     # cv used by cross_val_score in the thesis code
+
+# --------------------------------------------------------------------------- #
+# Parallelism
+# --------------------------------------------------------------------------- #
+# `-1` means "use every core joblib is willing to hand out" (the setting used in
+# the thesis source and in `model_training.tune_model`).
+N_JOBS: int = -1
+
+# Windows 11 no longer ships `wmic.exe`, and that is exactly how joblib counts
+# the *physical* cores (`joblib.externals.loky.backend.context`).  When the probe
+# fails joblib emits a UserWarning and prints the traceback of the failed
+# `subprocess.run` before falling back to the logical core count:
+#
+#     UserWarning: Could not find the number of physical cores for the following
+#     reason: [WinError 2] The system cannot find the file specified ...
+#
+# It is harmless, but it looks like a crash and it slows down every training run.
+# joblib only probes the hardware when *no* user limit is configured, so exporting
+# a soft limit one core below the logical count makes `cpu_count()` return early
+# and skip the probe entirely.  Setting the variable is also the fix joblib itself
+# recommends in the warning message, and we only do it when the user has not
+# already chosen a value (e.g. `$env:LOKY_MAX_CPU_COUNT = 4`).
+_LOGICAL_CORES: int = os.cpu_count() or 1
+if "LOKY_MAX_CPU_COUNT" not in os.environ:
+    os.environ["LOKY_MAX_CPU_COUNT"] = str(max(1, _LOGICAL_CORES - 1))
 
 # Target column of the sample survey dataset (Table 4.2 of the report).
 DEFAULT_TARGET: str = "status"

@@ -305,7 +305,7 @@ def tune_model(
     x_train: np.ndarray,
     y_train: pd.Series,
     cv: int = config.CV_FOLDS,
-    n_jobs: int = -1,
+    n_jobs: int = config.N_JOBS,
     verbose: int = 0,
 ) -> tuple[BaseEstimator, dict[str, Any]]:
     """
