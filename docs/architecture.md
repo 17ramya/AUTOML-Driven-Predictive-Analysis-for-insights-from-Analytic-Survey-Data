@@ -5,32 +5,31 @@ Mapping between the three modules of the thesis and the code in `src/`.
 ## Data flow
 
 ```
-            ┌──────────────────────────── Module 1 ────────────────────────────┐
- CSV/XLSX ─▶│ data_ingestion.load_dataset → standardize_column_names →          │
-            │ categorical gaps = "Unknown" → save_source_data (source_data.csv) │
-            └───────────────────────────────┬──────────────────────────────────┘
-                                            ▼
-            ┌──────────────────────────── Module 2 ────────────────────────────┐
-            │ preprocessing.prepare_dataset                                     │
-            │   resolve_column → detect_id_columns → handle_missing_values →    │
-            │   split_features_target → encode_categorical_features →           │
-            │   train_test_split → scale_features (fit on train only)           │
-            │                                                                  │
-            │ model_training.run_training_pipeline                             │
-            │   get_candidate_models → train_and_evaluate_models (calculate_    │
-            │   metrics per model) → select_best_model → refit on x_full →       │
-            │   cross_validate_model → save_model + save_bundle                 │
-            └───────────────────────────────┬──────────────────────────────────┘
-                                            ▼
-            ┌──────────────────────────── Module 3 ────────────────────────────┐
-            │ predict.predict_with_bundle   (replays scaler/encoders, adds      │
-            │                                labels + probabilities)           │
-            │ predict.compare_saved_models  (side-by-side bundle benchmark)     │
-            │ image_features.build_multimodal_dataset (image ⊕ text listings)   │
-            └──────────────────────────────────────────────────────────────────┘
+CSV / XLSX
+   │
+   ▼
+Module 1 – automated data ingestion      data_ingestion.ingest_dataset()
+   │                                     load_dataset → standardize_column_names
+   │                                     → fill categorical gaps with "Unknown"
+   │                                     → save_source_data (data/source_data.csv)
+   ▼
+Module 2 – preprocessing + ML            preprocessing.prepare_dataset()
+   │                                     resolve_column → detect_id_columns
+   │                                     → handle_missing_values → split_features_target
+   │                                     → encode_categorical_features → train_test_split
+   │                                     → scale_features (fitted on the train split only)
+   │
+   │                                     model_training.run_training_pipeline()
+   │                                     get_candidate_models → train_and_evaluate_models
+   │                                     → select_best_model → refit on x_full
+   │                                     → cross_validate_model → save_model + save_bundle
+   ▼
+Module 3 – prediction & multimodal       predict.predict_with_bundle()
+                                         predict.compare_saved_models()
+                                         image_features.build_multimodal_dataset()
 
-  Drivers:  app.py (Streamlit) ──┐
-            main.py (CLI) ───────┴──▶ the same src.* functions
+Drivers: app.py (Streamlit dashboard) and main.py (CLI) both call the same src.*
+functions, so the interactive and batch paths can never drift apart.
 ```
 
 ## `src/config.py`
