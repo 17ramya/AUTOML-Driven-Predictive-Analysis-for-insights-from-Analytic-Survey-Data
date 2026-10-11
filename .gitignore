@@ -1,0 +1,40 @@
+# ------------------------------------------------------------------ #
+# Python
+# ------------------------------------------------------------------ #
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+env/
+.ipynb_checkpoints/
+
+# ------------------------------------------------------------------ #
+# Generated artefacts (re-created by `python main.py run`)
+# ------------------------------------------------------------------ #
+data/source_data.csv
+models/*.pkl
+models/*.joblib
+reports/*.html
+reports/*.csv
+reports/*.json
+catboost_info/
+diag*.py
+diag*.txt
+run_tests.txt
+test_run.txt
+app_tests.txt
+
+# Keep the folder placeholders inside the ignored folders
+!models/.gitkeep
+!reports/.gitkeep
+!data/raw/.gitkeep
+
+# ------------------------------------------------------------------ #
+# Editors / OS
+# ------------------------------------------------------------------ #
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+*.log
