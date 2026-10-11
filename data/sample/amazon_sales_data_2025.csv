@@ -1,0 +1,251 @@
+Order ID,Product,Category,Price,Quantity,Total Sales,Order Date,Customer Location,Payment Method,Status
+ORD100000,Wireless Earbuds,Electronics,787.54,7,5510.45,2025-02-06,Dallas,PayPal,Completed
+ORD100001,Cricket Bat,Sports,1042.98,6,6261.16,2025-04-07,Seattle,Debit Card,Cancelled
+ORD100002,Running Shoes,Fashion,552.87,5,2773.49,2025-03-08,Houston,Debit Card,Pending
+ORD100003,AutoML in Practice,Books,308.69,8,2548.99,2025-06-28,Denver,Debit Card,Completed
+ORD100004,ML Yearbook,Books,295.44,2,612.16,2025-03-28,Chicago,PayPal,Pending
+ORD100005,Face Serum,Beauty,899.03,8,7174.56,2025-06-22,Houston,Debit Card,Pending
+ORD100006,Power Bank,Electronics,982.63,7,6902.63,2025-04-29,Dallas,Net Banking,Completed
+ORD100007,Yoga Mat,Sports,139.75,5,689.7,2025-01-08,Boston,PayPal,Completed
+ORD100008,Air Fryer,Home & Kitchen,93.87,6,550.98,2025-02-06,Boston,Net Banking,Completed
+ORD100009,Smart Watch,Electronics,719.4,5,3619.72,2025-05-08,Phoenix,UPI,Completed
+ORD100010,Sunglasses,Fashion,188.22,3,565.44,2025-04-09,Dallas,Debit Card,Completed
+ORD100011,Face Serum,Beauty,992.23,7,6952.57,2025-02-24,Atlanta,Debit Card,Cancelled
+ORD100012,Dumbbell Set,Sports,382.75,2,765.85,2025-04-04,Seattle,UPI,Cancelled
+ORD100013,Cycling Helmet,Sports,185.49,3,564.88,2025-06-12,Phoenix,Debit Card,Pending
+ORD100014,Cycling Helmet,Sports,1106.35,5,5542.37,2025-03-11,Dallas,Debit Card,Cancelled
+ORD100015,Cricket Bat,Sports,211.16,7,1429.7,2025-01-09,Houston,Net Banking,Completed
+ORD100016,Leather Wallet,Fashion,352.39,4,1426.22,2025-02-25,Houston,PayPal,Pending
+ORD100017,Bluetooth Speaker,Electronics,197.03,4,763.57,2025-06-18,Austin,Credit Card,Completed
+ORD100018,Sunscreen SPF50,Beauty,151.86,1,115.8,2025-05-18,Atlanta,PayPal,Cancelled
+ORD100019,Python Cookbook,Books,40.06,1,38.6,2025-05-31,Houston,PayPal,Completed
+ORD100020,Denim Jacket,Fashion,80.64,1,82.74,2025-06-14,Austin,Net Banking,Pending
+ORD100021,Data Science Handbook,Books,221.95,1,204.61,2025-01-22,Miami,UPI,Pending
+ORD100022,Air Fryer,Home & Kitchen,78.26,7,568.6,2025-02-20,Atlanta,Credit Card,Completed
+ORD100023,Lip Balm Pack,Beauty,715.51,7,4975.02,2025-01-11,Chicago,Credit Card,Pending
+ORD100024,Cricket Bat,Sports,821.65,7,5741.38,2025-01-01,Denver,UPI,Pending
+ORD100025,Leather Wallet,Fashion,481.45,1,466.83,2025-05-31,Denver,Credit Card,Cancelled
+ORD100026,Python Cookbook,Books,391.82,1,390.66,2025-06-18,Chicago,Debit Card,Pending
+ORD100027,Football,Sports,612.86,3,1845.55,2025-01-29,Denver,Credit Card,Cancelled
+ORD100028,Running Shoes,Fashion,1051.88,5,5234.2,2025-05-10,Houston,Credit Card,Cancelled
+ORD100029,Data Science Handbook,Books,1023.59,3,3088.88,2025-04-07,Phoenix,Net Banking,Cancelled
+ORD100030,AutoML in Practice,Books,66.52,4,267.66,2025-01-13,Denver,Credit Card,Completed
+ORD100031,Blender,Home & Kitchen,230.08,2,412.86,2025-06-14,Denver,Credit Card,Completed
+ORD100032,Power Bank,Electronics,295.54,6,1724.28,2025-06-06,Austin,Net Banking,Completed
+ORD100033,Leather Wallet,Fashion,310.52,3,931.25,2025-04-13,Phoenix,Credit Card,Pending
+ORD100034,Perfume,Beauty,691.91,1,686.39,2025-05-08,Austin,Net Banking,Cancelled
+ORD100035,LED Monitor,Electronics,508.27,6,3047.03,2025-03-13,Houston,Credit Card,Completed
+ORD100036,Face Serum,Beauty,73.37,8,586.26,2025-05-23,Atlanta,Credit Card,Completed
+ORD100037,Cricket Bat,Sports,457.73,1,463.37,2025-03-22,Dallas,Credit Card,Cancelled
+ORD100038,Blender,Home & Kitchen,635.65,4,2566.29,2025-06-28,Miami,UPI,Completed
+ORD100039,Leather Wallet,Fashion,135.48,7,920.58,2025-01-12,Chicago,UPI,Completed
+ORD100040,LED Monitor,Electronics,1002.65,6,5986.6,2025-01-31,Dallas,PayPal,Completed
+ORD100041,Dumbbell Set,Sports,76.57,7,508.66,2025-06-24,Phoenix,Debit Card,Completed
+ORD100042,Cycling Helmet,Sports,1110.94,4,4450.98,2025-02-21,Seattle,Credit Card,Cancelled
+ORD100043,AutoML in Practice,Books,132.45,3,428.47,2025-02-25,Houston,PayPal,Completed
+ORD100044,Smart Watch,Electronics,1014.64,6,6077.06,2025-05-23,Atlanta,Debit Card,Completed
+ORD100045,Perfume,Beauty,1084.64,2,2106.74,2025-02-04,Boston,PayPal,Cancelled
+ORD100046,Deep Learning,Books,1175.79,2,2308.98,2025-04-03,Dallas,UPI,Cancelled
+ORD100047,Perfume,Beauty,965.4,5,4806.17,2025-02-21,Chicago,Net Banking,Cancelled
+ORD100048,Dumbbell Set,Sports,938.68,6,5618.14,2025-02-05,Boston,PayPal,Pending
+ORD100049,Yoga Mat,Sports,776.34,1,766.13,2025-06-23,Houston,Credit Card,Cancelled
+ORD100050,Dumbbell Set,Sports,938.11,5,4691.51,2025-02-05,Denver,Debit Card,Cancelled
+ORD100051,Vacuum Cleaner,Home & Kitchen,174.44,3,515.53,2025-01-17,Seattle,Net Banking,Completed
+ORD100052,Data Science Handbook,Books,650.24,5,3277.43,2025-05-02,Chicago,PayPal,Pending
+ORD100053,Deep Learning,Books,624.35,8,4977.9,2025-06-06,Phoenix,UPI,Completed
+ORD100054,Python Cookbook,Books,1031.22,1,1009.66,2025-01-23,Chicago,PayPal,Cancelled
+ORD100055,Wireless Earbuds,Electronics,563.42,8,4519.33,2025-05-08,Chicago,Credit Card,Completed
+ORD100056,Denim Jacket,Fashion,471.33,4,1846.93,2025-04-08,Dallas,Net Banking,Pending
+ORD100057,Smart Watch,Electronics,772.88,7,5419.9,2025-05-30,Dallas,UPI,Completed
+ORD100058,Dumbbell Set,Sports,330.76,4,1325.6,2025-01-23,Seattle,Net Banking,Pending
+ORD100059,Yoga Mat,Sports,180.63,3,538.2,2025-06-25,Phoenix,Net Banking,Pending
+ORD100060,Sunscreen SPF50,Beauty,581.28,7,4108.67,2025-04-22,Boston,Debit Card,Pending
+ORD100061,Football,Sports,509.01,6,3038.5,2025-06-01,Austin,Debit Card,Pending
+ORD100062,Data Science Handbook,Books,290.6,2,632.71,2025-03-07,Denver,Debit Card,Pending
+ORD100063,Hair Dryer,Beauty,450.5,6,2697.36,2025-06-19,Phoenix,Net Banking,Pending
+ORD100064,AutoML in Practice,Books,449.18,7,3112.33,2025-04-23,Atlanta,PayPal,Completed
+ORD100065,Cookware Set,Home & Kitchen,403.08,4,1614.07,2025-01-23,Dallas,PayPal,Completed
+ORD100066,Sunscreen SPF50,Beauty,464.66,8,3690.37,2025-06-16,Denver,Net Banking,Completed
+ORD100067,ML Yearbook,Books,827.61,6,4946.87,2025-05-24,Boston,UPI,Pending
+ORD100068,LED Monitor,Electronics,366.8,3,1110.33,2025-02-24,Seattle,Net Banking,Completed
+ORD100069,ML Yearbook,Books,1139.4,1,1153.29,2025-04-09,Austin,Net Banking,Cancelled
+ORD100070,Dumbbell Set,Sports,1100.87,6,6589.67,2025-03-11,Miami,Credit Card,Cancelled
+ORD100071,Air Fryer,Home & Kitchen,584.88,2,1194.45,2025-04-08,Dallas,Debit Card,Pending
+ORD100072,ML Yearbook,Books,404.11,7,2857.71,2025-06-23,Boston,UPI,Completed
+ORD100073,LED Monitor,Electronics,649.49,5,3283.36,2025-06-11,Phoenix,Net Banking,Completed
+ORD100074,Cycling Helmet,Sports,1020.54,4,4095.4,2025-02-08,Phoenix,Credit Card,Cancelled
+ORD100075,AutoML in Practice,Books,788.32,2,1610.73,2025-06-24,Miami,Debit Card,Cancelled
+ORD100076,Coffee Maker,Home & Kitchen,968.2,6,5762.18,2025-03-20,Chicago,PayPal,Pending
+ORD100077,Air Fryer,Home & Kitchen,646.28,2,1284.61,2025-05-07,Houston,UPI,Pending
+ORD100078,Running Shoes,Fashion,765.01,4,3038.36,2025-05-18,Chicago,Credit Card,Pending
+ORD100079,Cricket Bat,Sports,356.46,7,2498.2,2025-03-28,Austin,UPI,Completed
+ORD100080,Perfume,Beauty,885.85,8,7072.51,2025-03-24,Seattle,Debit Card,Pending
+ORD100081,AutoML in Practice,Books,254.85,8,2034.65,2025-03-24,Denver,Debit Card,Completed
+ORD100082,Bluetooth Speaker,Electronics,838.34,8,6753.77,2025-06-05,Seattle,PayPal,Completed
+ORD100083,Cycling Helmet,Sports,1034.95,5,5170.51,2025-03-11,Phoenix,PayPal,Cancelled
+ORD100084,Leather Wallet,Fashion,171.54,2,353.42,2025-02-20,Boston,UPI,Pending
+ORD100085,Cycling Helmet,Sports,743.04,7,5195.47,2025-03-07,Atlanta,Debit Card,Pending
+ORD100086,LED Monitor,Electronics,127.69,7,895.72,2025-02-05,Chicago,Net Banking,Completed
+ORD100087,Coffee Maker,Home & Kitchen,874.97,8,6999.91,2025-03-12,Dallas,Credit Card,Completed
+ORD100088,Dumbbell Set,Sports,115.12,6,701.93,2025-01-21,Denver,Net Banking,Completed
+ORD100089,Cycling Helmet,Sports,1124.09,2,2277.31,2025-01-17,Seattle,Credit Card,Cancelled
+ORD100090,ML Yearbook,Books,177.83,5,930.33,2025-05-11,Boston,UPI,Completed
+ORD100091,Dumbbell Set,Sports,1151.27,4,4612.82,2025-01-14,Miami,Debit Card,Cancelled
+ORD100092,Sunscreen SPF50,Beauty,964.05,7,6763.09,2025-04-13,Miami,Debit Card,Pending
+ORD100093,Python Cookbook,Books,718.51,4,2845.27,2025-05-21,Boston,Credit Card,Pending
+ORD100094,Lip Balm Pack,Beauty,942.41,3,2825.03,2025-05-11,Miami,UPI,Cancelled
+ORD100095,Coffee Maker,Home & Kitchen,957.21,1,980.72,2025-03-22,Atlanta,Credit Card,Cancelled
+ORD100096,Vacuum Cleaner,Home & Kitchen,1136.04,7,7973.93,2025-02-04,Phoenix,UPI,Pending
+ORD100097,Cycling Helmet,Sports,315.26,7,2212.11,2025-06-17,Denver,UPI,Completed
+ORD100098,Running Shoes,Fashion,714.24,1,736.4,2025-05-31,Denver,Net Banking,Cancelled
+ORD100099,Wireless Earbuds,Electronics,127.63,4,522.79,2025-04-21,Boston,UPI,Completed
+ORD100100,Cricket Bat,Sports,745.16,4,3010.65,2025-01-16,Houston,Debit Card,Cancelled
+ORD100101,Air Fryer,Home & Kitchen,217.98,4,879.15,2025-01-07,Austin,UPI,Completed
+ORD100102,Dumbbell Set,Sports,684.47,8,5466.87,2025-02-26,Seattle,Net Banking,Completed
+ORD100103,Smart Watch,Electronics,693.33,2,1395.06,2025-01-29,Atlanta,Debit Card,Pending
+ORD100104,Cycling Helmet,Sports,567.19,3,1628.31,2025-06-04,Dallas,Credit Card,Cancelled
+ORD100105,Cycling Helmet,Sports,634.32,2,1278.21,2025-02-07,Seattle,Net Banking,Cancelled
+ORD100106,Yoga Mat,Sports,920.25,2,1749.29,2025-02-20,Austin,Credit Card,Cancelled
+ORD100107,Backpack,Fashion,962.1,8,7653.71,2025-06-25,Miami,PayPal,Pending
+ORD100108,Data Science Handbook,Books,598.2,8,4796.89,2025-05-28,Miami,Debit Card,Completed
+ORD100109,Football,Sports,725.52,1,737.46,2025-02-09,Austin,Credit Card,Cancelled
+ORD100110,Vacuum Cleaner,Home & Kitchen,1118.51,6,6682.0,2025-03-11,Houston,UPI,Pending
+ORD100111,Cycling Helmet,Sports,156.88,2,295.96,2025-04-03,Houston,Credit Card,Pending
+ORD100112,Denim Jacket,Fashion,153.77,2,341.8,2025-04-30,Austin,UPI,Pending
+ORD100113,Deep Learning,Books,118.94,3,344.72,2025-06-18,Dallas,UPI,Completed
+ORD100114,Running Shoes,Fashion,794.57,2,1645.21,2025-06-06,Boston,Credit Card,Cancelled
+ORD100115,Leather Wallet,Fashion,511.05,4,2044.15,2025-06-25,Houston,Credit Card,Pending
+ORD100116,Smart Watch,Electronics,932.57,8,7470.76,2025-01-08,Austin,UPI,Completed
+ORD100117,Bluetooth Speaker,Electronics,810.41,5,4092.47,2025-02-12,Seattle,PayPal,Completed
+ORD100118,Air Fryer,Home & Kitchen,410.36,6,2465.44,2025-04-12,Atlanta,Credit Card,Completed
+ORD100119,Power Bank,Electronics,1079.56,4,4293.18,2025-01-09,Chicago,Net Banking,Pending
+ORD100120,AutoML in Practice,Books,918.6,1,915.86,2025-03-05,Phoenix,Debit Card,Cancelled
+ORD100121,Football,Sports,335.58,1,334.69,2025-01-28,Austin,Credit Card,Cancelled
+ORD100122,Leather Wallet,Fashion,446.57,3,1305.59,2025-06-17,Seattle,Net Banking,Pending
+ORD100123,AutoML in Practice,Books,387.61,2,768.82,2025-01-12,Seattle,Credit Card,Pending
+ORD100124,Lip Balm Pack,Beauty,201.77,7,1393.84,2025-01-27,Phoenix,PayPal,Completed
+ORD100125,Running Shoes,Fashion,190.12,7,1353.95,2025-02-05,Atlanta,Net Banking,Completed
+ORD100126,Power Bank,Electronics,1124.31,7,7871.04,2025-01-27,Atlanta,PayPal,Completed
+ORD100127,Football,Sports,533.92,6,3196.45,2025-04-13,Denver,PayPal,Pending
+ORD100128,Denim Jacket,Fashion,469.23,5,2343.5,2025-03-07,Boston,Debit Card,Pending
+ORD100129,Denim Jacket,Fashion,879.68,6,5283.66,2025-06-14,Boston,Credit Card,Pending
+ORD100130,Running Shoes,Fashion,670.3,4,2696.62,2025-02-16,Atlanta,PayPal,Pending
+ORD100131,Backpack,Fashion,1124.33,6,6720.99,2025-04-07,Dallas,Net Banking,Cancelled
+ORD100132,LED Monitor,Electronics,939.66,7,6551.58,2025-04-29,Austin,Credit Card,Completed
+ORD100133,Denim Jacket,Fashion,583.05,7,4108.97,2025-04-23,Phoenix,Net Banking,Completed
+ORD100134,Yoga Mat,Sports,460.99,5,2294.64,2025-05-24,Austin,PayPal,Pending
+ORD100135,Air Fryer,Home & Kitchen,1184.16,1,1148.74,2025-02-06,Dallas,PayPal,Cancelled
+ORD100136,Running Shoes,Fashion,865.55,6,5204.4,2025-04-02,Boston,Credit Card,Pending
+ORD100137,LED Monitor,Electronics,1142.17,3,3438.09,2025-05-25,Austin,UPI,Cancelled
+ORD100138,Deep Learning,Books,155.4,6,894.13,2025-06-05,Phoenix,Credit Card,Completed
+ORD100139,Data Science Handbook,Books,1022.88,5,5120.14,2025-04-22,Atlanta,Debit Card,Pending
+ORD100140,Sunscreen SPF50,Beauty,769.93,8,6177.83,2025-04-28,Austin,UPI,Pending
+ORD100141,Air Fryer,Home & Kitchen,159.48,3,487.8,2025-06-05,Boston,Credit Card,Completed
+ORD100142,Coffee Maker,Home & Kitchen,712.09,8,5712.52,2025-04-23,Atlanta,PayPal,Completed
+ORD100143,Python Cookbook,Books,828.02,7,5761.03,2025-06-20,Denver,PayPal,Completed
+ORD100144,Sunscreen SPF50,Beauty,29.58,3,97.02,2025-01-23,Dallas,Credit Card,Pending
+ORD100145,Lip Balm Pack,Beauty,553.37,4,2205.91,2025-03-04,Boston,Debit Card,Cancelled
+ORD100146,Wireless Earbuds,Electronics,993.1,5,4953.43,2025-01-21,Chicago,Debit Card,Pending
+ORD100147,Air Fryer,Home & Kitchen,365.0,7,2576.76,2025-01-17,Chicago,UPI,Completed
+ORD100148,Dumbbell Set,Sports,558.38,6,3387.26,2025-03-26,Houston,Net Banking,Pending
+ORD100149,Bluetooth Speaker,Electronics,539.14,7,3818.84,2025-02-10,Dallas,Net Banking,Completed
+ORD100150,Lip Balm Pack,Beauty,372.78,3,1151.21,2025-03-15,Phoenix,Credit Card,Pending
+ORD100151,Cookware Set,Home & Kitchen,1103.35,5,5514.01,2025-03-20,Dallas,Credit Card,Pending
+ORD100152,Hair Dryer,Beauty,940.83,4,3772.14,2025-04-22,Dallas,Credit Card,Cancelled
+ORD100153,Vacuum Cleaner,Home & Kitchen,146.05,8,1187.57,2025-06-20,Austin,PayPal,Completed
+ORD100154,Python Cookbook,Books,1196.49,3,3592.5,2025-06-02,Miami,Credit Card,Cancelled
+ORD100155,Leather Wallet,Fashion,1056.85,5,5287.52,2025-03-10,Miami,Debit Card,Cancelled
+ORD100156,Smart Watch,Electronics,351.43,1,372.02,2025-02-28,Austin,Net Banking,Completed
+ORD100157,Running Shoes,Fashion,1006.72,7,7045.56,2025-05-19,Phoenix,Net Banking,Pending
+ORD100158,Backpack,Fashion,141.11,4,546.21,2025-01-23,Houston,Net Banking,Completed
+ORD100159,Yoga Mat,Sports,1198.94,3,3586.46,2025-04-08,Dallas,Debit Card,Cancelled
+ORD100160,Face Serum,Beauty,803.84,5,4035.05,2025-03-18,Houston,UPI,Cancelled
+ORD100161,Denim Jacket,Fashion,785.4,4,3141.67,2025-02-02,Boston,UPI,Pending
+ORD100162,AutoML in Practice,Books,122.17,7,863.7,2025-04-21,Dallas,Credit Card,Completed
+ORD100163,Data Science Handbook,Books,1077.98,5,5406.65,2025-02-27,Denver,PayPal,Cancelled
+ORD100164,Data Science Handbook,Books,49.36,5,237.43,2025-02-03,Boston,PayPal,Completed
+ORD100165,Football,Sports,300.38,1,319.29,2025-04-28,Denver,Debit Card,Cancelled
+ORD100166,Vacuum Cleaner,Home & Kitchen,184.48,1,193.95,2025-02-01,Chicago,UPI,Completed
+ORD100167,Air Fryer,Home & Kitchen,935.47,4,3711.01,2025-05-02,Seattle,UPI,Pending
+ORD100168,AutoML in Practice,Books,249.87,8,2035.02,2025-01-30,Phoenix,PayPal,Completed
+ORD100169,Smart Watch,Electronics,1094.11,8,8740.36,2025-03-20,Seattle,UPI,Completed
+ORD100170,LED Monitor,Electronics,792.68,6,4714.7,2025-05-26,Atlanta,UPI,Completed
+ORD100171,Power Bank,Electronics,57.85,6,320.97,2025-02-11,Atlanta,PayPal,Completed
+ORD100172,Football,Sports,21.43,4,60.19,2025-05-19,Boston,Debit Card,Completed
+ORD100173,Cricket Bat,Sports,76.21,2,153.72,2025-05-10,Chicago,UPI,Pending
+ORD100174,Cricket Bat,Sports,733.02,1,726.17,2025-06-12,Dallas,UPI,Cancelled
+ORD100175,Data Science Handbook,Books,964.76,3,2885.86,2025-01-31,Phoenix,Net Banking,Cancelled
+ORD100176,Cycling Helmet,Sports,297.69,3,908.56,2025-05-09,Chicago,Credit Card,Pending
+ORD100177,LED Monitor,Electronics,1021.55,2,2051.6,2025-06-18,Atlanta,PayPal,Cancelled
+ORD100178,Face Serum,Beauty,82.82,3,256.36,2025-05-18,Dallas,Net Banking,Pending
+ORD100179,Sunglasses,Fashion,964.14,1,974.39,2025-02-03,Denver,PayPal,Cancelled
+ORD100180,Face Serum,Beauty,1114.44,5,5587.6,2025-05-28,Seattle,Net Banking,Cancelled
+ORD100181,Power Bank,Electronics,929.95,8,7386.9,2025-01-20,Miami,Credit Card,Completed
+ORD100182,Deep Learning,Books,842.27,6,5044.51,2025-04-16,Miami,Credit Card,Pending
+ORD100183,Yoga Mat,Sports,1008.01,4,3977.53,2025-03-31,Boston,UPI,Cancelled
+ORD100184,Python Cookbook,Books,62.58,4,251.22,2025-04-06,Austin,Debit Card,Completed
+ORD100185,Data Science Handbook,Books,254.11,3,762.21,2025-04-04,Miami,PayPal,Completed
+ORD100186,Smart Watch,Electronics,163.03,2,352.2,2025-01-06,Seattle,PayPal,Completed
+ORD100187,Deep Learning,Books,612.87,5,3094.04,2025-04-02,Chicago,PayPal,Pending
+ORD100188,Air Fryer,Home & Kitchen,898.05,5,4495.32,2025-06-18,Austin,Net Banking,Pending
+ORD100189,Coffee Maker,Home & Kitchen,761.56,1,749.05,2025-03-20,Atlanta,Credit Card,Cancelled
+ORD100190,Cycling Helmet,Sports,1023.59,4,4106.49,2025-02-19,Denver,UPI,Cancelled
+ORD100191,Denim Jacket,Fashion,198.93,3,583.59,2025-06-29,Boston,Net Banking,Completed
+ORD100192,Running Shoes,Fashion,885.53,2,1771.03,2025-01-18,Atlanta,UPI,Cancelled
+ORD100193,Python Cookbook,Books,243.75,6,1487.15,2025-03-29,Seattle,Debit Card,Completed
+ORD100194,Perfume,Beauty,335.85,5,1665.31,2025-04-03,Miami,Credit Card,Pending
+ORD100195,Power Bank,Electronics,856.24,6,5157.58,2025-03-28,Houston,UPI,Completed
+ORD100196,AutoML in Practice,Books,1176.54,6,7076.18,2025-06-15,Atlanta,PayPal,Pending
+ORD100197,LED Monitor,Electronics,739.68,8,5893.57,2025-03-17,Atlanta,Credit Card,Completed
+ORD100198,Python Cookbook,Books,79.58,7,581.41,2025-06-25,Denver,Debit Card,Completed
+ORD100199,Hair Dryer,Beauty,745.33,5,3744.11,2025-01-13,Miami,Net Banking,Cancelled
+ORD100200,Deep Learning,Books,65.19,8,524.07,2025-05-13,Dallas,Debit Card,Completed
+ORD100201,Lip Balm Pack,Beauty,1062.71,4,4231.78,2025-04-17,Houston,Credit Card,Cancelled
+ORD100202,Python Cookbook,Books,855.85,8,6825.32,2025-02-13,Houston,UPI,Completed
+ORD100203,Yoga Mat,Sports,220.16,7,1527.68,2025-02-11,Dallas,Credit Card,Completed
+ORD100204,Python Cookbook,Books,123.69,6,755.7,2025-05-10,Boston,Net Banking,Completed
+ORD100205,Blender,Home & Kitchen,232.49,8,1836.03,2025-04-25,Houston,Net Banking,Completed
+ORD100206,Yoga Mat,Sports,1176.33,5,5892.59,2025-04-21,Atlanta,Net Banking,Cancelled
+ORD100207,Sunscreen SPF50,Beauty,558.39,6,3319.3,2025-01-10,Seattle,Net Banking,Pending
+ORD100208,Vacuum Cleaner,Home & Kitchen,944.14,3,2827.32,2025-04-18,Dallas,Debit Card,Pending
+ORD100209,Yoga Mat,Sports,769.14,8,6155.86,2025-06-26,Boston,Debit Card,Pending
+ORD100210,Cookware Set,Home & Kitchen,693.31,5,3527.68,2025-01-04,Denver,Debit Card,Completed
+ORD100211,Yoga Mat,Sports,186.98,7,1274.43,2025-03-26,Austin,PayPal,Completed
+ORD100212,Football,Sports,1136.04,4,4580.96,2025-03-30,Houston,Net Banking,Cancelled
+ORD100213,Python Cookbook,Books,372.09,7,2608.38,2025-06-11,Houston,UPI,Completed
+ORD100214,Yoga Mat,Sports,699.95,1,710.23,2025-02-20,Phoenix,UPI,Cancelled
+ORD100215,Vacuum Cleaner,Home & Kitchen,844.23,1,847.19,2025-03-27,Miami,Net Banking,Cancelled
+ORD100216,Wireless Earbuds,Electronics,784.34,5,3932.82,2025-05-10,Chicago,UPI,Completed
+ORD100217,Smart Watch,Electronics,1129.6,6,6773.76,2025-01-11,Austin,Debit Card,Pending
+ORD100218,Data Science Handbook,Books,190.9,7,1372.65,2025-05-25,Denver,PayPal,Completed
+ORD100219,Lip Balm Pack,Beauty,617.4,4,2458.19,2025-05-28,Houston,PayPal,Cancelled
+ORD100220,Power Bank,Electronics,493.78,6,2990.99,2025-05-10,Phoenix,Credit Card,Completed
+ORD100221,Deep Learning,Books,576.89,5,2868.34,2025-04-27,Chicago,UPI,Completed
+ORD100222,Cricket Bat,Sports,156.27,8,1248.65,2025-05-15,Seattle,UPI,Completed
+ORD100223,Blender,Home & Kitchen,173.9,6,1016.6,2025-05-21,Dallas,UPI,Completed
+ORD100224,Football,Sports,344.52,4,1389.46,2025-06-12,Atlanta,PayPal,Pending
+ORD100225,Cookware Set,Home & Kitchen,376.07,8,3044.69,2025-03-19,Austin,UPI,Completed
+ORD100226,Cycling Helmet,Sports,522.07,1,520.14,2025-03-24,Seattle,Net Banking,Cancelled
+ORD100227,Running Shoes,Fashion,739.02,8,5907.24,2025-04-25,Austin,PayPal,Completed
+ORD100228,Sunglasses,Fashion,767.04,2,1506.21,2025-02-04,Dallas,PayPal,Cancelled
+ORD100229,Air Fryer,Home & Kitchen,503.0,3,1503.27,2025-06-04,Seattle,Credit Card,Completed
+ORD100230,AutoML in Practice,Books,499.41,7,3456.05,2025-05-19,Miami,UPI,Completed
+ORD100231,Lip Balm Pack,Beauty,272.89,6,1614.52,2025-04-24,Houston,Net Banking,Completed
+ORD100232,Bluetooth Speaker,Electronics,712.14,8,5702.79,2025-02-24,Dallas,UPI,Completed
+ORD100233,Football,Sports,390.69,6,2377.12,2025-03-04,Miami,Net Banking,Completed
+ORD100234,Python Cookbook,Books,57.73,6,416.61,2025-03-20,Seattle,Net Banking,Completed
+ORD100235,Dumbbell Set,Sports,510.8,3,1517.74,2025-04-30,Phoenix,UPI,Pending
+ORD100236,Denim Jacket,Fashion,576.85,1,612.73,2025-05-21,Miami,PayPal,Cancelled
+ORD100237,Python Cookbook,Books,282.33,1,288.42,2025-05-01,Houston,Credit Card,Pending
+ORD100238,Cookware Set,Home & Kitchen,693.36,3,2076.3,2025-06-17,Miami,Credit Card,Pending
+ORD100239,Sunglasses,Fashion,685.44,1,696.25,2025-06-22,Boston,Debit Card,Cancelled
+ORD100240,LED Monitor,Electronics,846.87,5,4235.9,2025-05-07,Dallas,PayPal,Completed
+ORD100241,Backpack,Fashion,782.82,7,5482.5,2025-03-08,Seattle,UPI,Pending
+ORD100242,Power Bank,Electronics,788.13,8,6294.83,2025-04-18,Houston,PayPal,Completed
+ORD100243,Sunglasses,Fashion,389.71,4,1523.89,2025-03-18,Austin,Credit Card,Pending
+ORD100244,Denim Jacket,Fashion,948.11,8,7546.29,2025-04-24,Seattle,Debit Card,Pending
+ORD100245,Smart Watch,Electronics,665.74,8,5342.25,2025-05-27,Seattle,Net Banking,Completed
+ORD100246,Yoga Mat,Sports,526.23,7,3676.69,2025-03-08,Boston,Net Banking,Completed
+ORD100247,AutoML in Practice,Books,756.82,4,3012.38,2025-04-02,Denver,Debit Card,Pending
+ORD100248,Cycling Helmet,Sports,442.38,3,1327.35,2025-01-09,Seattle,Net Banking,Pending
+ORD100249,Smart Watch,Electronics,622.6,8,5000.67,2025-05-13,Phoenix,UPI,Completed

@@ -1,0 +1,1201 @@
+Posting Id,Image,Title,Label Group,title_prep,pos,word_count,char_count,avg_word_length
+PL500000,listing_00000.png,Power Bank Certified 481,2,power bank certified 481,NN NN NN JJ,4,24,6.0
+PL500001,listing_00001.png,Deep Learning Premium 652,0,deep learning premium 652,NN NN NN JJ,4,25,6.25
+PL500002,listing_00002.png,Perfume Pack of 2 357,6,perfume pack of 2 357,NN NN JJ JJ JJ,5,21,4.2
+PL500003,listing_00003.png,Backpack Pack of 2 925,8,backpack pack of 2 925,NN NN JJ JJ JJ,5,22,4.4
+PL500004,listing_00004.png,Wireless Earbuds Original 576,2,wireless earbuds original 576,NN NN NN JJ,4,29,7.25
+PL500005,listing_00005.png,Deep Learning Brand New 395,3,deep learning brand new 395,NN NN NN JJ JJ,5,27,5.4
+PL500006,listing_00006.png,Sunglasses Pack of 2 822,8,sunglasses pack of 2 822,NN NN JJ JJ JJ,5,24,4.8
+PL500007,listing_00007.png,Sunglasses Original 308,2,sunglasses original 308,NN NN JJ,3,23,7.6667
+PL500008,listing_00008.png,Lip Balm Pack Premium 890,6,lip balm pack premium 890,JJ NN NN NN JJ,5,25,5.0
+PL500009,listing_00009.png,Denim Jacket Premium 606,5,denim jacket premium 606,NN NN NN JJ,4,24,6.0
+PL500010,listing_00010.png,Denim Jacket Pack of 2 737,11,denim jacket pack of 2 737,NN NN NN JJ JJ JJ,6,26,4.3333
+PL500011,listing_00011.png,Wireless Earbuds Original 863,2,wireless earbuds original 863,NN NN NN JJ,4,29,7.25
+PL500012,listing_00012.png,Deep Learning Certified 768,0,deep learning certified 768,NN NN NN JJ,4,27,6.75
+PL500013,listing_00013.png,Football Certified 330,7,football certified 330,NN NN JJ,3,22,7.3333
+PL500014,listing_00014.png,Vacuum Cleaner Brand New 502,10,vacuum cleaner brand new 502,NN NN NN JJ JJ,5,28,5.6
+PL500015,listing_00015.png,Face Serum Pack of 2 459,9,face serum pack of 2 459,NN NN NN JJ JJ JJ,6,24,4.0
+PL500016,listing_00016.png,Smart Watch Imported 307,2,smart watch imported 307,NN NN NN JJ,4,24,6.0
+PL500017,listing_00017.png,Denim Jacket Premium 988,5,denim jacket premium 988,NN NN NN JJ,4,24,6.0
+PL500018,listing_00018.png,Power Bank Premium 727,2,power bank premium 727,NN NN NN JJ,4,22,5.5
+PL500019,listing_00019.png,Wireless Earbuds Premium 351,2,wireless earbuds premium 351,NN NN NN JJ,4,28,7.0
+PL500020,listing_00020.png,Coffee Maker Brand New 719,10,coffee maker brand new 719,NN NN NN JJ JJ,5,26,5.2
+PL500021,listing_00021.png,Face Serum Premium 245,3,face serum premium 245,NN NN NN JJ,4,22,5.5
+PL500022,listing_00022.png,LED Monitor Imported 2,2,led monitor imported 2,JJ NN NN JJ,4,22,5.5
+PL500023,listing_00023.png,Leather Wallet Brand New 433,8,leather wallet brand new 433,NN NN NN JJ JJ,5,28,5.6
+PL500024,listing_00024.png,Wireless Earbuds Original 738,2,wireless earbuds original 738,NN NN NN JJ,4,29,7.25
+PL500025,listing_00025.png,Data Science Handbook Certified 288,4,data science handbook certified 288,NN NN NN NN JJ,5,35,7.0
+PL500026,listing_00026.png,Dumbbell Set Brand New 369,1,dumbbell set brand new 369,NN JJ NN JJ JJ,5,26,5.2
+PL500027,listing_00027.png,Cricket Bat Brand New 671,1,cricket bat brand new 671,NN JJ NN JJ JJ,5,25,5.0
+PL500028,listing_00028.png,Coffee Maker Brand New 20,10,coffee maker brand new 20,NN NN NN JJ JJ,5,25,5.0
+PL500029,listing_00029.png,Face Serum Premium 563,3,face serum premium 563,NN NN NN JJ,4,22,5.5
+PL500030,listing_00030.png,Blender Pack of 2 569,10,blender pack of 2 569,NN NN JJ JJ JJ,5,21,4.2
+PL500031,listing_00031.png,Running Shoes Original 367,5,running shoes original 367,NN NN NN JJ,4,26,6.5
+PL500032,listing_00032.png,Cricket Bat Imported 4,10,cricket bat imported 4,NN JJ NN JJ,4,22,5.5
+PL500033,listing_00033.png,Smart Watch Brand New 867,5,smart watch brand new 867,NN NN NN JJ JJ,5,25,5.0
+PL500034,listing_00034.png,Deep Learning Original 895,0,deep learning original 895,NN NN NN JJ,4,26,6.5
+PL500035,listing_00035.png,Power Bank Brand New 211,5,power bank brand new 211,NN NN NN JJ JJ,5,24,4.8
+PL500036,listing_00036.png,Backpack Brand New 294,5,backpack brand new 294,NN NN JJ JJ,4,22,5.5
+PL500037,listing_00037.png,Cricket Bat Certified 568,10,cricket bat certified 568,NN JJ NN JJ,4,25,6.25
+PL500038,listing_00038.png,Cricket Bat Original 631,10,cricket bat original 631,NN JJ NN JJ,4,24,6.0
+PL500039,listing_00039.png,Power Bank Imported 74,2,power bank imported 74,NN NN NN JJ,4,22,5.5
+PL500040,listing_00040.png,Air Fryer Original 95,7,air fryer original 95,JJ NN NN JJ,4,21,5.25
+PL500041,listing_00041.png,Face Serum Original 225,3,face serum original 225,NN NN NN JJ,4,23,5.75
+PL500042,listing_00042.png,Running Shoes Premium 845,5,running shoes premium 845,NN NN NN JJ,4,25,6.25
+PL500043,listing_00043.png,Deep Learning Imported 215,0,deep learning imported 215,NN NN NN JJ,4,26,6.5
+PL500044,listing_00044.png,Cookware Set Imported 233,7,cookware set imported 233,NN JJ NN JJ,4,25,6.25
+PL500045,listing_00045.png,Wireless Earbuds Imported 308,2,wireless earbuds imported 308,NN NN NN JJ,4,29,7.25
+PL500046,listing_00046.png,Blender Original 711,4,blender original 711,NN NN JJ,3,20,6.6667
+PL500047,listing_00047.png,LED Monitor Certified 53,2,led monitor certified 53,JJ NN NN JJ,4,24,6.0
+PL500048,listing_00048.png,Deep Learning Brand New 949,3,deep learning brand new 949,NN NN NN JJ JJ,5,27,5.4
+PL500049,listing_00049.png,Lip Balm Pack Brand New 934,9,lip balm pack brand new 934,JJ NN NN NN JJ JJ,6,27,4.5
+PL500050,listing_00050.png,Deep Learning Brand New 498,3,deep learning brand new 498,NN NN NN JJ JJ,5,27,5.4
+PL500051,listing_00051.png,Leather Wallet Imported 956,5,leather wallet imported 956,NN NN NN JJ,4,27,6.75
+PL500052,listing_00052.png,Sunscreen SPF50 Brand New 291,6,sunscreen spf50 brand new 291,NN NN NN JJ JJ,5,29,5.8
+PL500053,listing_00053.png,Sunscreen SPF50 Certified 236,3,sunscreen spf50 certified 236,NN NN NN JJ,4,29,7.25
+PL500054,listing_00054.png,Perfume Premium 905,11,perfume premium 905,NN NN JJ,3,19,6.3333
+PL500055,listing_00055.png,Cricket Bat Pack of 2 114,4,cricket bat pack of 2 114,NN JJ NN JJ JJ JJ,6,25,4.1667
+PL500056,listing_00056.png,AutoML in Practice Imported 101,4,automl in practice imported 101,NN JJ NN NN JJ,5,31,6.2
+PL500057,listing_00057.png,Hair Dryer Certified 700,3,hair dryer certified 700,NN NN NN JJ,4,24,6.0
+PL500058,listing_00058.png,ML Yearbook Certified 485,0,ml yearbook certified 485,JJ NN NN JJ,4,25,6.25
+PL500059,listing_00059.png,Air Fryer Brand New 845,10,air fryer brand new 845,JJ NN NN JJ JJ,5,23,4.6
+PL500060,listing_00060.png,Leather Wallet Imported 830,5,leather wallet imported 830,NN NN NN JJ,4,27,6.75
+PL500061,listing_00061.png,Power Bank Imported 56,2,power bank imported 56,NN NN NN JJ,4,22,5.5
+PL500062,listing_00062.png,Coffee Maker Original 621,7,coffee maker original 621,NN NN NN JJ,4,25,6.25
+PL500063,listing_00063.png,Denim Jacket Premium 492,5,denim jacket premium 492,NN NN NN JJ,4,24,6.0
+PL500064,listing_00064.png,Deep Learning Brand New 795,3,deep learning brand new 795,NN NN NN JJ JJ,5,27,5.4
+PL500065,listing_00065.png,Bluetooth Speaker Imported 86,2,bluetooth speaker imported 86,NN NN NN JJ,4,29,7.25
+PL500066,listing_00066.png,Coffee Maker Brand New 697,10,coffee maker brand new 697,NN NN NN JJ JJ,5,26,5.2
+PL500067,listing_00067.png,Air Fryer Premium 67,7,air fryer premium 67,JJ NN NN JJ,4,20,5.0
+PL500068,listing_00068.png,Yoga Mat Imported 869,10,yoga mat imported 869,NN JJ NN JJ,4,21,5.25
+PL500069,listing_00069.png,Cricket Bat Imported 144,10,cricket bat imported 144,NN JJ NN JJ,4,24,6.0
+PL500070,listing_00070.png,Wireless Earbuds Brand New 81,5,wireless earbuds brand new 81,NN NN NN JJ JJ,5,29,5.8
+PL500071,listing_00071.png,Sunglasses Certified 131,2,sunglasses certified 131,NN NN JJ,3,24,8.0
+PL500072,listing_00072.png,Deep Learning Imported 352,0,deep learning imported 352,NN NN NN JJ,4,26,6.5
+PL500073,listing_00073.png,Hair Dryer Brand New 638,6,hair dryer brand new 638,NN NN NN JJ JJ,5,24,4.8
+PL500074,listing_00074.png,Air Fryer Certified 383,7,air fryer certified 383,JJ NN NN JJ,4,23,5.75
+PL500075,listing_00075.png,Leather Wallet Premium 23,5,leather wallet premium 23,NN NN NN JJ,4,25,6.25
+PL500076,listing_00076.png,Coffee Maker Original 619,7,coffee maker original 619,NN NN NN JJ,4,25,6.25
+PL500077,listing_00077.png,Leather Wallet Original 390,5,leather wallet original 390,NN NN NN JJ,4,27,6.75
+PL500078,listing_00078.png,AutoML in Practice Brand New 345,7,automl in practice brand new 345,NN JJ NN NN JJ JJ,6,32,5.3333
+PL500079,listing_00079.png,Data Science Handbook Original 888,4,data science handbook original 888,NN NN NN NN JJ,5,34,6.8
+PL500080,listing_00080.png,Python Cookbook Original 232,0,python cookbook original 232,NN NN NN JJ,4,28,7.0
+PL500081,listing_00081.png,Cricket Bat Pack of 2 929,4,cricket bat pack of 2 929,NN JJ NN JJ JJ JJ,6,25,4.1667
+PL500082,listing_00082.png,Perfume Premium 397,11,perfume premium 397,NN NN JJ,3,19,6.3333
+PL500083,listing_00083.png,Cookware Set Certified 423,7,cookware set certified 423,NN JJ NN JJ,4,26,6.5
+PL500084,listing_00084.png,Air Fryer Certified 839,7,air fryer certified 839,JJ NN NN JJ,4,23,5.75
+PL500085,listing_00085.png,Data Science Handbook Original 20,4,data science handbook original 20,NN NN NN NN JJ,5,33,6.6
+PL500086,listing_00086.png,Backpack Certified 719,2,backpack certified 719,NN NN JJ,3,22,7.3333
+PL500087,listing_00087.png,Face Serum Premium 656,3,face serum premium 656,NN NN NN JJ,4,22,5.5
+PL500088,listing_00088.png,Data Science Handbook Brand New 728,7,data science handbook brand new 728,NN NN NN NN JJ JJ,6,35,5.8333
+PL500089,listing_00089.png,Coffee Maker Pack of 2 174,1,coffee maker pack of 2 174,NN NN NN JJ JJ JJ,6,26,4.3333
+PL500090,listing_00090.png,AutoML in Practice Original 542,4,automl in practice original 542,NN JJ NN NN JJ,5,31,6.2
+PL500091,listing_00091.png,Running Shoes Pack of 2 291,11,running shoes pack of 2 291,NN NN NN JJ JJ JJ,6,27,4.5
+PL500092,listing_00092.png,Football Original 321,7,football original 321,NN NN JJ,3,21,7.0
+PL500093,listing_00093.png,Running Shoes Original 488,5,running shoes original 488,NN NN NN JJ,4,26,6.5
+PL500094,listing_00094.png,Lip Balm Pack Original 277,6,lip balm pack original 277,JJ NN NN NN JJ,5,26,5.2
+PL500095,listing_00095.png,Face Serum Pack of 2 860,9,face serum pack of 2 860,NN NN NN JJ JJ JJ,6,24,4.0
+PL500096,listing_00096.png,Cookware Set Certified 325,7,cookware set certified 325,NN JJ NN JJ,4,26,6.5
+PL500097,listing_00097.png,Data Science Handbook Original 540,4,data science handbook original 540,NN NN NN NN JJ,5,34,6.8
+PL500098,listing_00098.png,Bluetooth Speaker Pack of 2 477,9,bluetooth speaker pack of 2 477,NN NN NN JJ JJ JJ,6,31,5.1667
+PL500099,listing_00099.png,LED Monitor Brand New 266,5,led monitor brand new 266,JJ NN NN JJ JJ,5,25,5.0
+PL500100,listing_00100.png,Sunscreen SPF50 Brand New 464,6,sunscreen spf50 brand new 464,NN NN NN JJ JJ,5,29,5.8
+PL500101,listing_00101.png,Lip Balm Pack Pack of 2 710,0,lip balm pack pack of 2 710,JJ NN NN NN JJ JJ JJ,7,27,3.8571
+PL500102,listing_00102.png,Backpack Imported 406,2,backpack imported 406,NN NN JJ,3,21,7.0
+PL500103,listing_00103.png,Vacuum Cleaner Premium 767,7,vacuum cleaner premium 767,NN NN NN JJ,4,26,6.5
+PL500104,listing_00104.png,Wireless Earbuds Pack of 2 813,9,wireless earbuds pack of 2 813,NN NN NN JJ JJ JJ,6,30,5.0
+PL500105,listing_00105.png,Yoga Mat Imported 981,10,yoga mat imported 981,NN JJ NN JJ,4,21,5.25
+PL500106,listing_00106.png,Backpack Brand New 719,5,backpack brand new 719,NN NN JJ JJ,4,22,5.5
+PL500107,listing_00107.png,Dumbbell Set Imported 765,10,dumbbell set imported 765,NN JJ NN JJ,4,25,6.25
+PL500108,listing_00108.png,Backpack Brand New 181,5,backpack brand new 181,NN NN JJ JJ,4,22,5.5
+PL500109,listing_00109.png,Smart Watch Imported 963,2,smart watch imported 963,NN NN NN JJ,4,24,6.0
+PL500110,listing_00110.png,Sunscreen SPF50 Brand New 478,6,sunscreen spf50 brand new 478,NN NN NN JJ JJ,5,29,5.8
+PL500111,listing_00111.png,Sunscreen SPF50 Brand New 84,6,sunscreen spf50 brand new 84,NN NN NN JJ JJ,5,28,5.6
+PL500112,listing_00112.png,AutoML in Practice Brand New 540,7,automl in practice brand new 540,NN JJ NN NN JJ JJ,6,32,5.3333
+PL500113,listing_00113.png,Wireless Earbuds Original 747,2,wireless earbuds original 747,NN NN NN JJ,4,29,7.25
+PL500114,listing_00114.png,LED Monitor Original 117,2,led monitor original 117,JJ NN NN JJ,4,24,6.0
+PL500115,listing_00115.png,Lip Balm Pack Pack of 2 472,0,lip balm pack pack of 2 472,JJ NN NN NN JJ JJ JJ,7,27,3.8571
+PL500116,listing_00116.png,Leather Wallet Pack of 2 968,11,leather wallet pack of 2 968,NN NN NN JJ JJ JJ,6,28,4.6667
+PL500117,listing_00117.png,Cricket Bat Imported 458,10,cricket bat imported 458,NN JJ NN JJ,4,24,6.0
+PL500118,listing_00118.png,Perfume Original 69,11,perfume original 69,NN NN JJ,3,19,6.3333
+PL500119,listing_00119.png,Sunglasses Pack of 2 966,8,sunglasses pack of 2 966,NN NN JJ JJ JJ,5,24,4.8
+PL500120,listing_00120.png,Running Shoes Brand New 91,8,running shoes brand new 91,NN NN NN JJ JJ,5,26,5.2
+PL500121,listing_00121.png,ML Yearbook Premium 92,0,ml yearbook premium 92,JJ NN NN JJ,4,22,5.5
+PL500122,listing_00122.png,Sunscreen SPF50 Certified 964,3,sunscreen spf50 certified 964,NN NN NN JJ,4,29,7.25
+PL500123,listing_00123.png,Data Science Handbook Premium 735,4,data science handbook premium 735,NN NN NN NN JJ,5,33,6.6
+PL500124,listing_00124.png,Sunscreen SPF50 Pack of 2 673,9,sunscreen spf50 pack of 2 673,NN NN NN JJ JJ JJ,6,29,4.8333
+PL500125,listing_00125.png,LED Monitor Original 332,2,led monitor original 332,JJ NN NN JJ,4,24,6.0
+PL500126,listing_00126.png,Sunglasses Pack of 2 593,8,sunglasses pack of 2 593,NN NN JJ JJ JJ,5,24,4.8
+PL500127,listing_00127.png,Leather Wallet Certified 988,5,leather wallet certified 988,NN NN NN JJ,4,28,7.0
+PL500128,listing_00128.png,Air Fryer Brand New 868,10,air fryer brand new 868,JJ NN NN JJ JJ,5,23,4.6
+PL500129,listing_00129.png,Smart Watch Brand New 20,5,smart watch brand new 20,NN NN NN JJ JJ,5,24,4.8
+PL500130,listing_00130.png,Cricket Bat Certified 921,10,cricket bat certified 921,NN JJ NN JJ,4,25,6.25
+PL500131,listing_00131.png,Vacuum Cleaner Imported 383,7,vacuum cleaner imported 383,NN NN NN JJ,4,27,6.75
+PL500132,listing_00132.png,Face Serum Certified 551,3,face serum certified 551,NN NN NN JJ,4,24,6.0
+PL500133,listing_00133.png,Air Fryer Certified 191,7,air fryer certified 191,JJ NN NN JJ,4,23,5.75
+PL500134,listing_00134.png,Dumbbell Set Imported 915,10,dumbbell set imported 915,NN JJ NN JJ,4,25,6.25
+PL500135,listing_00135.png,Smart Watch Brand New 76,5,smart watch brand new 76,NN NN NN JJ JJ,5,24,4.8
+PL500136,listing_00136.png,Football Brand New 791,10,football brand new 791,NN NN JJ JJ,4,22,5.5
+PL500137,listing_00137.png,Dumbbell Set Certified 349,10,dumbbell set certified 349,NN JJ NN JJ,4,26,6.5
+PL500138,listing_00138.png,Backpack Certified 192,2,backpack certified 192,NN NN JJ,3,22,7.3333
+PL500139,listing_00139.png,ML Yearbook Original 724,0,ml yearbook original 724,JJ NN NN JJ,4,24,6.0
+PL500140,listing_00140.png,LED Monitor Certified 342,2,led monitor certified 342,JJ NN NN JJ,4,25,6.25
+PL500141,listing_00141.png,Air Fryer Premium 836,7,air fryer premium 836,JJ NN NN JJ,4,21,5.25
+PL500142,listing_00142.png,Sunglasses Premium 162,2,sunglasses premium 162,NN NN JJ,3,22,7.3333
+PL500143,listing_00143.png,Leather Wallet Premium 85,5,leather wallet premium 85,NN NN NN JJ,4,25,6.25
+PL500144,listing_00144.png,Perfume Imported 368,0,perfume imported 368,NN NN JJ,3,20,6.6667
+PL500145,listing_00145.png,Cookware Set Certified 629,7,cookware set certified 629,NN JJ NN JJ,4,26,6.5
+PL500146,listing_00146.png,Backpack Pack of 2 545,8,backpack pack of 2 545,NN NN JJ JJ JJ,5,22,4.4
+PL500147,listing_00147.png,Deep Learning Original 407,0,deep learning original 407,NN NN NN JJ,4,26,6.5
+PL500148,listing_00148.png,Air Fryer Imported 618,7,air fryer imported 618,JJ NN NN JJ,4,22,5.5
+PL500149,listing_00149.png,Lip Balm Pack Pack of 2 779,0,lip balm pack pack of 2 779,JJ NN NN NN JJ JJ JJ,7,27,3.8571
+PL500150,listing_00150.png,Blender Pack of 2 453,10,blender pack of 2 453,NN NN JJ JJ JJ,5,21,4.2
+PL500151,listing_00151.png,Air Fryer Premium 952,7,air fryer premium 952,JJ NN NN JJ,4,21,5.25
+PL500152,listing_00152.png,Football Imported 992,7,football imported 992,NN NN JJ,3,21,7.0
+PL500153,listing_00153.png,Wireless Earbuds Pack of 2 11,8,wireless earbuds pack of 2 11,NN NN NN JJ JJ JJ,6,29,4.8333
+PL500154,listing_00154.png,Data Science Handbook Certified 564,4,data science handbook certified 564,NN NN NN NN JJ,5,35,7.0
+PL500155,listing_00155.png,Hair Dryer Imported 377,3,hair dryer imported 377,NN NN NN JJ,4,23,5.75
+PL500156,listing_00156.png,Face Serum Certified 462,3,face serum certified 462,NN NN NN JJ,4,24,6.0
+PL500157,listing_00157.png,Face Serum Certified 480,3,face serum certified 480,NN NN NN JJ,4,24,6.0
+PL500158,listing_00158.png,Yoga Mat Original 426,10,yoga mat original 426,NN JJ NN JJ,4,21,5.25
+PL500159,listing_00159.png,Dumbbell Set Certified 753,10,dumbbell set certified 753,NN JJ NN JJ,4,26,6.5
+PL500160,listing_00160.png,Cookware Set Premium 749,7,cookware set premium 749,NN JJ NN JJ,4,24,6.0
+PL500161,listing_00161.png,Football Brand New 304,10,football brand new 304,NN NN JJ JJ,4,22,5.5
+PL500162,listing_00162.png,Sunglasses Imported 434,2,sunglasses imported 434,NN NN JJ,3,23,7.6667
+PL500163,listing_00163.png,Cycling Helmet Imported 653,10,cycling helmet imported 653,NN NN NN JJ,4,27,6.75
+PL500164,listing_00164.png,Data Science Handbook Pack of 2 644,10,data science handbook pack of 2 644,NN NN NN NN JJ JJ JJ,7,35,5.0
+PL500165,listing_00165.png,Running Shoes Brand New 523,8,running shoes brand new 523,NN NN NN JJ JJ,5,27,5.4
+PL500166,listing_00166.png,Sunscreen SPF50 Certified 777,3,sunscreen spf50 certified 777,NN NN NN JJ,4,29,7.25
+PL500167,listing_00167.png,Yoga Mat Brand New 515,1,yoga mat brand new 515,NN JJ NN JJ JJ,5,22,4.4
+PL500168,listing_00168.png,Cookware Set Premium 318,7,cookware set premium 318,NN JJ NN JJ,4,24,6.0
+PL500169,listing_00169.png,LED Monitor Imported 879,2,led monitor imported 879,JJ NN NN JJ,4,24,6.0
+PL500170,listing_00170.png,Sunscreen SPF50 Imported 375,3,sunscreen spf50 imported 375,NN NN NN JJ,4,28,7.0
+PL500171,listing_00171.png,Backpack Certified 974,2,backpack certified 974,NN NN JJ,3,22,7.3333
+PL500172,listing_00172.png,ML Yearbook Imported 90,0,ml yearbook imported 90,JJ NN NN JJ,4,23,5.75
+PL500173,listing_00173.png,Cookware Set Certified 587,7,cookware set certified 587,NN JJ NN JJ,4,26,6.5
+PL500174,listing_00174.png,Backpack Original 372,2,backpack original 372,NN NN JJ,3,21,7.0
+PL500175,listing_00175.png,Data Science Handbook Original 609,4,data science handbook original 609,NN NN NN NN JJ,5,34,6.8
+PL500176,listing_00176.png,Deep Learning Original 876,0,deep learning original 876,NN NN NN JJ,4,26,6.5
+PL500177,listing_00177.png,Wireless Earbuds Brand New 320,6,wireless earbuds brand new 320,NN NN NN JJ JJ,5,30,6.0
+PL500178,listing_00178.png,Python Cookbook Premium 745,0,python cookbook premium 745,NN NN NN JJ,4,27,6.75
+PL500179,listing_00179.png,Leather Wallet Imported 528,5,leather wallet imported 528,NN NN NN JJ,4,27,6.75
+PL500180,listing_00180.png,Deep Learning Brand New 245,3,deep learning brand new 245,NN NN NN JJ JJ,5,27,5.4
+PL500181,listing_00181.png,Yoga Mat Imported 59,10,yoga mat imported 59,NN JJ NN JJ,4,20,5.0
+PL500182,listing_00182.png,Python Cookbook Brand New 283,3,python cookbook brand new 283,NN NN NN JJ JJ,5,29,5.8
+PL500183,listing_00183.png,Football Brand New 921,10,football brand new 921,NN NN JJ JJ,4,22,5.5
+PL500184,listing_00184.png,Face Serum Pack of 2 705,9,face serum pack of 2 705,NN NN NN JJ JJ JJ,6,24,4.0
+PL500185,listing_00185.png,Dumbbell Set Premium 701,10,dumbbell set premium 701,NN JJ NN JJ,4,24,6.0
+PL500186,listing_00186.png,Face Serum Pack of 2 217,9,face serum pack of 2 217,NN NN NN JJ JJ JJ,6,24,4.0
+PL500187,listing_00187.png,Cookware Set Premium 769,7,cookware set premium 769,NN JJ NN JJ,4,24,6.0
+PL500188,listing_00188.png,Lip Balm Pack Certified 424,6,lip balm pack certified 424,JJ NN NN NN JJ,5,27,5.4
+PL500189,listing_00189.png,Dumbbell Set Brand New 185,1,dumbbell set brand new 185,NN JJ NN JJ JJ,5,26,5.2
+PL500190,listing_00190.png,Perfume Pack of 2 35,6,perfume pack of 2 35,NN NN JJ JJ JJ,5,20,4.0
+PL500191,listing_00191.png,Bluetooth Speaker Premium 68,2,bluetooth speaker premium 68,NN NN NN JJ,4,28,7.0
+PL500192,listing_00192.png,LED Monitor Premium 252,2,led monitor premium 252,JJ NN NN JJ,4,23,5.75
+PL500193,listing_00193.png,Air Fryer Premium 861,7,air fryer premium 861,JJ NN NN JJ,4,21,5.25
+PL500194,listing_00194.png,Leather Wallet Brand New 851,8,leather wallet brand new 851,NN NN NN JJ JJ,5,28,5.6
+PL500195,listing_00195.png,Running Shoes Certified 697,5,running shoes certified 697,NN NN NN JJ,4,27,6.75
+PL500196,listing_00196.png,LED Monitor Pack of 2 987,8,led monitor pack of 2 987,JJ NN NN JJ JJ JJ,6,25,4.1667
+PL500197,listing_00197.png,Smart Watch Brand New 802,5,smart watch brand new 802,NN NN NN JJ JJ,5,25,5.0
+PL500198,listing_00198.png,Running Shoes Brand New 479,8,running shoes brand new 479,NN NN NN JJ JJ,5,27,5.4
+PL500199,listing_00199.png,Air Fryer Brand New 40,10,air fryer brand new 40,JJ NN NN JJ JJ,5,22,4.4
+PL500200,listing_00200.png,Dumbbell Set Imported 594,10,dumbbell set imported 594,NN JJ NN JJ,4,25,6.25
+PL500201,listing_00201.png,Wireless Earbuds Original 561,2,wireless earbuds original 561,NN NN NN JJ,4,29,7.25
+PL500202,listing_00202.png,Leather Wallet Pack of 2 332,11,leather wallet pack of 2 332,NN NN NN JJ JJ JJ,6,28,4.6667
+PL500203,listing_00203.png,Cricket Bat Pack of 2 278,4,cricket bat pack of 2 278,NN JJ NN JJ JJ JJ,6,25,4.1667
+PL500204,listing_00204.png,Coffee Maker Brand New 857,10,coffee maker brand new 857,NN NN NN JJ JJ,5,26,5.2
+PL500205,listing_00205.png,Backpack Imported 748,2,backpack imported 748,NN NN JJ,3,21,7.0
+PL500206,listing_00206.png,Lip Balm Pack Certified 100,6,lip balm pack certified 100,JJ NN NN NN JJ,5,27,5.4
+PL500207,listing_00207.png,Python Cookbook Brand New 617,3,python cookbook brand new 617,NN NN NN JJ JJ,5,29,5.8
+PL500208,listing_00208.png,Yoga Mat Premium 618,10,yoga mat premium 618,NN JJ NN JJ,4,20,5.0
+PL500209,listing_00209.png,Denim Jacket Imported 785,5,denim jacket imported 785,NN NN NN JJ,4,25,6.25
+PL500210,listing_00210.png,Denim Jacket Original 497,5,denim jacket original 497,NN NN NN JJ,4,25,6.25
+PL500211,listing_00211.png,Dumbbell Set Imported 104,10,dumbbell set imported 104,NN JJ NN JJ,4,25,6.25
+PL500212,listing_00212.png,ML Yearbook Premium 502,0,ml yearbook premium 502,JJ NN NN JJ,4,23,5.75
+PL500213,listing_00213.png,AutoML in Practice Certified 341,4,automl in practice certified 341,NN JJ NN NN JJ,5,32,6.4
+PL500214,listing_00214.png,Wireless Earbuds Premium 11,2,wireless earbuds premium 11,NN NN NN JJ,4,27,6.75
+PL500215,listing_00215.png,Blender Brand New 24,7,blender brand new 24,NN NN JJ JJ,4,20,5.0
+PL500216,listing_00216.png,Blender Original 593,4,blender original 593,NN NN JJ,3,20,6.6667
+PL500217,listing_00217.png,Python Cookbook Imported 622,0,python cookbook imported 622,NN NN NN JJ,4,28,7.0
+PL500218,listing_00218.png,ML Yearbook Original 8,0,ml yearbook original 8,JJ NN NN JJ,4,22,5.5
+PL500219,listing_00219.png,Deep Learning Imported 524,0,deep learning imported 524,NN NN NN JJ,4,26,6.5
+PL500220,listing_00220.png,Blender Imported 538,4,blender imported 538,NN NN JJ,3,20,6.6667
+PL500221,listing_00221.png,Vacuum Cleaner Premium 804,7,vacuum cleaner premium 804,NN NN NN JJ,4,26,6.5
+PL500222,listing_00222.png,Perfume Premium 141,11,perfume premium 141,NN NN JJ,3,19,6.3333
+PL500223,listing_00223.png,Bluetooth Speaker Certified 422,3,bluetooth speaker certified 422,NN NN NN JJ,4,31,7.75
+PL500224,listing_00224.png,Sunglasses Pack of 2 55,8,sunglasses pack of 2 55,NN NN JJ JJ JJ,5,23,4.6
+PL500225,listing_00225.png,Cricket Bat Brand New 102,1,cricket bat brand new 102,NN JJ NN JJ JJ,5,25,5.0
+PL500226,listing_00226.png,Yoga Mat Certified 553,10,yoga mat certified 553,NN JJ NN JJ,4,22,5.5
+PL500227,listing_00227.png,Sunscreen SPF50 Certified 682,3,sunscreen spf50 certified 682,NN NN NN JJ,4,29,7.25
+PL500228,listing_00228.png,Air Fryer Certified 375,7,air fryer certified 375,JJ NN NN JJ,4,23,5.75
+PL500229,listing_00229.png,Smart Watch Premium 154,2,smart watch premium 154,NN NN NN JJ,4,23,5.75
+PL500230,listing_00230.png,Python Cookbook Premium 308,0,python cookbook premium 308,NN NN NN JJ,4,27,6.75
+PL500231,listing_00231.png,Hair Dryer Certified 401,3,hair dryer certified 401,NN NN NN JJ,4,24,6.0
+PL500232,listing_00232.png,Running Shoes Premium 940,5,running shoes premium 940,NN NN NN JJ,4,25,6.25
+PL500233,listing_00233.png,Denim Jacket Premium 152,5,denim jacket premium 152,NN NN NN JJ,4,24,6.0
+PL500234,listing_00234.png,Bluetooth Speaker Original 496,3,bluetooth speaker original 496,NN NN NN JJ,4,30,7.5
+PL500235,listing_00235.png,Cycling Helmet Certified 349,10,cycling helmet certified 349,NN NN NN JJ,4,28,7.0
+PL500236,listing_00236.png,Yoga Mat Certified 568,10,yoga mat certified 568,NN JJ NN JJ,4,22,5.5
+PL500237,listing_00237.png,Leather Wallet Pack of 2 680,11,leather wallet pack of 2 680,NN NN NN JJ JJ JJ,6,28,4.6667
+PL500238,listing_00238.png,Vacuum Cleaner Premium 434,7,vacuum cleaner premium 434,NN NN NN JJ,4,26,6.5
+PL500239,listing_00239.png,Yoga Mat Imported 350,10,yoga mat imported 350,NN JJ NN JJ,4,21,5.25
+PL500240,listing_00240.png,Smart Watch Certified 880,2,smart watch certified 880,NN NN NN JJ,4,25,6.25
+PL500241,listing_00241.png,Sunglasses Brand New 938,5,sunglasses brand new 938,NN NN JJ JJ,4,24,6.0
+PL500242,listing_00242.png,Coffee Maker Premium 439,7,coffee maker premium 439,NN NN NN JJ,4,24,6.0
+PL500243,listing_00243.png,Vacuum Cleaner Original 53,7,vacuum cleaner original 53,NN NN NN JJ,4,26,6.5
+PL500244,listing_00244.png,Hair Dryer Imported 893,3,hair dryer imported 893,NN NN NN JJ,4,23,5.75
+PL500245,listing_00245.png,Denim Jacket Certified 147,5,denim jacket certified 147,NN NN NN JJ,4,26,6.5
+PL500246,listing_00246.png,Wireless Earbuds Certified 840,3,wireless earbuds certified 840,NN NN NN JJ,4,30,7.5
+PL500247,listing_00247.png,Cricket Bat Brand New 37,1,cricket bat brand new 37,NN JJ NN JJ JJ,5,24,4.8
+PL500248,listing_00248.png,Cricket Bat Premium 210,10,cricket bat premium 210,NN JJ NN JJ,4,23,5.75
+PL500249,listing_00249.png,Bluetooth Speaker Pack of 2 974,9,bluetooth speaker pack of 2 974,NN NN NN JJ JJ JJ,6,31,5.1667
+PL500250,listing_00250.png,AutoML in Practice Imported 1,3,automl in practice imported 1,NN JJ NN NN JJ,5,29,5.8
+PL500251,listing_00251.png,Cookware Set Pack of 2 372,1,cookware set pack of 2 372,NN JJ NN JJ JJ JJ,6,26,4.3333
+PL500252,listing_00252.png,Vacuum Cleaner Imported 404,7,vacuum cleaner imported 404,NN NN NN JJ,4,27,6.75
+PL500253,listing_00253.png,Perfume Original 368,0,perfume original 368,NN NN JJ,3,20,6.6667
+PL500254,listing_00254.png,ML Yearbook Original 771,0,ml yearbook original 771,JJ NN NN JJ,4,24,6.0
+PL500255,listing_00255.png,Vacuum Cleaner Premium 11,7,vacuum cleaner premium 11,NN NN NN JJ,4,25,6.25
+PL500256,listing_00256.png,Running Shoes Brand New 50,8,running shoes brand new 50,NN NN NN JJ JJ,5,26,5.2
+PL500257,listing_00257.png,AutoML in Practice Original 521,4,automl in practice original 521,NN JJ NN NN JJ,5,31,6.2
+PL500258,listing_00258.png,Data Science Handbook Brand New 731,7,data science handbook brand new 731,NN NN NN NN JJ JJ,6,35,5.8333
+PL500259,listing_00259.png,LED Monitor Premium 225,2,led monitor premium 225,JJ NN NN JJ,4,23,5.75
+PL500260,listing_00260.png,Running Shoes Pack of 2 713,11,running shoes pack of 2 713,NN NN NN JJ JJ JJ,6,27,4.5
+PL500261,listing_00261.png,Deep Learning Imported 71,0,deep learning imported 71,NN NN NN JJ,4,25,6.25
+PL500262,listing_00262.png,Dumbbell Set Original 457,10,dumbbell set original 457,NN JJ NN JJ,4,25,6.25
+PL500263,listing_00263.png,Yoga Mat Premium 289,10,yoga mat premium 289,NN JJ NN JJ,4,20,5.0
+PL500264,listing_00264.png,Cookware Set Certified 291,7,cookware set certified 291,NN JJ NN JJ,4,26,6.5
+PL500265,listing_00265.png,Air Fryer Pack of 2 365,1,air fryer pack of 2 365,JJ NN NN JJ JJ JJ,6,23,3.8333
+PL500266,listing_00266.png,Cricket Bat Certified 265,10,cricket bat certified 265,NN JJ NN JJ,4,25,6.25
+PL500267,listing_00267.png,Cycling Helmet Imported 381,10,cycling helmet imported 381,NN NN NN JJ,4,27,6.75
+PL500268,listing_00268.png,Wireless Earbuds Premium 178,2,wireless earbuds premium 178,NN NN NN JJ,4,28,7.0
+PL500269,listing_00269.png,Blender Original 117,4,blender original 117,NN NN JJ,3,20,6.6667
+PL500270,listing_00270.png,Coffee Maker Pack of 2 246,1,coffee maker pack of 2 246,NN NN NN JJ JJ JJ,6,26,4.3333
+PL500271,listing_00271.png,Sunglasses Brand New 405,5,sunglasses brand new 405,NN NN JJ JJ,4,24,6.0
+PL500272,listing_00272.png,Cookware Set Original 795,7,cookware set original 795,NN JJ NN JJ,4,25,6.25
+PL500273,listing_00273.png,Deep Learning Pack of 2 871,6,deep learning pack of 2 871,NN NN NN JJ JJ JJ,6,27,4.5
+PL500274,listing_00274.png,AutoML in Practice Pack of 2 602,10,automl in practice pack of 2 602,NN JJ NN NN JJ JJ JJ,7,32,4.5714
+PL500275,listing_00275.png,Coffee Maker Original 497,7,coffee maker original 497,NN NN NN JJ,4,25,6.25
+PL500276,listing_00276.png,Football Original 287,7,football original 287,NN NN JJ,3,21,7.0
+PL500277,listing_00277.png,Backpack Premium 397,2,backpack premium 397,NN NN JJ,3,20,6.6667
+PL500278,listing_00278.png,Lip Balm Pack Original 920,6,lip balm pack original 920,JJ NN NN NN JJ,5,26,5.2
+PL500279,listing_00279.png,Lip Balm Pack Pack of 2 733,0,lip balm pack pack of 2 733,JJ NN NN NN JJ JJ JJ,7,27,3.8571
+PL500280,listing_00280.png,Leather Wallet Premium 893,5,leather wallet premium 893,NN NN NN JJ,4,26,6.5
+PL500281,listing_00281.png,AutoML in Practice Imported 445,4,automl in practice imported 445,NN JJ NN NN JJ,5,31,6.2
+PL500282,listing_00282.png,Dumbbell Set Original 907,10,dumbbell set original 907,NN JJ NN JJ,4,25,6.25
+PL500283,listing_00283.png,Perfume Brand New 601,3,perfume brand new 601,NN NN JJ JJ,4,21,5.25
+PL500284,listing_00284.png,Hair Dryer Original 196,3,hair dryer original 196,NN NN NN JJ,4,23,5.75
+PL500285,listing_00285.png,Wireless Earbuds Pack of 2 578,9,wireless earbuds pack of 2 578,NN NN NN JJ JJ JJ,6,30,5.0
+PL500286,listing_00286.png,Running Shoes Brand New 938,8,running shoes brand new 938,NN NN NN JJ JJ,5,27,5.4
+PL500287,listing_00287.png,Sunscreen SPF50 Brand New 381,6,sunscreen spf50 brand new 381,NN NN NN JJ JJ,5,29,5.8
+PL500288,listing_00288.png,Yoga Mat Imported 645,10,yoga mat imported 645,NN JJ NN JJ,4,21,5.25
+PL500289,listing_00289.png,Wireless Earbuds Premium 611,2,wireless earbuds premium 611,NN NN NN JJ,4,28,7.0
+PL500290,listing_00290.png,Lip Balm Pack Certified 589,6,lip balm pack certified 589,JJ NN NN NN JJ,5,27,5.4
+PL500291,listing_00291.png,Python Cookbook Original 57,0,python cookbook original 57,NN NN NN JJ,4,27,6.75
+PL500292,listing_00292.png,Dumbbell Set Premium 846,10,dumbbell set premium 846,NN JJ NN JJ,4,24,6.0
+PL500293,listing_00293.png,Leather Wallet Premium 747,5,leather wallet premium 747,NN NN NN JJ,4,26,6.5
+PL500294,listing_00294.png,Leather Wallet Premium 39,5,leather wallet premium 39,NN NN NN JJ,4,25,6.25
+PL500295,listing_00295.png,Smart Watch Original 523,2,smart watch original 523,NN NN NN JJ,4,24,6.0
+PL500296,listing_00296.png,Deep Learning Premium 194,0,deep learning premium 194,NN NN NN JJ,4,25,6.25
+PL500297,listing_00297.png,Running Shoes Premium 960,5,running shoes premium 960,NN NN NN JJ,4,25,6.25
+PL500298,listing_00298.png,ML Yearbook Premium 475,0,ml yearbook premium 475,JJ NN NN JJ,4,23,5.75
+PL500299,listing_00299.png,Coffee Maker Certified 993,7,coffee maker certified 993,NN NN NN JJ,4,26,6.5
+PL500300,listing_00300.png,Power Bank Original 514,2,power bank original 514,NN NN NN JJ,4,23,5.75
+PL500301,listing_00301.png,Cricket Bat Brand New 206,1,cricket bat brand new 206,NN JJ NN JJ JJ,5,25,5.0
+PL500302,listing_00302.png,Cycling Helmet Original 127,10,cycling helmet original 127,NN NN NN JJ,4,27,6.75
+PL500303,listing_00303.png,Wireless Earbuds Premium 847,2,wireless earbuds premium 847,NN NN NN JJ,4,28,7.0
+PL500304,listing_00304.png,Face Serum Certified 162,3,face serum certified 162,NN NN NN JJ,4,24,6.0
+PL500305,listing_00305.png,Bluetooth Speaker Brand New 279,6,bluetooth speaker brand new 279,NN NN NN JJ JJ,5,31,6.2
+PL500306,listing_00306.png,ML Yearbook Certified 769,0,ml yearbook certified 769,JJ NN NN JJ,4,25,6.25
+PL500307,listing_00307.png,ML Yearbook Certified 496,0,ml yearbook certified 496,JJ NN NN JJ,4,25,6.25
+PL500308,listing_00308.png,Hair Dryer Original 252,3,hair dryer original 252,NN NN NN JJ,4,23,5.75
+PL500309,listing_00309.png,Backpack Certified 161,2,backpack certified 161,NN NN JJ,3,22,7.3333
+PL500310,listing_00310.png,Dumbbell Set Original 807,10,dumbbell set original 807,NN JJ NN JJ,4,25,6.25
+PL500311,listing_00311.png,Wireless Earbuds Original 599,2,wireless earbuds original 599,NN NN NN JJ,4,29,7.25
+PL500312,listing_00312.png,Football Certified 28,7,football certified 28,NN NN JJ,3,21,7.0
+PL500313,listing_00313.png,LED Monitor Certified 229,2,led monitor certified 229,JJ NN NN JJ,4,25,6.25
+PL500314,listing_00314.png,Yoga Mat Premium 265,10,yoga mat premium 265,NN JJ NN JJ,4,20,5.0
+PL500315,listing_00315.png,Backpack Imported 875,2,backpack imported 875,NN NN JJ,3,21,7.0
+PL500316,listing_00316.png,Perfume Pack of 2 605,6,perfume pack of 2 605,NN NN JJ JJ JJ,5,21,4.2
+PL500317,listing_00317.png,AutoML in Practice Certified 940,4,automl in practice certified 940,NN JJ NN NN JJ,5,32,6.4
+PL500318,listing_00318.png,Hair Dryer Original 731,3,hair dryer original 731,NN NN NN JJ,4,23,5.75
+PL500319,listing_00319.png,Deep Learning Original 351,0,deep learning original 351,NN NN NN JJ,4,26,6.5
+PL500320,listing_00320.png,Deep Learning Brand New 476,3,deep learning brand new 476,NN NN NN JJ JJ,5,27,5.4
+PL500321,listing_00321.png,Blender Premium 693,3,blender premium 693,NN NN JJ,3,19,6.3333
+PL500322,listing_00322.png,Yoga Mat Imported 366,10,yoga mat imported 366,NN JJ NN JJ,4,21,5.25
+PL500323,listing_00323.png,Perfume Imported 392,0,perfume imported 392,NN NN JJ,3,20,6.6667
+PL500324,listing_00324.png,ML Yearbook Pack of 2 996,6,ml yearbook pack of 2 996,JJ NN NN JJ JJ JJ,6,25,4.1667
+PL500325,listing_00325.png,Dumbbell Set Pack of 2 928,4,dumbbell set pack of 2 928,NN JJ NN JJ JJ JJ,6,26,4.3333
+PL500326,listing_00326.png,Perfume Certified 954,0,perfume certified 954,NN NN JJ,3,21,7.0
+PL500327,listing_00327.png,Perfume Pack of 2 51,6,perfume pack of 2 51,NN NN JJ JJ JJ,5,20,4.0
+PL500328,listing_00328.png,Face Serum Premium 668,3,face serum premium 668,NN NN NN JJ,4,22,5.5
+PL500329,listing_00329.png,Air Fryer Original 273,7,air fryer original 273,JJ NN NN JJ,4,22,5.5
+PL500330,listing_00330.png,Cricket Bat Original 631,10,cricket bat original 631,NN JJ NN JJ,4,24,6.0
+PL500331,listing_00331.png,Blender Pack of 2 498,10,blender pack of 2 498,NN NN JJ JJ JJ,5,21,4.2
+PL500332,listing_00332.png,LED Monitor Certified 475,2,led monitor certified 475,JJ NN NN JJ,4,25,6.25
+PL500333,listing_00333.png,Running Shoes Imported 180,5,running shoes imported 180,NN NN NN JJ,4,26,6.5
+PL500334,listing_00334.png,Dumbbell Set Premium 30,10,dumbbell set premium 30,NN JJ NN JJ,4,23,5.75
+PL500335,listing_00335.png,Dumbbell Set Imported 722,10,dumbbell set imported 722,NN JJ NN JJ,4,25,6.25
+PL500336,listing_00336.png,Data Science Handbook Original 155,4,data science handbook original 155,NN NN NN NN JJ,5,34,6.8
+PL500337,listing_00337.png,Sunscreen SPF50 Certified 502,3,sunscreen spf50 certified 502,NN NN NN JJ,4,29,7.25
+PL500338,listing_00338.png,Yoga Mat Original 314,10,yoga mat original 314,NN JJ NN JJ,4,21,5.25
+PL500339,listing_00339.png,ML Yearbook Imported 227,0,ml yearbook imported 227,JJ NN NN JJ,4,24,6.0
+PL500340,listing_00340.png,Hair Dryer Certified 658,3,hair dryer certified 658,NN NN NN JJ,4,24,6.0
+PL500341,listing_00341.png,Sunscreen SPF50 Original 502,3,sunscreen spf50 original 502,NN NN NN JJ,4,28,7.0
+PL500342,listing_00342.png,Smart Watch Original 595,2,smart watch original 595,NN NN NN JJ,4,24,6.0
+PL500343,listing_00343.png,ML Yearbook Original 41,0,ml yearbook original 41,JJ NN NN JJ,4,23,5.75
+PL500344,listing_00344.png,Football Imported 289,7,football imported 289,NN NN JJ,3,21,7.0
+PL500345,listing_00345.png,Denim Jacket Original 193,5,denim jacket original 193,NN NN NN JJ,4,25,6.25
+PL500346,listing_00346.png,Wireless Earbuds Premium 712,2,wireless earbuds premium 712,NN NN NN JJ,4,28,7.0
+PL500347,listing_00347.png,Dumbbell Set Pack of 2 655,4,dumbbell set pack of 2 655,NN JJ NN JJ JJ JJ,6,26,4.3333
+PL500348,listing_00348.png,Football Brand New 467,10,football brand new 467,NN NN JJ JJ,4,22,5.5
+PL500349,listing_00349.png,Perfume Certified 925,0,perfume certified 925,NN NN JJ,3,21,7.0
+PL500350,listing_00350.png,Cricket Bat Imported 70,10,cricket bat imported 70,NN JJ NN JJ,4,23,5.75
+PL500351,listing_00351.png,Bluetooth Speaker Brand New 75,6,bluetooth speaker brand new 75,NN NN NN JJ JJ,5,30,6.0
+PL500352,listing_00352.png,Lip Balm Pack Pack of 2 564,0,lip balm pack pack of 2 564,JJ NN NN NN JJ JJ JJ,7,27,3.8571
+PL500353,listing_00353.png,Cycling Helmet Pack of 2 890,4,cycling helmet pack of 2 890,NN NN NN JJ JJ JJ,6,28,4.6667
+PL500354,listing_00354.png,Football Brand New 136,10,football brand new 136,NN NN JJ JJ,4,22,5.5
+PL500355,listing_00355.png,Cycling Helmet Premium 269,10,cycling helmet premium 269,NN NN NN JJ,4,26,6.5
+PL500356,listing_00356.png,Python Cookbook Brand New 156,3,python cookbook brand new 156,NN NN NN JJ JJ,5,29,5.8
+PL500357,listing_00357.png,Data Science Handbook Brand New 959,7,data science handbook brand new 959,NN NN NN NN JJ JJ,6,35,5.8333
+PL500358,listing_00358.png,Smart Watch Premium 334,2,smart watch premium 334,NN NN NN JJ,4,23,5.75
+PL500359,listing_00359.png,Coffee Maker Original 439,7,coffee maker original 439,NN NN NN JJ,4,25,6.25
+PL500360,listing_00360.png,LED Monitor Premium 320,2,led monitor premium 320,JJ NN NN JJ,4,23,5.75
+PL500361,listing_00361.png,Dumbbell Set Premium 299,10,dumbbell set premium 299,NN JJ NN JJ,4,24,6.0
+PL500362,listing_00362.png,Dumbbell Set Original 352,10,dumbbell set original 352,NN JJ NN JJ,4,25,6.25
+PL500363,listing_00363.png,Lip Balm Pack Brand New 440,9,lip balm pack brand new 440,JJ NN NN NN JJ JJ,6,27,4.5
+PL500364,listing_00364.png,Perfume Imported 167,0,perfume imported 167,NN NN JJ,3,20,6.6667
+PL500365,listing_00365.png,ML Yearbook Imported 596,0,ml yearbook imported 596,JJ NN NN JJ,4,24,6.0
+PL500366,listing_00366.png,Dumbbell Set Brand New 445,1,dumbbell set brand new 445,NN JJ NN JJ JJ,5,26,5.2
+PL500367,listing_00367.png,ML Yearbook Original 409,0,ml yearbook original 409,JJ NN NN JJ,4,24,6.0
+PL500368,listing_00368.png,Coffee Maker Brand New 444,10,coffee maker brand new 444,NN NN NN JJ JJ,5,26,5.2
+PL500369,listing_00369.png,Air Fryer Pack of 2 343,1,air fryer pack of 2 343,JJ NN NN JJ JJ JJ,6,23,3.8333
+PL500370,listing_00370.png,ML Yearbook Brand New 212,3,ml yearbook brand new 212,JJ NN NN JJ JJ,5,25,5.0
+PL500371,listing_00371.png,Yoga Mat Original 744,10,yoga mat original 744,NN JJ NN JJ,4,21,5.25
+PL500372,listing_00372.png,Perfume Imported 34,11,perfume imported 34,NN NN JJ,3,19,6.3333
+PL500373,listing_00373.png,Cricket Bat Original 574,10,cricket bat original 574,NN JJ NN JJ,4,24,6.0
+PL500374,listing_00374.png,Denim Jacket Brand New 508,8,denim jacket brand new 508,NN NN NN JJ JJ,5,26,5.2
+PL500375,listing_00375.png,Backpack Original 418,2,backpack original 418,NN NN JJ,3,21,7.0
+PL500376,listing_00376.png,Hair Dryer Pack of 2 361,9,hair dryer pack of 2 361,NN NN NN JJ JJ JJ,6,24,4.0
+PL500377,listing_00377.png,Cycling Helmet Imported 788,10,cycling helmet imported 788,NN NN NN JJ,4,27,6.75
+PL500378,listing_00378.png,Wireless Earbuds Brand New 914,6,wireless earbuds brand new 914,NN NN NN JJ JJ,5,30,6.0
+PL500379,listing_00379.png,Blender Pack of 2 699,10,blender pack of 2 699,NN NN JJ JJ JJ,5,21,4.2
+PL500380,listing_00380.png,Perfume Brand New 178,3,perfume brand new 178,NN NN JJ JJ,4,21,5.25
+PL500381,listing_00381.png,Yoga Mat Imported 88,10,yoga mat imported 88,NN JJ NN JJ,4,20,5.0
+PL500382,listing_00382.png,Yoga Mat Brand New 764,1,yoga mat brand new 764,NN JJ NN JJ JJ,5,22,4.4
+PL500383,listing_00383.png,Dumbbell Set Imported 293,10,dumbbell set imported 293,NN JJ NN JJ,4,25,6.25
+PL500384,listing_00384.png,Wireless Earbuds Brand New 409,6,wireless earbuds brand new 409,NN NN NN JJ JJ,5,30,6.0
+PL500385,listing_00385.png,Air Fryer Imported 740,7,air fryer imported 740,JJ NN NN JJ,4,22,5.5
+PL500386,listing_00386.png,Cookware Set Certified 763,7,cookware set certified 763,NN JJ NN JJ,4,26,6.5
+PL500387,listing_00387.png,Perfume Brand New 299,3,perfume brand new 299,NN NN JJ JJ,4,21,5.25
+PL500388,listing_00388.png,Data Science Handbook Imported 52,4,data science handbook imported 52,NN NN NN NN JJ,5,33,6.6
+PL500389,listing_00389.png,Leather Wallet Pack of 2 608,11,leather wallet pack of 2 608,NN NN NN JJ JJ JJ,6,28,4.6667
+PL500390,listing_00390.png,AutoML in Practice Premium 122,4,automl in practice premium 122,NN JJ NN NN JJ,5,30,6.0
+PL500391,listing_00391.png,Smart Watch Certified 4,2,smart watch certified 4,NN NN NN JJ,4,23,5.75
+PL500392,listing_00392.png,Dumbbell Set Premium 943,10,dumbbell set premium 943,NN JJ NN JJ,4,24,6.0
+PL500393,listing_00393.png,Leather Wallet Imported 749,5,leather wallet imported 749,NN NN NN JJ,4,27,6.75
+PL500394,listing_00394.png,Python Cookbook Original 575,0,python cookbook original 575,NN NN NN JJ,4,28,7.0
+PL500395,listing_00395.png,Air Fryer Certified 80,7,air fryer certified 80,JJ NN NN JJ,4,22,5.5
+PL500396,listing_00396.png,Wireless Earbuds Premium 536,2,wireless earbuds premium 536,NN NN NN JJ,4,28,7.0
+PL500397,listing_00397.png,Cookware Set Imported 27,7,cookware set imported 27,NN JJ NN JJ,4,24,6.0
+PL500398,listing_00398.png,Sunglasses Premium 144,2,sunglasses premium 144,NN NN JJ,3,22,7.3333
+PL500399,listing_00399.png,Yoga Mat Premium 436,10,yoga mat premium 436,NN JJ NN JJ,4,20,5.0
+PL500400,listing_00400.png,Wireless Earbuds Certified 388,3,wireless earbuds certified 388,NN NN NN JJ,4,30,7.5
+PL500401,listing_00401.png,Sunscreen SPF50 Pack of 2 519,9,sunscreen spf50 pack of 2 519,NN NN NN JJ JJ JJ,6,29,4.8333
+PL500402,listing_00402.png,Data Science Handbook Brand New 874,7,data science handbook brand new 874,NN NN NN NN JJ JJ,6,35,5.8333
+PL500403,listing_00403.png,Football Brand New 868,10,football brand new 868,NN NN JJ JJ,4,22,5.5
+PL500404,listing_00404.png,LED Monitor Pack of 2 593,8,led monitor pack of 2 593,JJ NN NN JJ JJ JJ,6,25,4.1667
+PL500405,listing_00405.png,Deep Learning Certified 581,0,deep learning certified 581,NN NN NN JJ,4,27,6.75
+PL500406,listing_00406.png,Sunglasses Certified 207,2,sunglasses certified 207,NN NN JJ,3,24,8.0
+PL500407,listing_00407.png,Dumbbell Set Imported 128,10,dumbbell set imported 128,NN JJ NN JJ,4,25,6.25
+PL500408,listing_00408.png,Wireless Earbuds Brand New 30,5,wireless earbuds brand new 30,NN NN NN JJ JJ,5,29,5.8
+PL500409,listing_00409.png,Air Fryer Certified 46,7,air fryer certified 46,JJ NN NN JJ,4,22,5.5
+PL500410,listing_00410.png,Coffee Maker Certified 976,7,coffee maker certified 976,NN NN NN JJ,4,26,6.5
+PL500411,listing_00411.png,Deep Learning Brand New 803,3,deep learning brand new 803,NN NN NN JJ JJ,5,27,5.4
+PL500412,listing_00412.png,ML Yearbook Original 147,0,ml yearbook original 147,JJ NN NN JJ,4,24,6.0
+PL500413,listing_00413.png,Cricket Bat Imported 79,10,cricket bat imported 79,NN JJ NN JJ,4,23,5.75
+PL500414,listing_00414.png,Backpack Brand New 683,5,backpack brand new 683,NN NN JJ JJ,4,22,5.5
+PL500415,listing_00415.png,Air Fryer Original 41,7,air fryer original 41,JJ NN NN JJ,4,21,5.25
+PL500416,listing_00416.png,Football Pack of 2 748,1,football pack of 2 748,NN NN JJ JJ JJ,5,22,4.4
+PL500417,listing_00417.png,Coffee Maker Imported 151,7,coffee maker imported 151,NN NN NN JJ,4,25,6.25
+PL500418,listing_00418.png,Blender Certified 350,4,blender certified 350,NN NN JJ,3,21,7.0
+PL500419,listing_00419.png,Air Fryer Imported 781,7,air fryer imported 781,JJ NN NN JJ,4,22,5.5
+PL500420,listing_00420.png,Sunglasses Pack of 2 819,8,sunglasses pack of 2 819,NN NN JJ JJ JJ,5,24,4.8
+PL500421,listing_00421.png,LED Monitor Certified 241,2,led monitor certified 241,JJ NN NN JJ,4,25,6.25
+PL500422,listing_00422.png,Sunglasses Pack of 2 783,8,sunglasses pack of 2 783,NN NN JJ JJ JJ,5,24,4.8
+PL500423,listing_00423.png,Wireless Earbuds Brand New 964,6,wireless earbuds brand new 964,NN NN NN JJ JJ,5,30,6.0
+PL500424,listing_00424.png,Python Cookbook Premium 931,0,python cookbook premium 931,NN NN NN JJ,4,27,6.75
+PL500425,listing_00425.png,Bluetooth Speaker Pack of 2 383,9,bluetooth speaker pack of 2 383,NN NN NN JJ JJ JJ,6,31,5.1667
+PL500426,listing_00426.png,Air Fryer Original 79,7,air fryer original 79,JJ NN NN JJ,4,21,5.25
+PL500427,listing_00427.png,Smart Watch Imported 232,2,smart watch imported 232,NN NN NN JJ,4,24,6.0
+PL500428,listing_00428.png,Bluetooth Speaker Premium 630,2,bluetooth speaker premium 630,NN NN NN JJ,4,29,7.25
+PL500429,listing_00429.png,Yoga Mat Original 762,10,yoga mat original 762,NN JJ NN JJ,4,21,5.25
+PL500430,listing_00430.png,Bluetooth Speaker Premium 370,2,bluetooth speaker premium 370,NN NN NN JJ,4,29,7.25
+PL500431,listing_00431.png,LED Monitor Certified 21,2,led monitor certified 21,JJ NN NN JJ,4,24,6.0
+PL500432,listing_00432.png,Data Science Handbook Premium 740,4,data science handbook premium 740,NN NN NN NN JJ,5,33,6.6
+PL500433,listing_00433.png,Blender Imported 654,4,blender imported 654,NN NN JJ,3,20,6.6667
+PL500434,listing_00434.png,Yoga Mat Certified 396,10,yoga mat certified 396,NN JJ NN JJ,4,22,5.5
+PL500435,listing_00435.png,Data Science Handbook Premium 893,4,data science handbook premium 893,NN NN NN NN JJ,5,33,6.6
+PL500436,listing_00436.png,Denim Jacket Premium 470,5,denim jacket premium 470,NN NN NN JJ,4,24,6.0
+PL500437,listing_00437.png,Perfume Pack of 2 28,6,perfume pack of 2 28,NN NN JJ JJ JJ,5,20,4.0
+PL500438,listing_00438.png,Data Science Handbook Certified 991,4,data science handbook certified 991,NN NN NN NN JJ,5,35,7.0
+PL500439,listing_00439.png,Sunglasses Imported 120,2,sunglasses imported 120,NN NN JJ,3,23,7.6667
+PL500440,listing_00440.png,LED Monitor Brand New 560,5,led monitor brand new 560,JJ NN NN JJ JJ,5,25,5.0
+PL500441,listing_00441.png,AutoML in Practice Pack of 2 637,10,automl in practice pack of 2 637,NN JJ NN NN JJ JJ JJ,7,32,4.5714
+PL500442,listing_00442.png,Sunscreen SPF50 Brand New 29,6,sunscreen spf50 brand new 29,NN NN NN JJ JJ,5,28,5.6
+PL500443,listing_00443.png,Leather Wallet Brand New 70,8,leather wallet brand new 70,NN NN NN JJ JJ,5,27,5.4
+PL500444,listing_00444.png,Wireless Earbuds Pack of 2 900,9,wireless earbuds pack of 2 900,NN NN NN JJ JJ JJ,6,30,5.0
+PL500445,listing_00445.png,Sunscreen SPF50 Brand New 730,6,sunscreen spf50 brand new 730,NN NN NN JJ JJ,5,29,5.8
+PL500446,listing_00446.png,Face Serum Certified 679,3,face serum certified 679,NN NN NN JJ,4,24,6.0
+PL500447,listing_00447.png,Leather Wallet Brand New 734,8,leather wallet brand new 734,NN NN NN JJ JJ,5,28,5.6
+PL500448,listing_00448.png,Cricket Bat Original 73,10,cricket bat original 73,NN JJ NN JJ,4,23,5.75
+PL500449,listing_00449.png,Python Cookbook Original 780,0,python cookbook original 780,NN NN NN JJ,4,28,7.0
+PL500450,listing_00450.png,Blender Pack of 2 898,10,blender pack of 2 898,NN NN JJ JJ JJ,5,21,4.2
+PL500451,listing_00451.png,Cricket Bat Imported 477,10,cricket bat imported 477,NN JJ NN JJ,4,24,6.0
+PL500452,listing_00452.png,LED Monitor Imported 322,2,led monitor imported 322,JJ NN NN JJ,4,24,6.0
+PL500453,listing_00453.png,ML Yearbook Premium 97,0,ml yearbook premium 97,JJ NN NN JJ,4,22,5.5
+PL500454,listing_00454.png,Face Serum Certified 67,3,face serum certified 67,NN NN NN JJ,4,23,5.75
+PL500455,listing_00455.png,Vacuum Cleaner Original 297,7,vacuum cleaner original 297,NN NN NN JJ,4,27,6.75
+PL500456,listing_00456.png,Sunglasses Certified 646,2,sunglasses certified 646,NN NN JJ,3,24,8.0
+PL500457,listing_00457.png,Vacuum Cleaner Certified 845,7,vacuum cleaner certified 845,NN NN NN JJ,4,28,7.0
+PL500458,listing_00458.png,Leather Wallet Original 243,5,leather wallet original 243,NN NN NN JJ,4,27,6.75
+PL500459,listing_00459.png,Coffee Maker Certified 755,7,coffee maker certified 755,NN NN NN JJ,4,26,6.5
+PL500460,listing_00460.png,Yoga Mat Imported 738,10,yoga mat imported 738,NN JJ NN JJ,4,21,5.25
+PL500461,listing_00461.png,Power Bank Original 310,2,power bank original 310,NN NN NN JJ,4,23,5.75
+PL500462,listing_00462.png,Wireless Earbuds Imported 446,2,wireless earbuds imported 446,NN NN NN JJ,4,29,7.25
+PL500463,listing_00463.png,AutoML in Practice Brand New 300,7,automl in practice brand new 300,NN JJ NN NN JJ JJ,6,32,5.3333
+PL500464,listing_00464.png,AutoML in Practice Original 367,4,automl in practice original 367,NN JJ NN NN JJ,5,31,6.2
+PL500465,listing_00465.png,Perfume Premium 871,11,perfume premium 871,NN NN JJ,3,19,6.3333
+PL500466,listing_00466.png,Smart Watch Brand New 52,5,smart watch brand new 52,NN NN NN JJ JJ,5,24,4.8
+PL500467,listing_00467.png,Backpack Pack of 2 932,8,backpack pack of 2 932,NN NN JJ JJ JJ,5,22,4.4
+PL500468,listing_00468.png,Running Shoes Original 481,5,running shoes original 481,NN NN NN JJ,4,26,6.5
+PL500469,listing_00469.png,LED Monitor Imported 913,2,led monitor imported 913,JJ NN NN JJ,4,24,6.0
+PL500470,listing_00470.png,Smart Watch Imported 130,2,smart watch imported 130,NN NN NN JJ,4,24,6.0
+PL500471,listing_00471.png,Lip Balm Pack Brand New 135,9,lip balm pack brand new 135,JJ NN NN NN JJ JJ,6,27,4.5
+PL500472,listing_00472.png,LED Monitor Original 844,2,led monitor original 844,JJ NN NN JJ,4,24,6.0
+PL500473,listing_00473.png,Leather Wallet Imported 888,5,leather wallet imported 888,NN NN NN JJ,4,27,6.75
+PL500474,listing_00474.png,Face Serum Brand New 245,6,face serum brand new 245,NN NN NN JJ JJ,5,24,4.8
+PL500475,listing_00475.png,Lip Balm Pack Certified 573,6,lip balm pack certified 573,JJ NN NN NN JJ,5,27,5.4
+PL500476,listing_00476.png,Power Bank Premium 579,2,power bank premium 579,NN NN NN JJ,4,22,5.5
+PL500477,listing_00477.png,Cricket Bat Pack of 2 983,4,cricket bat pack of 2 983,NN JJ NN JJ JJ JJ,6,25,4.1667
+PL500478,listing_00478.png,Hair Dryer Imported 323,3,hair dryer imported 323,NN NN NN JJ,4,23,5.75
+PL500479,listing_00479.png,Leather Wallet Imported 376,5,leather wallet imported 376,NN NN NN JJ,4,27,6.75
+PL500480,listing_00480.png,Perfume Certified 476,0,perfume certified 476,NN NN JJ,3,21,7.0
+PL500481,listing_00481.png,Air Fryer Pack of 2 85,1,air fryer pack of 2 85,JJ NN NN JJ JJ JJ,6,22,3.6667
+PL500482,listing_00482.png,LED Monitor Certified 333,2,led monitor certified 333,JJ NN NN JJ,4,25,6.25
+PL500483,listing_00483.png,Wireless Earbuds Premium 115,2,wireless earbuds premium 115,NN NN NN JJ,4,28,7.0
+PL500484,listing_00484.png,Football Brand New 600,10,football brand new 600,NN NN JJ JJ,4,22,5.5
+PL500485,listing_00485.png,Denim Jacket Certified 268,5,denim jacket certified 268,NN NN NN JJ,4,26,6.5
+PL500486,listing_00486.png,Football Certified 485,7,football certified 485,NN NN JJ,3,22,7.3333
+PL500487,listing_00487.png,Data Science Handbook Imported 321,4,data science handbook imported 321,NN NN NN NN JJ,5,34,6.8
+PL500488,listing_00488.png,Yoga Mat Original 282,10,yoga mat original 282,NN JJ NN JJ,4,21,5.25
+PL500489,listing_00489.png,AutoML in Practice Pack of 2 331,10,automl in practice pack of 2 331,NN JJ NN NN JJ JJ JJ,7,32,4.5714
+PL500490,listing_00490.png,Smart Watch Pack of 2 317,8,smart watch pack of 2 317,NN NN NN JJ JJ JJ,6,25,4.1667
+PL500491,listing_00491.png,Face Serum Premium 163,3,face serum premium 163,NN NN NN JJ,4,22,5.5
+PL500492,listing_00492.png,Deep Learning Imported 654,0,deep learning imported 654,NN NN NN JJ,4,26,6.5
+PL500493,listing_00493.png,Backpack Imported 378,2,backpack imported 378,NN NN JJ,3,21,7.0
+PL500494,listing_00494.png,Python Cookbook Imported 189,0,python cookbook imported 189,NN NN NN JJ,4,28,7.0
+PL500495,listing_00495.png,Football Original 310,7,football original 310,NN NN JJ,3,21,7.0
+PL500496,listing_00496.png,Wireless Earbuds Original 882,2,wireless earbuds original 882,NN NN NN JJ,4,29,7.25
+PL500497,listing_00497.png,Deep Learning Original 929,0,deep learning original 929,NN NN NN JJ,4,26,6.5
+PL500498,listing_00498.png,Lip Balm Pack Imported 874,6,lip balm pack imported 874,JJ NN NN NN JJ,5,26,5.2
+PL500499,listing_00499.png,Smart Watch Brand New 620,5,smart watch brand new 620,NN NN NN JJ JJ,5,25,5.0
+PL500500,listing_00500.png,Bluetooth Speaker Certified 245,3,bluetooth speaker certified 245,NN NN NN JJ,4,31,7.75
+PL500501,listing_00501.png,Hair Dryer Certified 273,3,hair dryer certified 273,NN NN NN JJ,4,24,6.0
+PL500502,listing_00502.png,Deep Learning Certified 105,0,deep learning certified 105,NN NN NN JJ,4,27,6.75
+PL500503,listing_00503.png,Vacuum Cleaner Premium 4,7,vacuum cleaner premium 4,NN NN NN JJ,4,24,6.0
+PL500504,listing_00504.png,Sunscreen SPF50 Certified 624,3,sunscreen spf50 certified 624,NN NN NN JJ,4,29,7.25
+PL500505,listing_00505.png,Cookware Set Imported 84,7,cookware set imported 84,NN JJ NN JJ,4,24,6.0
+PL500506,listing_00506.png,Vacuum Cleaner Original 180,7,vacuum cleaner original 180,NN NN NN JJ,4,27,6.75
+PL500507,listing_00507.png,Smart Watch Pack of 2 432,8,smart watch pack of 2 432,NN NN NN JJ JJ JJ,6,25,4.1667
+PL500508,listing_00508.png,Data Science Handbook Original 425,4,data science handbook original 425,NN NN NN NN JJ,5,34,6.8
+PL500509,listing_00509.png,Sunglasses Brand New 17,5,sunglasses brand new 17,NN NN JJ JJ,4,23,5.75
+PL500510,listing_00510.png,AutoML in Practice Premium 762,4,automl in practice premium 762,NN JJ NN NN JJ,5,30,6.0
+PL500511,listing_00511.png,Yoga Mat Certified 912,10,yoga mat certified 912,NN JJ NN JJ,4,22,5.5
+PL500512,listing_00512.png,Vacuum Cleaner Brand New 339,10,vacuum cleaner brand new 339,NN NN NN JJ JJ,5,28,5.6
+PL500513,listing_00513.png,Face Serum Imported 370,3,face serum imported 370,NN NN NN JJ,4,23,5.75
+PL500514,listing_00514.png,Sunglasses Premium 893,2,sunglasses premium 893,NN NN JJ,3,22,7.3333
+PL500515,listing_00515.png,Cricket Bat Premium 860,10,cricket bat premium 860,NN JJ NN JJ,4,23,5.75
+PL500516,listing_00516.png,AutoML in Practice Brand New 358,7,automl in practice brand new 358,NN JJ NN NN JJ JJ,6,32,5.3333
+PL500517,listing_00517.png,Face Serum Imported 354,3,face serum imported 354,NN NN NN JJ,4,23,5.75
+PL500518,listing_00518.png,Vacuum Cleaner Premium 454,7,vacuum cleaner premium 454,NN NN NN JJ,4,26,6.5
+PL500519,listing_00519.png,Deep Learning Imported 893,0,deep learning imported 893,NN NN NN JJ,4,26,6.5
+PL500520,listing_00520.png,Face Serum Pack of 2 286,9,face serum pack of 2 286,NN NN NN JJ JJ JJ,6,24,4.0
+PL500521,listing_00521.png,Cycling Helmet Brand New 47,1,cycling helmet brand new 47,NN NN NN JJ JJ,5,27,5.4
+PL500522,listing_00522.png,LED Monitor Imported 105,2,led monitor imported 105,JJ NN NN JJ,4,24,6.0
+PL500523,listing_00523.png,AutoML in Practice Certified 638,4,automl in practice certified 638,NN JJ NN NN JJ,5,32,6.4
+PL500524,listing_00524.png,Yoga Mat Original 389,10,yoga mat original 389,NN JJ NN JJ,4,21,5.25
+PL500525,listing_00525.png,Running Shoes Brand New 233,8,running shoes brand new 233,NN NN NN JJ JJ,5,27,5.4
+PL500526,listing_00526.png,Dumbbell Set Pack of 2 653,4,dumbbell set pack of 2 653,NN JJ NN JJ JJ JJ,6,26,4.3333
+PL500527,listing_00527.png,Running Shoes Brand New 183,8,running shoes brand new 183,NN NN NN JJ JJ,5,27,5.4
+PL500528,listing_00528.png,Wireless Earbuds Pack of 2 262,9,wireless earbuds pack of 2 262,NN NN NN JJ JJ JJ,6,30,5.0
+PL500529,listing_00529.png,Perfume Brand New 10,3,perfume brand new 10,NN NN JJ JJ,4,20,5.0
+PL500530,listing_00530.png,Perfume Brand New 109,3,perfume brand new 109,NN NN JJ JJ,4,21,5.25
+PL500531,listing_00531.png,Dumbbell Set Certified 455,10,dumbbell set certified 455,NN JJ NN JJ,4,26,6.5
+PL500532,listing_00532.png,Hair Dryer Imported 825,3,hair dryer imported 825,NN NN NN JJ,4,23,5.75
+PL500533,listing_00533.png,Sunscreen SPF50 Pack of 2 410,9,sunscreen spf50 pack of 2 410,NN NN NN JJ JJ JJ,6,29,4.8333
+PL500534,listing_00534.png,Vacuum Cleaner Premium 661,7,vacuum cleaner premium 661,NN NN NN JJ,4,26,6.5
+PL500535,listing_00535.png,Cookware Set Certified 686,7,cookware set certified 686,NN JJ NN JJ,4,26,6.5
+PL500536,listing_00536.png,Sunscreen SPF50 Pack of 2 343,9,sunscreen spf50 pack of 2 343,NN NN NN JJ JJ JJ,6,29,4.8333
+PL500537,listing_00537.png,Power Bank Pack of 2 325,8,power bank pack of 2 325,NN NN NN JJ JJ JJ,6,24,4.0
+PL500538,listing_00538.png,Perfume Certified 690,0,perfume certified 690,NN NN JJ,3,21,7.0
+PL500539,listing_00539.png,Perfume Original 769,0,perfume original 769,NN NN JJ,3,20,6.6667
+PL500540,listing_00540.png,Power Bank Imported 44,2,power bank imported 44,NN NN NN JJ,4,22,5.5
+PL500541,listing_00541.png,Vacuum Cleaner Brand New 266,10,vacuum cleaner brand new 266,NN NN NN JJ JJ,5,28,5.6
+PL500542,listing_00542.png,Data Science Handbook Imported 181,4,data science handbook imported 181,NN NN NN NN JJ,5,34,6.8
+PL500543,listing_00543.png,Lip Balm Pack Premium 116,6,lip balm pack premium 116,JJ NN NN NN JJ,5,25,5.0
+PL500544,listing_00544.png,Wireless Earbuds Original 151,2,wireless earbuds original 151,NN NN NN JJ,4,29,7.25
+PL500545,listing_00545.png,Dumbbell Set Pack of 2 925,4,dumbbell set pack of 2 925,NN JJ NN JJ JJ JJ,6,26,4.3333
+PL500546,listing_00546.png,Yoga Mat Imported 354,10,yoga mat imported 354,NN JJ NN JJ,4,21,5.25
+PL500547,listing_00547.png,Yoga Mat Pack of 2 363,4,yoga mat pack of 2 363,NN JJ NN JJ JJ JJ,6,22,3.6667
+PL500548,listing_00548.png,Cricket Bat Premium 985,10,cricket bat premium 985,NN JJ NN JJ,4,23,5.75
+PL500549,listing_00549.png,Face Serum Certified 855,3,face serum certified 855,NN NN NN JJ,4,24,6.0
+PL500550,listing_00550.png,Cookware Set Brand New 338,10,cookware set brand new 338,NN JJ NN JJ JJ,5,26,5.2
+PL500551,listing_00551.png,Sunscreen SPF50 Brand New 292,6,sunscreen spf50 brand new 292,NN NN NN JJ JJ,5,29,5.8
+PL500552,listing_00552.png,Backpack Brand New 718,5,backpack brand new 718,NN NN JJ JJ,4,22,5.5
+PL500553,listing_00553.png,Python Cookbook Pack of 2 770,6,python cookbook pack of 2 770,NN NN NN JJ JJ JJ,6,29,4.8333
+PL500554,listing_00554.png,Hair Dryer Pack of 2 747,9,hair dryer pack of 2 747,NN NN NN JJ JJ JJ,6,24,4.0
+PL500555,listing_00555.png,Sunscreen SPF50 Premium 611,3,sunscreen spf50 premium 611,NN NN NN JJ,4,27,6.75
+PL500556,listing_00556.png,Yoga Mat Imported 757,10,yoga mat imported 757,NN JJ NN JJ,4,21,5.25
+PL500557,listing_00557.png,Data Science Handbook Original 230,4,data science handbook original 230,NN NN NN NN JJ,5,34,6.8
+PL500558,listing_00558.png,Deep Learning Certified 847,0,deep learning certified 847,NN NN NN JJ,4,27,6.75
+PL500559,listing_00559.png,Perfume Certified 488,0,perfume certified 488,NN NN JJ,3,21,7.0
+PL500560,listing_00560.png,Python Cookbook Brand New 350,3,python cookbook brand new 350,NN NN NN JJ JJ,5,29,5.8
+PL500561,listing_00561.png,Leather Wallet Original 591,5,leather wallet original 591,NN NN NN JJ,4,27,6.75
+PL500562,listing_00562.png,Face Serum Brand New 103,6,face serum brand new 103,NN NN NN JJ JJ,5,24,4.8
+PL500563,listing_00563.png,Cycling Helmet Premium 621,10,cycling helmet premium 621,NN NN NN JJ,4,26,6.5
+PL500564,listing_00564.png,Backpack Certified 84,2,backpack certified 84,NN NN JJ,3,21,7.0
+PL500565,listing_00565.png,Backpack Brand New 765,5,backpack brand new 765,NN NN JJ JJ,4,22,5.5
+PL500566,listing_00566.png,Cycling Helmet Pack of 2 895,4,cycling helmet pack of 2 895,NN NN NN JJ JJ JJ,6,28,4.6667
+PL500567,listing_00567.png,Sunglasses Original 202,2,sunglasses original 202,NN NN JJ,3,23,7.6667
+PL500568,listing_00568.png,Yoga Mat Premium 744,10,yoga mat premium 744,NN JJ NN JJ,4,20,5.0
+PL500569,listing_00569.png,Coffee Maker Brand New 799,10,coffee maker brand new 799,NN NN NN JJ JJ,5,26,5.2
+PL500570,listing_00570.png,AutoML in Practice Premium 928,4,automl in practice premium 928,NN JJ NN NN JJ,5,30,6.0
+PL500571,listing_00571.png,Leather Wallet Brand New 211,8,leather wallet brand new 211,NN NN NN JJ JJ,5,28,5.6
+PL500572,listing_00572.png,Football Premium 953,7,football premium 953,NN NN JJ,3,20,6.6667
+PL500573,listing_00573.png,Backpack Pack of 2 911,8,backpack pack of 2 911,NN NN JJ JJ JJ,5,22,4.4
+PL500574,listing_00574.png,Bluetooth Speaker Premium 790,2,bluetooth speaker premium 790,NN NN NN JJ,4,29,7.25
+PL500575,listing_00575.png,Coffee Maker Imported 296,7,coffee maker imported 296,NN NN NN JJ,4,25,6.25
+PL500576,listing_00576.png,Air Fryer Certified 363,7,air fryer certified 363,JJ NN NN JJ,4,23,5.75
+PL500577,listing_00577.png,Cricket Bat Brand New 532,1,cricket bat brand new 532,NN JJ NN JJ JJ,5,25,5.0
+PL500578,listing_00578.png,Blender Brand New 117,7,blender brand new 117,NN NN JJ JJ,4,21,5.25
+PL500579,listing_00579.png,Perfume Original 302,0,perfume original 302,NN NN JJ,3,20,6.6667
+PL500580,listing_00580.png,Leather Wallet Imported 33,5,leather wallet imported 33,NN NN NN JJ,4,26,6.5
+PL500581,listing_00581.png,Cycling Helmet Premium 673,10,cycling helmet premium 673,NN NN NN JJ,4,26,6.5
+PL500582,listing_00582.png,Hair Dryer Imported 815,3,hair dryer imported 815,NN NN NN JJ,4,23,5.75
+PL500583,listing_00583.png,Blender Premium 295,3,blender premium 295,NN NN JJ,3,19,6.3333
+PL500584,listing_00584.png,AutoML in Practice Brand New 187,7,automl in practice brand new 187,NN JJ NN NN JJ JJ,6,32,5.3333
+PL500585,listing_00585.png,Sunscreen SPF50 Pack of 2 545,9,sunscreen spf50 pack of 2 545,NN NN NN JJ JJ JJ,6,29,4.8333
+PL500586,listing_00586.png,Coffee Maker Imported 772,7,coffee maker imported 772,NN NN NN JJ,4,25,6.25
+PL500587,listing_00587.png,Face Serum Premium 894,3,face serum premium 894,NN NN NN JJ,4,22,5.5
+PL500588,listing_00588.png,Cricket Bat Premium 412,10,cricket bat premium 412,NN JJ NN JJ,4,23,5.75
+PL500589,listing_00589.png,LED Monitor Imported 350,2,led monitor imported 350,JJ NN NN JJ,4,24,6.0
+PL500590,listing_00590.png,Sunscreen SPF50 Pack of 2 613,9,sunscreen spf50 pack of 2 613,NN NN NN JJ JJ JJ,6,29,4.8333
+PL500591,listing_00591.png,Cookware Set Brand New 346,10,cookware set brand new 346,NN JJ NN JJ JJ,5,26,5.2
+PL500592,listing_00592.png,AutoML in Practice Imported 779,4,automl in practice imported 779,NN JJ NN NN JJ,5,31,6.2
+PL500593,listing_00593.png,Cookware Set Original 618,7,cookware set original 618,NN JJ NN JJ,4,25,6.25
+PL500594,listing_00594.png,Perfume Brand New 757,3,perfume brand new 757,NN NN JJ JJ,4,21,5.25
+PL500595,listing_00595.png,Blender Certified 593,4,blender certified 593,NN NN JJ,3,21,7.0
+PL500596,listing_00596.png,Yoga Mat Imported 439,10,yoga mat imported 439,NN JJ NN JJ,4,21,5.25
+PL500597,listing_00597.png,Backpack Premium 843,2,backpack premium 843,NN NN JJ,3,20,6.6667
+PL500598,listing_00598.png,Blender Brand New 41,7,blender brand new 41,NN NN JJ JJ,4,20,5.0
+PL500599,listing_00599.png,Python Cookbook Original 167,0,python cookbook original 167,NN NN NN JJ,4,28,7.0
+PL500600,listing_00600.png,Data Science Handbook Imported 774,4,data science handbook imported 774,NN NN NN NN JJ,5,34,6.8
+PL500601,listing_00601.png,Cricket Bat Brand New 182,1,cricket bat brand new 182,NN JJ NN JJ JJ,5,25,5.0
+PL500602,listing_00602.png,Wireless Earbuds Certified 753,3,wireless earbuds certified 753,NN NN NN JJ,4,30,7.5
+PL500603,listing_00603.png,Cricket Bat Pack of 2 208,4,cricket bat pack of 2 208,NN JJ NN JJ JJ JJ,6,25,4.1667
+PL500604,listing_00604.png,Yoga Mat Brand New 376,1,yoga mat brand new 376,NN JJ NN JJ JJ,5,22,4.4
+PL500605,listing_00605.png,Wireless Earbuds Premium 274,2,wireless earbuds premium 274,NN NN NN JJ,4,28,7.0
+PL500606,listing_00606.png,Data Science Handbook Brand New 577,7,data science handbook brand new 577,NN NN NN NN JJ JJ,6,35,5.8333
+PL500607,listing_00607.png,Wireless Earbuds Brand New 808,6,wireless earbuds brand new 808,NN NN NN JJ JJ,5,30,6.0
+PL500608,listing_00608.png,Coffee Maker Brand New 973,10,coffee maker brand new 973,NN NN NN JJ JJ,5,26,5.2
+PL500609,listing_00609.png,Sunscreen SPF50 Pack of 2 568,9,sunscreen spf50 pack of 2 568,NN NN NN JJ JJ JJ,6,29,4.8333
+PL500610,listing_00610.png,Cricket Bat Brand New 71,1,cricket bat brand new 71,NN JJ NN JJ JJ,5,24,4.8
+PL500611,listing_00611.png,Air Fryer Imported 549,7,air fryer imported 549,JJ NN NN JJ,4,22,5.5
+PL500612,listing_00612.png,Deep Learning Original 136,0,deep learning original 136,NN NN NN JJ,4,26,6.5
+PL500613,listing_00613.png,Leather Wallet Original 388,5,leather wallet original 388,NN NN NN JJ,4,27,6.75
+PL500614,listing_00614.png,Vacuum Cleaner Original 835,7,vacuum cleaner original 835,NN NN NN JJ,4,27,6.75
+PL500615,listing_00615.png,Data Science Handbook Premium 711,4,data science handbook premium 711,NN NN NN NN JJ,5,33,6.6
+PL500616,listing_00616.png,Sunglasses Brand New 102,5,sunglasses brand new 102,NN NN JJ JJ,4,24,6.0
+PL500617,listing_00617.png,Perfume Certified 561,0,perfume certified 561,NN NN JJ,3,21,7.0
+PL500618,listing_00618.png,Bluetooth Speaker Brand New 885,6,bluetooth speaker brand new 885,NN NN NN JJ JJ,5,31,6.2
+PL500619,listing_00619.png,Bluetooth Speaker Original 142,3,bluetooth speaker original 142,NN NN NN JJ,4,30,7.5
+PL500620,listing_00620.png,Running Shoes Brand New 806,8,running shoes brand new 806,NN NN NN JJ JJ,5,27,5.4
+PL500621,listing_00621.png,Data Science Handbook Pack of 2 951,10,data science handbook pack of 2 951,NN NN NN NN JJ JJ JJ,7,35,5.0
+PL500622,listing_00622.png,Air Fryer Brand New 495,10,air fryer brand new 495,JJ NN NN JJ JJ,5,23,4.6
+PL500623,listing_00623.png,Power Bank Imported 414,2,power bank imported 414,NN NN NN JJ,4,23,5.75
+PL500624,listing_00624.png,Cookware Set Premium 246,7,cookware set premium 246,NN JJ NN JJ,4,24,6.0
+PL500625,listing_00625.png,Wireless Earbuds Premium 710,2,wireless earbuds premium 710,NN NN NN JJ,4,28,7.0
+PL500626,listing_00626.png,Lip Balm Pack Brand New 19,9,lip balm pack brand new 19,JJ NN NN NN JJ JJ,6,26,4.3333
+PL500627,listing_00627.png,Lip Balm Pack Original 696,6,lip balm pack original 696,JJ NN NN NN JJ,5,26,5.2
+PL500628,listing_00628.png,Backpack Brand New 479,5,backpack brand new 479,NN NN JJ JJ,4,22,5.5
+PL500629,listing_00629.png,Cricket Bat Premium 540,10,cricket bat premium 540,NN JJ NN JJ,4,23,5.75
+PL500630,listing_00630.png,Wireless Earbuds Certified 824,3,wireless earbuds certified 824,NN NN NN JJ,4,30,7.5
+PL500631,listing_00631.png,Running Shoes Brand New 590,8,running shoes brand new 590,NN NN NN JJ JJ,5,27,5.4
+PL500632,listing_00632.png,Lip Balm Pack Certified 481,6,lip balm pack certified 481,JJ NN NN NN JJ,5,27,5.4
+PL500633,listing_00633.png,Bluetooth Speaker Original 765,3,bluetooth speaker original 765,NN NN NN JJ,4,30,7.5
+PL500634,listing_00634.png,Power Bank Premium 706,2,power bank premium 706,NN NN NN JJ,4,22,5.5
+PL500635,listing_00635.png,Leather Wallet Brand New 678,8,leather wallet brand new 678,NN NN NN JJ JJ,5,28,5.6
+PL500636,listing_00636.png,Yoga Mat Premium 398,10,yoga mat premium 398,NN JJ NN JJ,4,20,5.0
+PL500637,listing_00637.png,Data Science Handbook Brand New 50,7,data science handbook brand new 50,NN NN NN NN JJ JJ,6,34,5.6667
+PL500638,listing_00638.png,Sunglasses Imported 489,2,sunglasses imported 489,NN NN JJ,3,23,7.6667
+PL500639,listing_00639.png,Lip Balm Pack Premium 953,6,lip balm pack premium 953,JJ NN NN NN JJ,5,25,5.0
+PL500640,listing_00640.png,Sunscreen SPF50 Premium 844,3,sunscreen spf50 premium 844,NN NN NN JJ,4,27,6.75
+PL500641,listing_00641.png,Sunglasses Imported 480,2,sunglasses imported 480,NN NN JJ,3,23,7.6667
+PL500642,listing_00642.png,Python Cookbook Original 28,0,python cookbook original 28,NN NN NN JJ,4,27,6.75
+PL500643,listing_00643.png,Cycling Helmet Brand New 126,1,cycling helmet brand new 126,NN NN NN JJ JJ,5,28,5.6
+PL500644,listing_00644.png,Hair Dryer Certified 708,3,hair dryer certified 708,NN NN NN JJ,4,24,6.0
+PL500645,listing_00645.png,ML Yearbook Brand New 148,3,ml yearbook brand new 148,JJ NN NN JJ JJ,5,25,5.0
+PL500646,listing_00646.png,Cricket Bat Certified 762,10,cricket bat certified 762,NN JJ NN JJ,4,25,6.25
+PL500647,listing_00647.png,Blender Original 466,4,blender original 466,NN NN JJ,3,20,6.6667
+PL500648,listing_00648.png,Sunglasses Brand New 415,5,sunglasses brand new 415,NN NN JJ JJ,4,24,6.0
+PL500649,listing_00649.png,Running Shoes Certified 367,5,running shoes certified 367,NN NN NN JJ,4,27,6.75
+PL500650,listing_00650.png,Sunglasses Brand New 87,5,sunglasses brand new 87,NN NN JJ JJ,4,23,5.75
+PL500651,listing_00651.png,Football Pack of 2 87,1,football pack of 2 87,NN NN JJ JJ JJ,5,21,4.2
+PL500652,listing_00652.png,Hair Dryer Imported 278,3,hair dryer imported 278,NN NN NN JJ,4,23,5.75
+PL500653,listing_00653.png,Leather Wallet Brand New 954,8,leather wallet brand new 954,NN NN NN JJ JJ,5,28,5.6
+PL500654,listing_00654.png,Face Serum Premium 107,3,face serum premium 107,NN NN NN JJ,4,22,5.5
+PL500655,listing_00655.png,Sunglasses Certified 229,2,sunglasses certified 229,NN NN JJ,3,24,8.0
+PL500656,listing_00656.png,LED Monitor Imported 142,2,led monitor imported 142,JJ NN NN JJ,4,24,6.0
+PL500657,listing_00657.png,Sunglasses Certified 100,2,sunglasses certified 100,NN NN JJ,3,24,8.0
+PL500658,listing_00658.png,Wireless Earbuds Original 387,2,wireless earbuds original 387,NN NN NN JJ,4,29,7.25
+PL500659,listing_00659.png,Yoga Mat Certified 847,10,yoga mat certified 847,NN JJ NN JJ,4,22,5.5
+PL500660,listing_00660.png,LED Monitor Premium 731,2,led monitor premium 731,JJ NN NN JJ,4,23,5.75
+PL500661,listing_00661.png,Sunscreen SPF50 Imported 345,3,sunscreen spf50 imported 345,NN NN NN JJ,4,28,7.0
+PL500662,listing_00662.png,Sunglasses Premium 785,2,sunglasses premium 785,NN NN JJ,3,22,7.3333
+PL500663,listing_00663.png,AutoML in Practice Brand New 878,7,automl in practice brand new 878,NN JJ NN NN JJ JJ,6,32,5.3333
+PL500664,listing_00664.png,Backpack Imported 841,2,backpack imported 841,NN NN JJ,3,21,7.0
+PL500665,listing_00665.png,Wireless Earbuds Imported 987,2,wireless earbuds imported 987,NN NN NN JJ,4,29,7.25
+PL500666,listing_00666.png,Backpack Original 503,2,backpack original 503,NN NN JJ,3,21,7.0
+PL500667,listing_00667.png,Data Science Handbook Brand New 644,7,data science handbook brand new 644,NN NN NN NN JJ JJ,6,35,5.8333
+PL500668,listing_00668.png,Perfume Original 91,11,perfume original 91,NN NN JJ,3,19,6.3333
+PL500669,listing_00669.png,Bluetooth Speaker Original 382,3,bluetooth speaker original 382,NN NN NN JJ,4,30,7.5
+PL500670,listing_00670.png,Bluetooth Speaker Certified 643,3,bluetooth speaker certified 643,NN NN NN JJ,4,31,7.75
+PL500671,listing_00671.png,Running Shoes Pack of 2 666,11,running shoes pack of 2 666,NN NN NN JJ JJ JJ,6,27,4.5
+PL500672,listing_00672.png,LED Monitor Premium 218,2,led monitor premium 218,JJ NN NN JJ,4,23,5.75
+PL500673,listing_00673.png,Sunglasses Pack of 2 730,8,sunglasses pack of 2 730,NN NN JJ JJ JJ,5,24,4.8
+PL500674,listing_00674.png,Blender Brand New 183,7,blender brand new 183,NN NN JJ JJ,4,21,5.25
+PL500675,listing_00675.png,Smart Watch Pack of 2 178,8,smart watch pack of 2 178,NN NN NN JJ JJ JJ,6,25,4.1667
+PL500676,listing_00676.png,ML Yearbook Imported 876,0,ml yearbook imported 876,JJ NN NN JJ,4,24,6.0
+PL500677,listing_00677.png,Leather Wallet Imported 779,5,leather wallet imported 779,NN NN NN JJ,4,27,6.75
+PL500678,listing_00678.png,Power Bank Premium 364,2,power bank premium 364,NN NN NN JJ,4,22,5.5
+PL500679,listing_00679.png,Bluetooth Speaker Brand New 102,6,bluetooth speaker brand new 102,NN NN NN JJ JJ,5,31,6.2
+PL500680,listing_00680.png,Wireless Earbuds Premium 892,2,wireless earbuds premium 892,NN NN NN JJ,4,28,7.0
+PL500681,listing_00681.png,Cycling Helmet Brand New 123,1,cycling helmet brand new 123,NN NN NN JJ JJ,5,28,5.6
+PL500682,listing_00682.png,Python Cookbook Premium 392,0,python cookbook premium 392,NN NN NN JJ,4,27,6.75
+PL500683,listing_00683.png,Backpack Brand New 186,5,backpack brand new 186,NN NN JJ JJ,4,22,5.5
+PL500684,listing_00684.png,LED Monitor Original 45,2,led monitor original 45,JJ NN NN JJ,4,23,5.75
+PL500685,listing_00685.png,Bluetooth Speaker Premium 643,2,bluetooth speaker premium 643,NN NN NN JJ,4,29,7.25
+PL500686,listing_00686.png,Dumbbell Set Premium 282,10,dumbbell set premium 282,NN JJ NN JJ,4,24,6.0
+PL500687,listing_00687.png,Coffee Maker Imported 344,7,coffee maker imported 344,NN NN NN JJ,4,25,6.25
+PL500688,listing_00688.png,Cycling Helmet Imported 681,10,cycling helmet imported 681,NN NN NN JJ,4,27,6.75
+PL500689,listing_00689.png,Coffee Maker Pack of 2 569,1,coffee maker pack of 2 569,NN NN NN JJ JJ JJ,6,26,4.3333
+PL500690,listing_00690.png,Air Fryer Certified 522,7,air fryer certified 522,JJ NN NN JJ,4,23,5.75
+PL500691,listing_00691.png,Air Fryer Pack of 2 118,1,air fryer pack of 2 118,JJ NN NN JJ JJ JJ,6,23,3.8333
+PL500692,listing_00692.png,LED Monitor Brand New 811,5,led monitor brand new 811,JJ NN NN JJ JJ,5,25,5.0
+PL500693,listing_00693.png,Vacuum Cleaner Premium 344,7,vacuum cleaner premium 344,NN NN NN JJ,4,26,6.5
+PL500694,listing_00694.png,Sunscreen SPF50 Brand New 391,6,sunscreen spf50 brand new 391,NN NN NN JJ JJ,5,29,5.8
+PL500695,listing_00695.png,Cycling Helmet Certified 926,10,cycling helmet certified 926,NN NN NN JJ,4,28,7.0
+PL500696,listing_00696.png,Air Fryer Imported 128,7,air fryer imported 128,JJ NN NN JJ,4,22,5.5
+PL500697,listing_00697.png,Power Bank Brand New 511,5,power bank brand new 511,NN NN NN JJ JJ,5,24,4.8
+PL500698,listing_00698.png,Lip Balm Pack Original 870,6,lip balm pack original 870,JJ NN NN NN JJ,5,26,5.2
+PL500699,listing_00699.png,Face Serum Brand New 265,6,face serum brand new 265,NN NN NN JJ JJ,5,24,4.8
+PL500700,listing_00700.png,Deep Learning Original 102,0,deep learning original 102,NN NN NN JJ,4,26,6.5
+PL500701,listing_00701.png,Python Cookbook Original 891,0,python cookbook original 891,NN NN NN JJ,4,28,7.0
+PL500702,listing_00702.png,ML Yearbook Certified 564,0,ml yearbook certified 564,JJ NN NN JJ,4,25,6.25
+PL500703,listing_00703.png,Yoga Mat Brand New 776,1,yoga mat brand new 776,NN JJ NN JJ JJ,5,22,4.4
+PL500704,listing_00704.png,Wireless Earbuds Imported 648,2,wireless earbuds imported 648,NN NN NN JJ,4,29,7.25
+PL500705,listing_00705.png,Smart Watch Original 995,2,smart watch original 995,NN NN NN JJ,4,24,6.0
+PL500706,listing_00706.png,Bluetooth Speaker Certified 687,3,bluetooth speaker certified 687,NN NN NN JJ,4,31,7.75
+PL500707,listing_00707.png,Air Fryer Original 743,7,air fryer original 743,JJ NN NN JJ,4,22,5.5
+PL500708,listing_00708.png,ML Yearbook Premium 353,0,ml yearbook premium 353,JJ NN NN JJ,4,23,5.75
+PL500709,listing_00709.png,Yoga Mat Brand New 315,1,yoga mat brand new 315,NN JJ NN JJ JJ,5,22,4.4
+PL500710,listing_00710.png,Vacuum Cleaner Original 867,7,vacuum cleaner original 867,NN NN NN JJ,4,27,6.75
+PL500711,listing_00711.png,Power Bank Pack of 2 5,8,power bank pack of 2 5,NN NN NN JJ JJ JJ,6,22,3.6667
+PL500712,listing_00712.png,Cycling Helmet Certified 231,10,cycling helmet certified 231,NN NN NN JJ,4,28,7.0
+PL500713,listing_00713.png,Hair Dryer Pack of 2 934,9,hair dryer pack of 2 934,NN NN NN JJ JJ JJ,6,24,4.0
+PL500714,listing_00714.png,Smart Watch Original 323,2,smart watch original 323,NN NN NN JJ,4,24,6.0
+PL500715,listing_00715.png,Dumbbell Set Imported 749,10,dumbbell set imported 749,NN JJ NN JJ,4,25,6.25
+PL500716,listing_00716.png,Perfume Certified 518,0,perfume certified 518,NN NN JJ,3,21,7.0
+PL500717,listing_00717.png,Sunglasses Original 328,2,sunglasses original 328,NN NN JJ,3,23,7.6667
+PL500718,listing_00718.png,Perfume Certified 798,0,perfume certified 798,NN NN JJ,3,21,7.0
+PL500719,listing_00719.png,LED Monitor Brand New 706,5,led monitor brand new 706,JJ NN NN JJ JJ,5,25,5.0
+PL500720,listing_00720.png,Blender Premium 422,3,blender premium 422,NN NN JJ,3,19,6.3333
+PL500721,listing_00721.png,Vacuum Cleaner Imported 83,7,vacuum cleaner imported 83,NN NN NN JJ,4,26,6.5
+PL500722,listing_00722.png,Vacuum Cleaner Pack of 2 23,1,vacuum cleaner pack of 2 23,NN NN NN JJ JJ JJ,6,27,4.5
+PL500723,listing_00723.png,Deep Learning Imported 95,0,deep learning imported 95,NN NN NN JJ,4,25,6.25
+PL500724,listing_00724.png,Python Cookbook Certified 828,0,python cookbook certified 828,NN NN NN JJ,4,29,7.25
+PL500725,listing_00725.png,Cookware Set Brand New 47,10,cookware set brand new 47,NN JJ NN JJ JJ,5,25,5.0
+PL500726,listing_00726.png,Cricket Bat Imported 532,10,cricket bat imported 532,NN JJ NN JJ,4,24,6.0
+PL500727,listing_00727.png,Cricket Bat Imported 555,10,cricket bat imported 555,NN JJ NN JJ,4,24,6.0
+PL500728,listing_00728.png,Football Brand New 571,10,football brand new 571,NN NN JJ JJ,4,22,5.5
+PL500729,listing_00729.png,Perfume Imported 992,0,perfume imported 992,NN NN JJ,3,20,6.6667
+PL500730,listing_00730.png,Dumbbell Set Brand New 541,1,dumbbell set brand new 541,NN JJ NN JJ JJ,5,26,5.2
+PL500731,listing_00731.png,Wireless Earbuds Original 931,2,wireless earbuds original 931,NN NN NN JJ,4,29,7.25
+PL500732,listing_00732.png,Running Shoes Imported 831,5,running shoes imported 831,NN NN NN JJ,4,26,6.5
+PL500733,listing_00733.png,Vacuum Cleaner Imported 245,7,vacuum cleaner imported 245,NN NN NN JJ,4,27,6.75
+PL500734,listing_00734.png,Dumbbell Set Imported 960,10,dumbbell set imported 960,NN JJ NN JJ,4,25,6.25
+PL500735,listing_00735.png,Running Shoes Pack of 2 223,11,running shoes pack of 2 223,NN NN NN JJ JJ JJ,6,27,4.5
+PL500736,listing_00736.png,Running Shoes Original 498,5,running shoes original 498,NN NN NN JJ,4,26,6.5
+PL500737,listing_00737.png,Vacuum Cleaner Original 533,7,vacuum cleaner original 533,NN NN NN JJ,4,27,6.75
+PL500738,listing_00738.png,Air Fryer Original 156,7,air fryer original 156,JJ NN NN JJ,4,22,5.5
+PL500739,listing_00739.png,Bluetooth Speaker Pack of 2 740,9,bluetooth speaker pack of 2 740,NN NN NN JJ JJ JJ,6,31,5.1667
+PL500740,listing_00740.png,Air Fryer Certified 813,7,air fryer certified 813,JJ NN NN JJ,4,23,5.75
+PL500741,listing_00741.png,AutoML in Practice Pack of 2 110,10,automl in practice pack of 2 110,NN JJ NN NN JJ JJ JJ,7,32,4.5714
+PL500742,listing_00742.png,Yoga Mat Pack of 2 646,4,yoga mat pack of 2 646,NN JJ NN JJ JJ JJ,6,22,3.6667
+PL500743,listing_00743.png,Python Cookbook Imported 375,0,python cookbook imported 375,NN NN NN JJ,4,28,7.0
+PL500744,listing_00744.png,Python Cookbook Pack of 2 220,6,python cookbook pack of 2 220,NN NN NN JJ JJ JJ,6,29,4.8333
+PL500745,listing_00745.png,Denim Jacket Brand New 289,8,denim jacket brand new 289,NN NN NN JJ JJ,5,26,5.2
+PL500746,listing_00746.png,Hair Dryer Certified 113,3,hair dryer certified 113,NN NN NN JJ,4,24,6.0
+PL500747,listing_00747.png,Backpack Original 87,2,backpack original 87,NN NN JJ,3,20,6.6667
+PL500748,listing_00748.png,Dumbbell Set Certified 484,10,dumbbell set certified 484,NN JJ NN JJ,4,26,6.5
+PL500749,listing_00749.png,Backpack Premium 856,2,backpack premium 856,NN NN JJ,3,20,6.6667
+PL500750,listing_00750.png,Power Bank Imported 859,2,power bank imported 859,NN NN NN JJ,4,23,5.75
+PL500751,listing_00751.png,Backpack Certified 486,2,backpack certified 486,NN NN JJ,3,22,7.3333
+PL500752,listing_00752.png,AutoML in Practice Certified 345,4,automl in practice certified 345,NN JJ NN NN JJ,5,32,6.4
+PL500753,listing_00753.png,Denim Jacket Original 545,5,denim jacket original 545,NN NN NN JJ,4,25,6.25
+PL500754,listing_00754.png,Denim Jacket Imported 988,5,denim jacket imported 988,NN NN NN JJ,4,25,6.25
+PL500755,listing_00755.png,Deep Learning Certified 920,0,deep learning certified 920,NN NN NN JJ,4,27,6.75
+PL500756,listing_00756.png,Perfume Pack of 2 349,6,perfume pack of 2 349,NN NN JJ JJ JJ,5,21,4.2
+PL500757,listing_00757.png,Air Fryer Premium 847,7,air fryer premium 847,JJ NN NN JJ,4,21,5.25
+PL500758,listing_00758.png,Deep Learning Brand New 731,3,deep learning brand new 731,NN NN NN JJ JJ,5,27,5.4
+PL500759,listing_00759.png,Sunscreen SPF50 Certified 482,3,sunscreen spf50 certified 482,NN NN NN JJ,4,29,7.25
+PL500760,listing_00760.png,Leather Wallet Pack of 2 418,11,leather wallet pack of 2 418,NN NN NN JJ JJ JJ,6,28,4.6667
+PL500761,listing_00761.png,Hair Dryer Brand New 145,6,hair dryer brand new 145,NN NN NN JJ JJ,5,24,4.8
+PL500762,listing_00762.png,Lip Balm Pack Brand New 611,9,lip balm pack brand new 611,JJ NN NN NN JJ JJ,6,27,4.5
+PL500763,listing_00763.png,Football Original 703,7,football original 703,NN NN JJ,3,21,7.0
+PL500764,listing_00764.png,Lip Balm Pack Original 636,6,lip balm pack original 636,JJ NN NN NN JJ,5,26,5.2
+PL500765,listing_00765.png,Yoga Mat Certified 630,10,yoga mat certified 630,NN JJ NN JJ,4,22,5.5
+PL500766,listing_00766.png,Bluetooth Speaker Premium 878,2,bluetooth speaker premium 878,NN NN NN JJ,4,29,7.25
+PL500767,listing_00767.png,Sunscreen SPF50 Original 798,3,sunscreen spf50 original 798,NN NN NN JJ,4,28,7.0
+PL500768,listing_00768.png,Denim Jacket Premium 977,5,denim jacket premium 977,NN NN NN JJ,4,24,6.0
+PL500769,listing_00769.png,LED Monitor Pack of 2 616,8,led monitor pack of 2 616,JJ NN NN JJ JJ JJ,6,25,4.1667
+PL500770,listing_00770.png,Python Cookbook Pack of 2 854,6,python cookbook pack of 2 854,NN NN NN JJ JJ JJ,6,29,4.8333
+PL500771,listing_00771.png,Python Cookbook Imported 383,0,python cookbook imported 383,NN NN NN JJ,4,28,7.0
+PL500772,listing_00772.png,Power Bank Imported 412,2,power bank imported 412,NN NN NN JJ,4,23,5.75
+PL500773,listing_00773.png,Deep Learning Premium 708,0,deep learning premium 708,NN NN NN JJ,4,25,6.25
+PL500774,listing_00774.png,Bluetooth Speaker Brand New 906,6,bluetooth speaker brand new 906,NN NN NN JJ JJ,5,31,6.2
+PL500775,listing_00775.png,Cookware Set Pack of 2 220,1,cookware set pack of 2 220,NN JJ NN JJ JJ JJ,6,26,4.3333
+PL500776,listing_00776.png,Python Cookbook Pack of 2 691,6,python cookbook pack of 2 691,NN NN NN JJ JJ JJ,6,29,4.8333
+PL500777,listing_00777.png,Cricket Bat Pack of 2 790,4,cricket bat pack of 2 790,NN JJ NN JJ JJ JJ,6,25,4.1667
+PL500778,listing_00778.png,Cookware Set Imported 593,7,cookware set imported 593,NN JJ NN JJ,4,25,6.25
+PL500779,listing_00779.png,Leather Wallet Original 965,5,leather wallet original 965,NN NN NN JJ,4,27,6.75
+PL500780,listing_00780.png,Leather Wallet Premium 194,5,leather wallet premium 194,NN NN NN JJ,4,26,6.5
+PL500781,listing_00781.png,Backpack Certified 696,2,backpack certified 696,NN NN JJ,3,22,7.3333
+PL500782,listing_00782.png,Lip Balm Pack Pack of 2 849,0,lip balm pack pack of 2 849,JJ NN NN NN JJ JJ JJ,7,27,3.8571
+PL500783,listing_00783.png,Power Bank Brand New 672,5,power bank brand new 672,NN NN NN JJ JJ,5,24,4.8
+PL500784,listing_00784.png,Football Premium 937,7,football premium 937,NN NN JJ,3,20,6.6667
+PL500785,listing_00785.png,Cookware Set Imported 824,7,cookware set imported 824,NN JJ NN JJ,4,25,6.25
+PL500786,listing_00786.png,Sunscreen SPF50 Pack of 2 575,9,sunscreen spf50 pack of 2 575,NN NN NN JJ JJ JJ,6,29,4.8333
+PL500787,listing_00787.png,Lip Balm Pack Imported 42,6,lip balm pack imported 42,JJ NN NN NN JJ,5,25,5.0
+PL500788,listing_00788.png,Hair Dryer Imported 885,3,hair dryer imported 885,NN NN NN JJ,4,23,5.75
+PL500789,listing_00789.png,Yoga Mat Original 239,10,yoga mat original 239,NN JJ NN JJ,4,21,5.25
+PL500790,listing_00790.png,Dumbbell Set Original 31,10,dumbbell set original 31,NN JJ NN JJ,4,24,6.0
+PL500791,listing_00791.png,Blender Certified 215,4,blender certified 215,NN NN JJ,3,21,7.0
+PL500792,listing_00792.png,Smart Watch Brand New 940,5,smart watch brand new 940,NN NN NN JJ JJ,5,25,5.0
+PL500793,listing_00793.png,ML Yearbook Premium 371,0,ml yearbook premium 371,JJ NN NN JJ,4,23,5.75
+PL500794,listing_00794.png,Dumbbell Set Original 823,10,dumbbell set original 823,NN JJ NN JJ,4,25,6.25
+PL500795,listing_00795.png,Bluetooth Speaker Brand New 118,6,bluetooth speaker brand new 118,NN NN NN JJ JJ,5,31,6.2
+PL500796,listing_00796.png,Football Brand New 696,10,football brand new 696,NN NN JJ JJ,4,22,5.5
+PL500797,listing_00797.png,Cricket Bat Pack of 2 146,4,cricket bat pack of 2 146,NN JJ NN JJ JJ JJ,6,25,4.1667
+PL500798,listing_00798.png,Perfume Original 706,0,perfume original 706,NN NN JJ,3,20,6.6667
+PL500799,listing_00799.png,Vacuum Cleaner Certified 793,7,vacuum cleaner certified 793,NN NN NN JJ,4,28,7.0
+PL500800,listing_00800.png,Football Pack of 2 516,1,football pack of 2 516,NN NN JJ JJ JJ,5,22,4.4
+PL500801,listing_00801.png,Sunglasses Pack of 2 340,8,sunglasses pack of 2 340,NN NN JJ JJ JJ,5,24,4.8
+PL500802,listing_00802.png,AutoML in Practice Premium 565,4,automl in practice premium 565,NN JJ NN NN JJ,5,30,6.0
+PL500803,listing_00803.png,Perfume Imported 777,0,perfume imported 777,NN NN JJ,3,20,6.6667
+PL500804,listing_00804.png,Python Cookbook Certified 73,0,python cookbook certified 73,NN NN NN JJ,4,28,7.0
+PL500805,listing_00805.png,Perfume Certified 24,0,perfume certified 24,NN NN JJ,3,20,6.6667
+PL500806,listing_00806.png,Backpack Premium 134,2,backpack premium 134,NN NN JJ,3,20,6.6667
+PL500807,listing_00807.png,ML Yearbook Certified 369,0,ml yearbook certified 369,JJ NN NN JJ,4,25,6.25
+PL500808,listing_00808.png,Deep Learning Brand New 273,3,deep learning brand new 273,NN NN NN JJ JJ,5,27,5.4
+PL500809,listing_00809.png,ML Yearbook Brand New 791,3,ml yearbook brand new 791,JJ NN NN JJ JJ,5,25,5.0
+PL500810,listing_00810.png,Cycling Helmet Original 273,10,cycling helmet original 273,NN NN NN JJ,4,27,6.75
+PL500811,listing_00811.png,Wireless Earbuds Premium 761,2,wireless earbuds premium 761,NN NN NN JJ,4,28,7.0
+PL500812,listing_00812.png,Vacuum Cleaner Original 969,7,vacuum cleaner original 969,NN NN NN JJ,4,27,6.75
+PL500813,listing_00813.png,Vacuum Cleaner Original 404,7,vacuum cleaner original 404,NN NN NN JJ,4,27,6.75
+PL500814,listing_00814.png,Cycling Helmet Imported 522,10,cycling helmet imported 522,NN NN NN JJ,4,27,6.75
+PL500815,listing_00815.png,Cricket Bat Brand New 737,1,cricket bat brand new 737,NN JJ NN JJ JJ,5,25,5.0
+PL500816,listing_00816.png,Smart Watch Original 13,2,smart watch original 13,NN NN NN JJ,4,23,5.75
+PL500817,listing_00817.png,Yoga Mat Pack of 2 411,4,yoga mat pack of 2 411,NN JJ NN JJ JJ JJ,6,22,3.6667
+PL500818,listing_00818.png,Perfume Certified 257,0,perfume certified 257,NN NN JJ,3,21,7.0
+PL500819,listing_00819.png,Yoga Mat Pack of 2 200,4,yoga mat pack of 2 200,NN JJ NN JJ JJ JJ,6,22,3.6667
+PL500820,listing_00820.png,Face Serum Brand New 675,6,face serum brand new 675,NN NN NN JJ JJ,5,24,4.8
+PL500821,listing_00821.png,Hair Dryer Imported 653,3,hair dryer imported 653,NN NN NN JJ,4,23,5.75
+PL500822,listing_00822.png,Dumbbell Set Pack of 2 395,4,dumbbell set pack of 2 395,NN JJ NN JJ JJ JJ,6,26,4.3333
+PL500823,listing_00823.png,Lip Balm Pack Certified 611,6,lip balm pack certified 611,JJ NN NN NN JJ,5,27,5.4
+PL500824,listing_00824.png,LED Monitor Certified 465,2,led monitor certified 465,JJ NN NN JJ,4,25,6.25
+PL500825,listing_00825.png,Deep Learning Certified 993,0,deep learning certified 993,NN NN NN JJ,4,27,6.75
+PL500826,listing_00826.png,Lip Balm Pack Certified 493,6,lip balm pack certified 493,JJ NN NN NN JJ,5,27,5.4
+PL500827,listing_00827.png,Leather Wallet Premium 706,5,leather wallet premium 706,NN NN NN JJ,4,26,6.5
+PL500828,listing_00828.png,Denim Jacket Imported 957,5,denim jacket imported 957,NN NN NN JJ,4,25,6.25
+PL500829,listing_00829.png,Sunglasses Original 929,2,sunglasses original 929,NN NN JJ,3,23,7.6667
+PL500830,listing_00830.png,LED Monitor Imported 928,2,led monitor imported 928,JJ NN NN JJ,4,24,6.0
+PL500831,listing_00831.png,Football Premium 690,7,football premium 690,NN NN JJ,3,20,6.6667
+PL500832,listing_00832.png,Denim Jacket Premium 760,5,denim jacket premium 760,NN NN NN JJ,4,24,6.0
+PL500833,listing_00833.png,Hair Dryer Brand New 4,6,hair dryer brand new 4,NN NN NN JJ JJ,5,22,4.4
+PL500834,listing_00834.png,Data Science Handbook Original 884,4,data science handbook original 884,NN NN NN NN JJ,5,34,6.8
+PL500835,listing_00835.png,Perfume Original 938,0,perfume original 938,NN NN JJ,3,20,6.6667
+PL500836,listing_00836.png,Sunscreen SPF50 Premium 77,3,sunscreen spf50 premium 77,NN NN NN JJ,4,26,6.5
+PL500837,listing_00837.png,Running Shoes Imported 133,5,running shoes imported 133,NN NN NN JJ,4,26,6.5
+PL500838,listing_00838.png,Python Cookbook Imported 589,0,python cookbook imported 589,NN NN NN JJ,4,28,7.0
+PL500839,listing_00839.png,Face Serum Original 443,3,face serum original 443,NN NN NN JJ,4,23,5.75
+PL500840,listing_00840.png,Sunglasses Imported 82,2,sunglasses imported 82,NN NN JJ,3,22,7.3333
+PL500841,listing_00841.png,Cycling Helmet Pack of 2 867,4,cycling helmet pack of 2 867,NN NN NN JJ JJ JJ,6,28,4.6667
+PL500842,listing_00842.png,Perfume Original 319,0,perfume original 319,NN NN JJ,3,20,6.6667
+PL500843,listing_00843.png,Sunglasses Imported 597,2,sunglasses imported 597,NN NN JJ,3,23,7.6667
+PL500844,listing_00844.png,Coffee Maker Imported 273,7,coffee maker imported 273,NN NN NN JJ,4,25,6.25
+PL500845,listing_00845.png,Wireless Earbuds Certified 467,3,wireless earbuds certified 467,NN NN NN JJ,4,30,7.5
+PL500846,listing_00846.png,Hair Dryer Premium 452,3,hair dryer premium 452,NN NN NN JJ,4,22,5.5
+PL500847,listing_00847.png,Running Shoes Original 76,5,running shoes original 76,NN NN NN JJ,4,25,6.25
+PL500848,listing_00848.png,Lip Balm Pack Imported 975,6,lip balm pack imported 975,JJ NN NN NN JJ,5,26,5.2
+PL500849,listing_00849.png,Leather Wallet Pack of 2 660,11,leather wallet pack of 2 660,NN NN NN JJ JJ JJ,6,28,4.6667
+PL500850,listing_00850.png,Sunscreen SPF50 Imported 402,3,sunscreen spf50 imported 402,NN NN NN JJ,4,28,7.0
+PL500851,listing_00851.png,Smart Watch Certified 493,2,smart watch certified 493,NN NN NN JJ,4,25,6.25
+PL500852,listing_00852.png,Dumbbell Set Original 728,10,dumbbell set original 728,NN JJ NN JJ,4,25,6.25
+PL500853,listing_00853.png,Yoga Mat Original 475,10,yoga mat original 475,NN JJ NN JJ,4,21,5.25
+PL500854,listing_00854.png,Wireless Earbuds Pack of 2 776,9,wireless earbuds pack of 2 776,NN NN NN JJ JJ JJ,6,30,5.0
+PL500855,listing_00855.png,Yoga Mat Pack of 2 209,4,yoga mat pack of 2 209,NN JJ NN JJ JJ JJ,6,22,3.6667
+PL500856,listing_00856.png,ML Yearbook Pack of 2 823,6,ml yearbook pack of 2 823,JJ NN NN JJ JJ JJ,6,25,4.1667
+PL500857,listing_00857.png,Wireless Earbuds Pack of 2 539,9,wireless earbuds pack of 2 539,NN NN NN JJ JJ JJ,6,30,5.0
+PL500858,listing_00858.png,Wireless Earbuds Pack of 2 596,9,wireless earbuds pack of 2 596,NN NN NN JJ JJ JJ,6,30,5.0
+PL500859,listing_00859.png,Power Bank Pack of 2 421,8,power bank pack of 2 421,NN NN NN JJ JJ JJ,6,24,4.0
+PL500860,listing_00860.png,Python Cookbook Original 892,0,python cookbook original 892,NN NN NN JJ,4,28,7.0
+PL500861,listing_00861.png,Coffee Maker Premium 989,7,coffee maker premium 989,NN NN NN JJ,4,24,6.0
+PL500862,listing_00862.png,Football Premium 700,7,football premium 700,NN NN JJ,3,20,6.6667
+PL500863,listing_00863.png,Air Fryer Pack of 2 478,1,air fryer pack of 2 478,JJ NN NN JJ JJ JJ,6,23,3.8333
+PL500864,listing_00864.png,Blender Premium 700,3,blender premium 700,NN NN JJ,3,19,6.3333
+PL500865,listing_00865.png,Dumbbell Set Certified 932,10,dumbbell set certified 932,NN JJ NN JJ,4,26,6.5
+PL500866,listing_00866.png,ML Yearbook Imported 279,0,ml yearbook imported 279,JJ NN NN JJ,4,24,6.0
+PL500867,listing_00867.png,ML Yearbook Brand New 84,3,ml yearbook brand new 84,JJ NN NN JJ JJ,5,24,4.8
+PL500868,listing_00868.png,Sunglasses Premium 402,2,sunglasses premium 402,NN NN JJ,3,22,7.3333
+PL500869,listing_00869.png,Power Bank Original 107,2,power bank original 107,NN NN NN JJ,4,23,5.75
+PL500870,listing_00870.png,Sunscreen SPF50 Brand New 7,6,sunscreen spf50 brand new 7,NN NN NN JJ JJ,5,27,5.4
+PL500871,listing_00871.png,Perfume Imported 257,0,perfume imported 257,NN NN JJ,3,20,6.6667
+PL500872,listing_00872.png,Sunscreen SPF50 Certified 936,3,sunscreen spf50 certified 936,NN NN NN JJ,4,29,7.25
+PL500873,listing_00873.png,Smart Watch Pack of 2 78,8,smart watch pack of 2 78,NN NN NN JJ JJ JJ,6,24,4.0
+PL500874,listing_00874.png,Hair Dryer Original 95,3,hair dryer original 95,NN NN NN JJ,4,22,5.5
+PL500875,listing_00875.png,Football Pack of 2 297,1,football pack of 2 297,NN NN JJ JJ JJ,5,22,4.4
+PL500876,listing_00876.png,Yoga Mat Pack of 2 627,4,yoga mat pack of 2 627,NN JJ NN JJ JJ JJ,6,22,3.6667
+PL500877,listing_00877.png,Lip Balm Pack Pack of 2 446,0,lip balm pack pack of 2 446,JJ NN NN NN JJ JJ JJ,7,27,3.8571
+PL500878,listing_00878.png,Smart Watch Pack of 2 228,8,smart watch pack of 2 228,NN NN NN JJ JJ JJ,6,25,4.1667
+PL500879,listing_00879.png,Backpack Certified 135,2,backpack certified 135,NN NN JJ,3,22,7.3333
+PL500880,listing_00880.png,Python Cookbook Original 132,0,python cookbook original 132,NN NN NN JJ,4,28,7.0
+PL500881,listing_00881.png,AutoML in Practice Premium 672,4,automl in practice premium 672,NN JJ NN NN JJ,5,30,6.0
+PL500882,listing_00882.png,Denim Jacket Brand New 531,8,denim jacket brand new 531,NN NN NN JJ JJ,5,26,5.2
+PL500883,listing_00883.png,AutoML in Practice Imported 683,4,automl in practice imported 683,NN JJ NN NN JJ,5,31,6.2
+PL500884,listing_00884.png,Blender Imported 304,4,blender imported 304,NN NN JJ,3,20,6.6667
+PL500885,listing_00885.png,Backpack Original 38,2,backpack original 38,NN NN JJ,3,20,6.6667
+PL500886,listing_00886.png,Running Shoes Original 184,5,running shoes original 184,NN NN NN JJ,4,26,6.5
+PL500887,listing_00887.png,AutoML in Practice Premium 113,4,automl in practice premium 113,NN JJ NN NN JJ,5,30,6.0
+PL500888,listing_00888.png,LED Monitor Pack of 2 106,8,led monitor pack of 2 106,JJ NN NN JJ JJ JJ,6,25,4.1667
+PL500889,listing_00889.png,Data Science Handbook Certified 438,4,data science handbook certified 438,NN NN NN NN JJ,5,35,7.0
+PL500890,listing_00890.png,Lip Balm Pack Imported 743,6,lip balm pack imported 743,JJ NN NN NN JJ,5,26,5.2
+PL500891,listing_00891.png,Air Fryer Premium 239,7,air fryer premium 239,JJ NN NN JJ,4,21,5.25
+PL500892,listing_00892.png,Sunscreen SPF50 Imported 214,3,sunscreen spf50 imported 214,NN NN NN JJ,4,28,7.0
+PL500893,listing_00893.png,Perfume Certified 801,0,perfume certified 801,NN NN JJ,3,21,7.0
+PL500894,listing_00894.png,Cookware Set Original 252,7,cookware set original 252,NN JJ NN JJ,4,25,6.25
+PL500895,listing_00895.png,Sunscreen SPF50 Brand New 885,6,sunscreen spf50 brand new 885,NN NN NN JJ JJ,5,29,5.8
+PL500896,listing_00896.png,AutoML in Practice Premium 89,3,automl in practice premium 89,NN JJ NN NN JJ,5,29,5.8
+PL500897,listing_00897.png,Sunscreen SPF50 Premium 187,3,sunscreen spf50 premium 187,NN NN NN JJ,4,27,6.75
+PL500898,listing_00898.png,LED Monitor Imported 226,2,led monitor imported 226,JJ NN NN JJ,4,24,6.0
+PL500899,listing_00899.png,Vacuum Cleaner Brand New 671,10,vacuum cleaner brand new 671,NN NN NN JJ JJ,5,28,5.6
+PL500900,listing_00900.png,Football Brand New 31,10,football brand new 31,NN NN JJ JJ,4,21,5.25
+PL500901,listing_00901.png,Python Cookbook Imported 251,0,python cookbook imported 251,NN NN NN JJ,4,28,7.0
+PL500902,listing_00902.png,Vacuum Cleaner Brand New 726,10,vacuum cleaner brand new 726,NN NN NN JJ JJ,5,28,5.6
+PL500903,listing_00903.png,LED Monitor Original 393,2,led monitor original 393,JJ NN NN JJ,4,24,6.0
+PL500904,listing_00904.png,Sunscreen SPF50 Pack of 2 683,9,sunscreen spf50 pack of 2 683,NN NN NN JJ JJ JJ,6,29,4.8333
+PL500905,listing_00905.png,Power Bank Brand New 219,5,power bank brand new 219,NN NN NN JJ JJ,5,24,4.8
+PL500906,listing_00906.png,Backpack Certified 165,2,backpack certified 165,NN NN JJ,3,22,7.3333
+PL500907,listing_00907.png,Leather Wallet Brand New 933,8,leather wallet brand new 933,NN NN NN JJ JJ,5,28,5.6
+PL500908,listing_00908.png,Sunglasses Certified 363,2,sunglasses certified 363,NN NN JJ,3,24,8.0
+PL500909,listing_00909.png,Deep Learning Premium 483,0,deep learning premium 483,NN NN NN JJ,4,25,6.25
+PL500910,listing_00910.png,LED Monitor Premium 674,2,led monitor premium 674,JJ NN NN JJ,4,23,5.75
+PL500911,listing_00911.png,Denim Jacket Premium 929,5,denim jacket premium 929,NN NN NN JJ,4,24,6.0
+PL500912,listing_00912.png,Power Bank Certified 130,2,power bank certified 130,NN NN NN JJ,4,24,6.0
+PL500913,listing_00913.png,Python Cookbook Certified 376,0,python cookbook certified 376,NN NN NN JJ,4,29,7.25
+PL500914,listing_00914.png,Cricket Bat Imported 154,10,cricket bat imported 154,NN JJ NN JJ,4,24,6.0
+PL500915,listing_00915.png,Football Brand New 507,10,football brand new 507,NN NN JJ JJ,4,22,5.5
+PL500916,listing_00916.png,Power Bank Pack of 2 868,8,power bank pack of 2 868,NN NN NN JJ JJ JJ,6,24,4.0
+PL500917,listing_00917.png,Power Bank Imported 507,2,power bank imported 507,NN NN NN JJ,4,23,5.75
+PL500918,listing_00918.png,Cricket Bat Original 521,10,cricket bat original 521,NN JJ NN JJ,4,24,6.0
+PL500919,listing_00919.png,Yoga Mat Imported 308,10,yoga mat imported 308,NN JJ NN JJ,4,21,5.25
+PL500920,listing_00920.png,Data Science Handbook Pack of 2 742,10,data science handbook pack of 2 742,NN NN NN NN JJ JJ JJ,7,35,5.0
+PL500921,listing_00921.png,Cycling Helmet Imported 132,10,cycling helmet imported 132,NN NN NN JJ,4,27,6.75
+PL500922,listing_00922.png,Running Shoes Imported 588,5,running shoes imported 588,NN NN NN JJ,4,26,6.5
+PL500923,listing_00923.png,Backpack Original 764,2,backpack original 764,NN NN JJ,3,21,7.0
+PL500924,listing_00924.png,Dumbbell Set Imported 906,10,dumbbell set imported 906,NN JJ NN JJ,4,25,6.25
+PL500925,listing_00925.png,ML Yearbook Imported 803,0,ml yearbook imported 803,JJ NN NN JJ,4,24,6.0
+PL500926,listing_00926.png,Wireless Earbuds Premium 139,2,wireless earbuds premium 139,NN NN NN JJ,4,28,7.0
+PL500927,listing_00927.png,Sunscreen SPF50 Original 483,3,sunscreen spf50 original 483,NN NN NN JJ,4,28,7.0
+PL500928,listing_00928.png,Cookware Set Certified 905,7,cookware set certified 905,NN JJ NN JJ,4,26,6.5
+PL500929,listing_00929.png,Football Imported 494,7,football imported 494,NN NN JJ,3,21,7.0
+PL500930,listing_00930.png,Sunglasses Original 233,2,sunglasses original 233,NN NN JJ,3,23,7.6667
+PL500931,listing_00931.png,Wireless Earbuds Brand New 216,6,wireless earbuds brand new 216,NN NN NN JJ JJ,5,30,6.0
+PL500932,listing_00932.png,Bluetooth Speaker Certified 433,3,bluetooth speaker certified 433,NN NN NN JJ,4,31,7.75
+PL500933,listing_00933.png,Power Bank Pack of 2 9,8,power bank pack of 2 9,NN NN NN JJ JJ JJ,6,22,3.6667
+PL500934,listing_00934.png,Sunscreen SPF50 Premium 523,3,sunscreen spf50 premium 523,NN NN NN JJ,4,27,6.75
+PL500935,listing_00935.png,Data Science Handbook Original 962,4,data science handbook original 962,NN NN NN NN JJ,5,34,6.8
+PL500936,listing_00936.png,Lip Balm Pack Imported 452,6,lip balm pack imported 452,JJ NN NN NN JJ,5,26,5.2
+PL500937,listing_00937.png,Power Bank Certified 124,2,power bank certified 124,NN NN NN JJ,4,24,6.0
+PL500938,listing_00938.png,Backpack Premium 688,2,backpack premium 688,NN NN JJ,3,20,6.6667
+PL500939,listing_00939.png,Bluetooth Speaker Certified 168,3,bluetooth speaker certified 168,NN NN NN JJ,4,31,7.75
+PL500940,listing_00940.png,Running Shoes Brand New 182,8,running shoes brand new 182,NN NN NN JJ JJ,5,27,5.4
+PL500941,listing_00941.png,Denim Jacket Certified 863,5,denim jacket certified 863,NN NN NN JJ,4,26,6.5
+PL500942,listing_00942.png,Backpack Pack of 2 820,8,backpack pack of 2 820,NN NN JJ JJ JJ,5,22,4.4
+PL500943,listing_00943.png,Cricket Bat Original 775,10,cricket bat original 775,NN JJ NN JJ,4,24,6.0
+PL500944,listing_00944.png,Cricket Bat Brand New 696,1,cricket bat brand new 696,NN JJ NN JJ JJ,5,25,5.0
+PL500945,listing_00945.png,Python Cookbook Certified 404,0,python cookbook certified 404,NN NN NN JJ,4,29,7.25
+PL500946,listing_00946.png,AutoML in Practice Certified 251,4,automl in practice certified 251,NN JJ NN NN JJ,5,32,6.4
+PL500947,listing_00947.png,ML Yearbook Premium 714,0,ml yearbook premium 714,JJ NN NN JJ,4,23,5.75
+PL500948,listing_00948.png,Face Serum Brand New 291,6,face serum brand new 291,NN NN NN JJ JJ,5,24,4.8
+PL500949,listing_00949.png,Vacuum Cleaner Imported 42,7,vacuum cleaner imported 42,NN NN NN JJ,4,26,6.5
+PL500950,listing_00950.png,Data Science Handbook Imported 174,4,data science handbook imported 174,NN NN NN NN JJ,5,34,6.8
+PL500951,listing_00951.png,Cookware Set Certified 692,7,cookware set certified 692,NN JJ NN JJ,4,26,6.5
+PL500952,listing_00952.png,Sunscreen SPF50 Pack of 2 897,9,sunscreen spf50 pack of 2 897,NN NN NN JJ JJ JJ,6,29,4.8333
+PL500953,listing_00953.png,LED Monitor Certified 818,2,led monitor certified 818,JJ NN NN JJ,4,25,6.25
+PL500954,listing_00954.png,ML Yearbook Imported 391,0,ml yearbook imported 391,JJ NN NN JJ,4,24,6.0
+PL500955,listing_00955.png,AutoML in Practice Pack of 2 865,10,automl in practice pack of 2 865,NN JJ NN NN JJ JJ JJ,7,32,4.5714
+PL500956,listing_00956.png,ML Yearbook Pack of 2 360,6,ml yearbook pack of 2 360,JJ NN NN JJ JJ JJ,6,25,4.1667
+PL500957,listing_00957.png,Vacuum Cleaner Imported 511,7,vacuum cleaner imported 511,NN NN NN JJ,4,27,6.75
+PL500958,listing_00958.png,ML Yearbook Original 305,0,ml yearbook original 305,JJ NN NN JJ,4,24,6.0
+PL500959,listing_00959.png,Wireless Earbuds Premium 575,2,wireless earbuds premium 575,NN NN NN JJ,4,28,7.0
+PL500960,listing_00960.png,Face Serum Imported 970,3,face serum imported 970,NN NN NN JJ,4,23,5.75
+PL500961,listing_00961.png,Sunglasses Premium 7,2,sunglasses premium 7,NN NN JJ,3,20,6.6667
+PL500962,listing_00962.png,Deep Learning Brand New 283,3,deep learning brand new 283,NN NN NN JJ JJ,5,27,5.4
+PL500963,listing_00963.png,Lip Balm Pack Brand New 476,9,lip balm pack brand new 476,JJ NN NN NN JJ JJ,6,27,4.5
+PL500964,listing_00964.png,Coffee Maker Brand New 760,10,coffee maker brand new 760,NN NN NN JJ JJ,5,26,5.2
+PL500965,listing_00965.png,Cookware Set Brand New 519,10,cookware set brand new 519,NN JJ NN JJ JJ,5,26,5.2
+PL500966,listing_00966.png,Vacuum Cleaner Brand New 45,10,vacuum cleaner brand new 45,NN NN NN JJ JJ,5,27,5.4
+PL500967,listing_00967.png,Running Shoes Pack of 2 746,11,running shoes pack of 2 746,NN NN NN JJ JJ JJ,6,27,4.5
+PL500968,listing_00968.png,Backpack Premium 169,2,backpack premium 169,NN NN JJ,3,20,6.6667
+PL500969,listing_00969.png,Football Original 326,7,football original 326,NN NN JJ,3,21,7.0
+PL500970,listing_00970.png,Dumbbell Set Original 973,10,dumbbell set original 973,NN JJ NN JJ,4,25,6.25
+PL500971,listing_00971.png,ML Yearbook Premium 180,0,ml yearbook premium 180,JJ NN NN JJ,4,23,5.75
+PL500972,listing_00972.png,Hair Dryer Brand New 955,6,hair dryer brand new 955,NN NN NN JJ JJ,5,24,4.8
+PL500973,listing_00973.png,Coffee Maker Brand New 364,10,coffee maker brand new 364,NN NN NN JJ JJ,5,26,5.2
+PL500974,listing_00974.png,Perfume Original 648,0,perfume original 648,NN NN JJ,3,20,6.6667
+PL500975,listing_00975.png,Denim Jacket Imported 670,5,denim jacket imported 670,NN NN NN JJ,4,25,6.25
+PL500976,listing_00976.png,Football Certified 845,7,football certified 845,NN NN JJ,3,22,7.3333
+PL500977,listing_00977.png,Dumbbell Set Premium 30,10,dumbbell set premium 30,NN JJ NN JJ,4,23,5.75
+PL500978,listing_00978.png,Power Bank Brand New 979,5,power bank brand new 979,NN NN NN JJ JJ,5,24,4.8
+PL500979,listing_00979.png,Dumbbell Set Imported 146,10,dumbbell set imported 146,NN JJ NN JJ,4,25,6.25
+PL500980,listing_00980.png,Yoga Mat Pack of 2 186,4,yoga mat pack of 2 186,NN JJ NN JJ JJ JJ,6,22,3.6667
+PL500981,listing_00981.png,Sunglasses Premium 938,2,sunglasses premium 938,NN NN JJ,3,22,7.3333
+PL500982,listing_00982.png,Sunscreen SPF50 Certified 367,3,sunscreen spf50 certified 367,NN NN NN JJ,4,29,7.25
+PL500983,listing_00983.png,Cricket Bat Original 944,10,cricket bat original 944,NN JJ NN JJ,4,24,6.0
+PL500984,listing_00984.png,Face Serum Imported 811,3,face serum imported 811,NN NN NN JJ,4,23,5.75
+PL500985,listing_00985.png,Cookware Set Certified 220,7,cookware set certified 220,NN JJ NN JJ,4,26,6.5
+PL500986,listing_00986.png,Vacuum Cleaner Brand New 79,10,vacuum cleaner brand new 79,NN NN NN JJ JJ,5,27,5.4
+PL500987,listing_00987.png,Yoga Mat Brand New 777,1,yoga mat brand new 777,NN JJ NN JJ JJ,5,22,4.4
+PL500988,listing_00988.png,Data Science Handbook Imported 612,4,data science handbook imported 612,NN NN NN NN JJ,5,34,6.8
+PL500989,listing_00989.png,Perfume Original 578,0,perfume original 578,NN NN JJ,3,20,6.6667
+PL500990,listing_00990.png,Deep Learning Original 308,0,deep learning original 308,NN NN NN JJ,4,26,6.5
+PL500991,listing_00991.png,Smart Watch Premium 308,2,smart watch premium 308,NN NN NN JJ,4,23,5.75
+PL500992,listing_00992.png,Sunscreen SPF50 Pack of 2 168,9,sunscreen spf50 pack of 2 168,NN NN NN JJ JJ JJ,6,29,4.8333
+PL500993,listing_00993.png,Smart Watch Certified 712,2,smart watch certified 712,NN NN NN JJ,4,25,6.25
+PL500994,listing_00994.png,Deep Learning Certified 719,0,deep learning certified 719,NN NN NN JJ,4,27,6.75
+PL500995,listing_00995.png,Python Cookbook Premium 845,0,python cookbook premium 845,NN NN NN JJ,4,27,6.75
+PL500996,listing_00996.png,Dumbbell Set Brand New 617,1,dumbbell set brand new 617,NN JJ NN JJ JJ,5,26,5.2
+PL500997,listing_00997.png,AutoML in Practice Premium 85,3,automl in practice premium 85,NN JJ NN NN JJ,5,29,5.8
+PL500998,listing_00998.png,Power Bank Imported 717,2,power bank imported 717,NN NN NN JJ,4,23,5.75
+PL500999,listing_00999.png,Coffee Maker Certified 451,7,coffee maker certified 451,NN NN NN JJ,4,26,6.5
+PL501000,listing_01000.png,Air Fryer Premium 526,7,air fryer premium 526,JJ NN NN JJ,4,21,5.25
+PL501001,listing_01001.png,LED Monitor Premium 369,2,led monitor premium 369,JJ NN NN JJ,4,23,5.75
+PL501002,listing_01002.png,Sunglasses Premium 944,2,sunglasses premium 944,NN NN JJ,3,22,7.3333
+PL501003,listing_01003.png,Smart Watch Premium 485,2,smart watch premium 485,NN NN NN JJ,4,23,5.75
+PL501004,listing_01004.png,Blender Imported 341,4,blender imported 341,NN NN JJ,3,20,6.6667
+PL501005,listing_01005.png,Yoga Mat Premium 354,10,yoga mat premium 354,NN JJ NN JJ,4,20,5.0
+PL501006,listing_01006.png,ML Yearbook Original 674,0,ml yearbook original 674,JJ NN NN JJ,4,24,6.0
+PL501007,listing_01007.png,ML Yearbook Imported 243,0,ml yearbook imported 243,JJ NN NN JJ,4,24,6.0
+PL501008,listing_01008.png,Denim Jacket Certified 67,5,denim jacket certified 67,NN NN NN JJ,4,25,6.25
+PL501009,listing_01009.png,Python Cookbook Imported 269,0,python cookbook imported 269,NN NN NN JJ,4,28,7.0
+PL501010,listing_01010.png,Smart Watch Brand New 748,5,smart watch brand new 748,NN NN NN JJ JJ,5,25,5.0
+PL501011,listing_01011.png,ML Yearbook Brand New 580,3,ml yearbook brand new 580,JJ NN NN JJ JJ,5,25,5.0
+PL501012,listing_01012.png,Lip Balm Pack Pack of 2 253,0,lip balm pack pack of 2 253,JJ NN NN NN JJ JJ JJ,7,27,3.8571
+PL501013,listing_01013.png,Yoga Mat Premium 765,10,yoga mat premium 765,NN JJ NN JJ,4,20,5.0
+PL501014,listing_01014.png,Running Shoes Pack of 2 985,11,running shoes pack of 2 985,NN NN NN JJ JJ JJ,6,27,4.5
+PL501015,listing_01015.png,LED Monitor Premium 485,2,led monitor premium 485,JJ NN NN JJ,4,23,5.75
+PL501016,listing_01016.png,LED Monitor Premium 494,2,led monitor premium 494,JJ NN NN JJ,4,23,5.75
+PL501017,listing_01017.png,Wireless Earbuds Certified 682,3,wireless earbuds certified 682,NN NN NN JJ,4,30,7.5
+PL501018,listing_01018.png,Coffee Maker Original 499,7,coffee maker original 499,NN NN NN JJ,4,25,6.25
+PL501019,listing_01019.png,Leather Wallet Imported 474,5,leather wallet imported 474,NN NN NN JJ,4,27,6.75
+PL501020,listing_01020.png,Air Fryer Brand New 878,10,air fryer brand new 878,JJ NN NN JJ JJ,5,23,4.6
+PL501021,listing_01021.png,Dumbbell Set Original 721,10,dumbbell set original 721,NN JJ NN JJ,4,25,6.25
+PL501022,listing_01022.png,Dumbbell Set Imported 815,10,dumbbell set imported 815,NN JJ NN JJ,4,25,6.25
+PL501023,listing_01023.png,Cycling Helmet Brand New 384,1,cycling helmet brand new 384,NN NN NN JJ JJ,5,28,5.6
+PL501024,listing_01024.png,Wireless Earbuds Certified 110,3,wireless earbuds certified 110,NN NN NN JJ,4,30,7.5
+PL501025,listing_01025.png,ML Yearbook Premium 490,0,ml yearbook premium 490,JJ NN NN JJ,4,23,5.75
+PL501026,listing_01026.png,Face Serum Original 582,3,face serum original 582,NN NN NN JJ,4,23,5.75
+PL501027,listing_01027.png,Cricket Bat Original 790,10,cricket bat original 790,NN JJ NN JJ,4,24,6.0
+PL501028,listing_01028.png,Hair Dryer Pack of 2 206,9,hair dryer pack of 2 206,NN NN NN JJ JJ JJ,6,24,4.0
+PL501029,listing_01029.png,Sunscreen SPF50 Pack of 2 730,9,sunscreen spf50 pack of 2 730,NN NN NN JJ JJ JJ,6,29,4.8333
+PL501030,listing_01030.png,Sunglasses Imported 109,2,sunglasses imported 109,NN NN JJ,3,23,7.6667
+PL501031,listing_01031.png,Perfume Imported 99,11,perfume imported 99,NN NN JJ,3,19,6.3333
+PL501032,listing_01032.png,Sunscreen SPF50 Original 547,3,sunscreen spf50 original 547,NN NN NN JJ,4,28,7.0
+PL501033,listing_01033.png,Football Imported 982,7,football imported 982,NN NN JJ,3,21,7.0
+PL501034,listing_01034.png,Cycling Helmet Original 17,10,cycling helmet original 17,NN NN NN JJ,4,26,6.5
+PL501035,listing_01035.png,Wireless Earbuds Brand New 958,6,wireless earbuds brand new 958,NN NN NN JJ JJ,5,30,6.0
+PL501036,listing_01036.png,Running Shoes Certified 640,5,running shoes certified 640,NN NN NN JJ,4,27,6.75
+PL501037,listing_01037.png,LED Monitor Imported 904,2,led monitor imported 904,JJ NN NN JJ,4,24,6.0
+PL501038,listing_01038.png,Dumbbell Set Premium 196,10,dumbbell set premium 196,NN JJ NN JJ,4,24,6.0
+PL501039,listing_01039.png,Backpack Certified 559,2,backpack certified 559,NN NN JJ,3,22,7.3333
+PL501040,listing_01040.png,AutoML in Practice Pack of 2 718,10,automl in practice pack of 2 718,NN JJ NN NN JJ JJ JJ,7,32,4.5714
+PL501041,listing_01041.png,Blender Certified 851,4,blender certified 851,NN NN JJ,3,21,7.0
+PL501042,listing_01042.png,Hair Dryer Certified 910,3,hair dryer certified 910,NN NN NN JJ,4,24,6.0
+PL501043,listing_01043.png,Vacuum Cleaner Original 100,7,vacuum cleaner original 100,NN NN NN JJ,4,27,6.75
+PL501044,listing_01044.png,Power Bank Pack of 2 657,8,power bank pack of 2 657,NN NN NN JJ JJ JJ,6,24,4.0
+PL501045,listing_01045.png,Air Fryer Pack of 2 649,1,air fryer pack of 2 649,JJ NN NN JJ JJ JJ,6,23,3.8333
+PL501046,listing_01046.png,Yoga Mat Certified 462,10,yoga mat certified 462,NN JJ NN JJ,4,22,5.5
+PL501047,listing_01047.png,LED Monitor Brand New 8,5,led monitor brand new 8,JJ NN NN JJ JJ,5,23,4.6
+PL501048,listing_01048.png,Running Shoes Certified 727,5,running shoes certified 727,NN NN NN JJ,4,27,6.75
+PL501049,listing_01049.png,Smart Watch Pack of 2 799,8,smart watch pack of 2 799,NN NN NN JJ JJ JJ,6,25,4.1667
+PL501050,listing_01050.png,Denim Jacket Brand New 37,8,denim jacket brand new 37,NN NN NN JJ JJ,5,25,5.0
+PL501051,listing_01051.png,Denim Jacket Premium 851,5,denim jacket premium 851,NN NN NN JJ,4,24,6.0
+PL501052,listing_01052.png,Sunglasses Original 663,2,sunglasses original 663,NN NN JJ,3,23,7.6667
+PL501053,listing_01053.png,ML Yearbook Original 726,0,ml yearbook original 726,JJ NN NN JJ,4,24,6.0
+PL501054,listing_01054.png,Data Science Handbook Premium 292,4,data science handbook premium 292,NN NN NN NN JJ,5,33,6.6
+PL501055,listing_01055.png,Backpack Premium 313,2,backpack premium 313,NN NN JJ,3,20,6.6667
+PL501056,listing_01056.png,Perfume Original 416,0,perfume original 416,NN NN JJ,3,20,6.6667
+PL501057,listing_01057.png,Data Science Handbook Certified 702,4,data science handbook certified 702,NN NN NN NN JJ,5,35,7.0
+PL501058,listing_01058.png,Dumbbell Set Brand New 535,1,dumbbell set brand new 535,NN JJ NN JJ JJ,5,26,5.2
+PL501059,listing_01059.png,Denim Jacket Certified 669,5,denim jacket certified 669,NN NN NN JJ,4,26,6.5
+PL501060,listing_01060.png,Blender Pack of 2 304,10,blender pack of 2 304,NN NN JJ JJ JJ,5,21,4.2
+PL501061,listing_01061.png,Dumbbell Set Brand New 62,1,dumbbell set brand new 62,NN JJ NN JJ JJ,5,25,5.0
+PL501062,listing_01062.png,Sunglasses Imported 372,2,sunglasses imported 372,NN NN JJ,3,23,7.6667
+PL501063,listing_01063.png,Wireless Earbuds Brand New 726,6,wireless earbuds brand new 726,NN NN NN JJ JJ,5,30,6.0
+PL501064,listing_01064.png,Football Original 507,7,football original 507,NN NN JJ,3,21,7.0
+PL501065,listing_01065.png,Denim Jacket Pack of 2 498,11,denim jacket pack of 2 498,NN NN NN JJ JJ JJ,6,26,4.3333
+PL501066,listing_01066.png,Sunscreen SPF50 Certified 34,3,sunscreen spf50 certified 34,NN NN NN JJ,4,28,7.0
+PL501067,listing_01067.png,Blender Original 77,3,blender original 77,NN NN JJ,3,19,6.3333
+PL501068,listing_01068.png,Lip Balm Pack Premium 776,6,lip balm pack premium 776,JJ NN NN NN JJ,5,25,5.0
+PL501069,listing_01069.png,Vacuum Cleaner Premium 275,7,vacuum cleaner premium 275,NN NN NN JJ,4,26,6.5
+PL501070,listing_01070.png,Python Cookbook Imported 330,0,python cookbook imported 330,NN NN NN JJ,4,28,7.0
+PL501071,listing_01071.png,Denim Jacket Original 108,5,denim jacket original 108,NN NN NN JJ,4,25,6.25
+PL501072,listing_01072.png,Leather Wallet Original 242,5,leather wallet original 242,NN NN NN JJ,4,27,6.75
+PL501073,listing_01073.png,Sunglasses Imported 841,2,sunglasses imported 841,NN NN JJ,3,23,7.6667
+PL501074,listing_01074.png,Sunscreen SPF50 Certified 412,3,sunscreen spf50 certified 412,NN NN NN JJ,4,29,7.25
+PL501075,listing_01075.png,Deep Learning Pack of 2 613,6,deep learning pack of 2 613,NN NN NN JJ JJ JJ,6,27,4.5
+PL501076,listing_01076.png,Cricket Bat Original 988,10,cricket bat original 988,NN JJ NN JJ,4,24,6.0
+PL501077,listing_01077.png,Yoga Mat Brand New 501,1,yoga mat brand new 501,NN JJ NN JJ JJ,5,22,4.4
+PL501078,listing_01078.png,Vacuum Cleaner Imported 133,7,vacuum cleaner imported 133,NN NN NN JJ,4,27,6.75
+PL501079,listing_01079.png,Wireless Earbuds Certified 864,3,wireless earbuds certified 864,NN NN NN JJ,4,30,7.5
+PL501080,listing_01080.png,Data Science Handbook Certified 13,4,data science handbook certified 13,NN NN NN NN JJ,5,34,6.8
+PL501081,listing_01081.png,Cookware Set Certified 115,7,cookware set certified 115,NN JJ NN JJ,4,26,6.5
+PL501082,listing_01082.png,Coffee Maker Premium 576,7,coffee maker premium 576,NN NN NN JJ,4,24,6.0
+PL501083,listing_01083.png,Hair Dryer Certified 847,3,hair dryer certified 847,NN NN NN JJ,4,24,6.0
+PL501084,listing_01084.png,Data Science Handbook Original 338,4,data science handbook original 338,NN NN NN NN JJ,5,34,6.8
+PL501085,listing_01085.png,Sunglasses Brand New 814,5,sunglasses brand new 814,NN NN JJ JJ,4,24,6.0
+PL501086,listing_01086.png,Power Bank Imported 286,2,power bank imported 286,NN NN NN JJ,4,23,5.75
+PL501087,listing_01087.png,Perfume Brand New 190,3,perfume brand new 190,NN NN JJ JJ,4,21,5.25
+PL501088,listing_01088.png,LED Monitor Original 153,2,led monitor original 153,JJ NN NN JJ,4,24,6.0
+PL501089,listing_01089.png,Backpack Premium 34,1,backpack premium 34,NN NN JJ,3,19,6.3333
+PL501090,listing_01090.png,ML Yearbook Original 448,0,ml yearbook original 448,JJ NN NN JJ,4,24,6.0
+PL501091,listing_01091.png,ML Yearbook Original 183,0,ml yearbook original 183,JJ NN NN JJ,4,24,6.0
+PL501092,listing_01092.png,Backpack Imported 3,1,backpack imported 3,NN NN JJ,3,19,6.3333
+PL501093,listing_01093.png,Sunscreen SPF50 Imported 219,3,sunscreen spf50 imported 219,NN NN NN JJ,4,28,7.0
+PL501094,listing_01094.png,Perfume Original 986,0,perfume original 986,NN NN JJ,3,20,6.6667
+PL501095,listing_01095.png,AutoML in Practice Premium 181,4,automl in practice premium 181,NN JJ NN NN JJ,5,30,6.0
+PL501096,listing_01096.png,Sunglasses Brand New 463,5,sunglasses brand new 463,NN NN JJ JJ,4,24,6.0
+PL501097,listing_01097.png,Hair Dryer Imported 867,3,hair dryer imported 867,NN NN NN JJ,4,23,5.75
+PL501098,listing_01098.png,Running Shoes Pack of 2 23,11,running shoes pack of 2 23,NN NN NN JJ JJ JJ,6,26,4.3333
+PL501099,listing_01099.png,Vacuum Cleaner Imported 601,7,vacuum cleaner imported 601,NN NN NN JJ,4,27,6.75
+PL501100,listing_01100.png,Perfume Imported 892,0,perfume imported 892,NN NN JJ,3,20,6.6667
+PL501101,listing_01101.png,Dumbbell Set Premium 438,10,dumbbell set premium 438,NN JJ NN JJ,4,24,6.0
+PL501102,listing_01102.png,Blender Original 173,4,blender original 173,NN NN JJ,3,20,6.6667
+PL501103,listing_01103.png,Dumbbell Set Original 183,10,dumbbell set original 183,NN JJ NN JJ,4,25,6.25
+PL501104,listing_01104.png,Vacuum Cleaner Original 428,7,vacuum cleaner original 428,NN NN NN JJ,4,27,6.75
+PL501105,listing_01105.png,Blender Brand New 230,7,blender brand new 230,NN NN JJ JJ,4,21,5.25
+PL501106,listing_01106.png,Power Bank Pack of 2 846,8,power bank pack of 2 846,NN NN NN JJ JJ JJ,6,24,4.0
+PL501107,listing_01107.png,Air Fryer Imported 446,7,air fryer imported 446,JJ NN NN JJ,4,22,5.5
+PL501108,listing_01108.png,Coffee Maker Certified 221,7,coffee maker certified 221,NN NN NN JJ,4,26,6.5
+PL501109,listing_01109.png,Deep Learning Pack of 2 816,6,deep learning pack of 2 816,NN NN NN JJ JJ JJ,6,27,4.5
+PL501110,listing_01110.png,Blender Certified 72,4,blender certified 72,NN NN JJ,3,20,6.6667
+PL501111,listing_01111.png,Lip Balm Pack Brand New 327,9,lip balm pack brand new 327,JJ NN NN NN JJ JJ,6,27,4.5
+PL501112,listing_01112.png,Football Imported 686,7,football imported 686,NN NN JJ,3,21,7.0
+PL501113,listing_01113.png,Running Shoes Premium 306,5,running shoes premium 306,NN NN NN JJ,4,25,6.25
+PL501114,listing_01114.png,Smart Watch Certified 87,2,smart watch certified 87,NN NN NN JJ,4,24,6.0
+PL501115,listing_01115.png,Running Shoes Original 797,5,running shoes original 797,NN NN NN JJ,4,26,6.5
+PL501116,listing_01116.png,Sunglasses Imported 903,2,sunglasses imported 903,NN NN JJ,3,23,7.6667
+PL501117,listing_01117.png,Denim Jacket Premium 325,5,denim jacket premium 325,NN NN NN JJ,4,24,6.0
+PL501118,listing_01118.png,Lip Balm Pack Pack of 2 996,0,lip balm pack pack of 2 996,JJ NN NN NN JJ JJ JJ,7,27,3.8571
+PL501119,listing_01119.png,Sunscreen SPF50 Brand New 521,6,sunscreen spf50 brand new 521,NN NN NN JJ JJ,5,29,5.8
+PL501120,listing_01120.png,Backpack Brand New 805,5,backpack brand new 805,NN NN JJ JJ,4,22,5.5
+PL501121,listing_01121.png,Perfume Certified 436,0,perfume certified 436,NN NN JJ,3,21,7.0
+PL501122,listing_01122.png,ML Yearbook Pack of 2 803,6,ml yearbook pack of 2 803,JJ NN NN JJ JJ JJ,6,25,4.1667
+PL501123,listing_01123.png,Cookware Set Premium 732,7,cookware set premium 732,NN JJ NN JJ,4,24,6.0
+PL501124,listing_01124.png,Sunscreen SPF50 Pack of 2 331,9,sunscreen spf50 pack of 2 331,NN NN NN JJ JJ JJ,6,29,4.8333
+PL501125,listing_01125.png,Coffee Maker Original 124,7,coffee maker original 124,NN NN NN JJ,4,25,6.25
+PL501126,listing_01126.png,Perfume Imported 402,0,perfume imported 402,NN NN JJ,3,20,6.6667
+PL501127,listing_01127.png,Smart Watch Imported 269,2,smart watch imported 269,NN NN NN JJ,4,24,6.0
+PL501128,listing_01128.png,Lip Balm Pack Brand New 600,9,lip balm pack brand new 600,JJ NN NN NN JJ JJ,6,27,4.5
+PL501129,listing_01129.png,Vacuum Cleaner Premium 374,7,vacuum cleaner premium 374,NN NN NN JJ,4,26,6.5
+PL501130,listing_01130.png,Coffee Maker Certified 548,7,coffee maker certified 548,NN NN NN JJ,4,26,6.5
+PL501131,listing_01131.png,Running Shoes Pack of 2 735,11,running shoes pack of 2 735,NN NN NN JJ JJ JJ,6,27,4.5
+PL501132,listing_01132.png,Power Bank Brand New 197,5,power bank brand new 197,NN NN NN JJ JJ,5,24,4.8
+PL501133,listing_01133.png,Smart Watch Certified 913,2,smart watch certified 913,NN NN NN JJ,4,25,6.25
+PL501134,listing_01134.png,Football Imported 495,7,football imported 495,NN NN JJ,3,21,7.0
+PL501135,listing_01135.png,Smart Watch Premium 437,2,smart watch premium 437,NN NN NN JJ,4,23,5.75
+PL501136,listing_01136.png,Smart Watch Original 412,2,smart watch original 412,NN NN NN JJ,4,24,6.0
+PL501137,listing_01137.png,LED Monitor Imported 184,2,led monitor imported 184,JJ NN NN JJ,4,24,6.0
+PL501138,listing_01138.png,Cookware Set Pack of 2 192,1,cookware set pack of 2 192,NN JJ NN JJ JJ JJ,6,26,4.3333
+PL501139,listing_01139.png,Lip Balm Pack Pack of 2 345,0,lip balm pack pack of 2 345,JJ NN NN NN JJ JJ JJ,7,27,3.8571
+PL501140,listing_01140.png,Cycling Helmet Brand New 254,1,cycling helmet brand new 254,NN NN NN JJ JJ,5,28,5.6
+PL501141,listing_01141.png,Data Science Handbook Imported 49,4,data science handbook imported 49,NN NN NN NN JJ,5,33,6.6
+PL501142,listing_01142.png,Cricket Bat Brand New 462,1,cricket bat brand new 462,NN JJ NN JJ JJ,5,25,5.0
+PL501143,listing_01143.png,Blender Premium 674,3,blender premium 674,NN NN JJ,3,19,6.3333
+PL501144,listing_01144.png,ML Yearbook Premium 367,0,ml yearbook premium 367,JJ NN NN JJ,4,23,5.75
+PL501145,listing_01145.png,Blender Pack of 2 308,10,blender pack of 2 308,NN NN JJ JJ JJ,5,21,4.2
+PL501146,listing_01146.png,Power Bank Pack of 2 268,8,power bank pack of 2 268,NN NN NN JJ JJ JJ,6,24,4.0
+PL501147,listing_01147.png,Cookware Set Imported 9,7,cookware set imported 9,NN JJ NN JJ,4,23,5.75
+PL501148,listing_01148.png,Yoga Mat Certified 249,10,yoga mat certified 249,NN JJ NN JJ,4,22,5.5
+PL501149,listing_01149.png,Cookware Set Premium 24,7,cookware set premium 24,NN JJ NN JJ,4,23,5.75
+PL501150,listing_01150.png,Bluetooth Speaker Imported 476,3,bluetooth speaker imported 476,NN NN NN JJ,4,30,7.5
+PL501151,listing_01151.png,Air Fryer Certified 620,7,air fryer certified 620,JJ NN NN JJ,4,23,5.75
+PL501152,listing_01152.png,Blender Brand New 663,7,blender brand new 663,NN NN JJ JJ,4,21,5.25
+PL501153,listing_01153.png,Dumbbell Set Brand New 497,1,dumbbell set brand new 497,NN JJ NN JJ JJ,5,26,5.2
+PL501154,listing_01154.png,Running Shoes Certified 897,5,running shoes certified 897,NN NN NN JJ,4,27,6.75
+PL501155,listing_01155.png,Cricket Bat Imported 159,10,cricket bat imported 159,NN JJ NN JJ,4,24,6.0
+PL501156,listing_01156.png,Hair Dryer Pack of 2 86,9,hair dryer pack of 2 86,NN NN NN JJ JJ JJ,6,23,3.8333
+PL501157,listing_01157.png,Leather Wallet Original 783,5,leather wallet original 783,NN NN NN JJ,4,27,6.75
+PL501158,listing_01158.png,Power Bank Certified 512,2,power bank certified 512,NN NN NN JJ,4,24,6.0
+PL501159,listing_01159.png,Wireless Earbuds Imported 199,2,wireless earbuds imported 199,NN NN NN JJ,4,29,7.25
+PL501160,listing_01160.png,Denim Jacket Pack of 2 268,11,denim jacket pack of 2 268,NN NN NN JJ JJ JJ,6,26,4.3333
+PL501161,listing_01161.png,Deep Learning Original 925,0,deep learning original 925,NN NN NN JJ,4,26,6.5
+PL501162,listing_01162.png,Lip Balm Pack Premium 902,6,lip balm pack premium 902,JJ NN NN NN JJ,5,25,5.0
+PL501163,listing_01163.png,ML Yearbook Brand New 790,3,ml yearbook brand new 790,JJ NN NN JJ JJ,5,25,5.0
+PL501164,listing_01164.png,Blender Certified 70,4,blender certified 70,NN NN JJ,3,20,6.6667
+PL501165,listing_01165.png,Air Fryer Brand New 396,10,air fryer brand new 396,JJ NN NN JJ JJ,5,23,4.6
+PL501166,listing_01166.png,Hair Dryer Certified 895,3,hair dryer certified 895,NN NN NN JJ,4,24,6.0
+PL501167,listing_01167.png,Power Bank Original 249,2,power bank original 249,NN NN NN JJ,4,23,5.75
+PL501168,listing_01168.png,Smart Watch Premium 890,2,smart watch premium 890,NN NN NN JJ,4,23,5.75
+PL501169,listing_01169.png,Perfume Brand New 749,3,perfume brand new 749,NN NN JJ JJ,4,21,5.25
+PL501170,listing_01170.png,Perfume Certified 233,0,perfume certified 233,NN NN JJ,3,21,7.0
+PL501171,listing_01171.png,Data Science Handbook Original 802,4,data science handbook original 802,NN NN NN NN JJ,5,34,6.8
+PL501172,listing_01172.png,Hair Dryer Original 961,3,hair dryer original 961,NN NN NN JJ,4,23,5.75
+PL501173,listing_01173.png,Cricket Bat Pack of 2 737,4,cricket bat pack of 2 737,NN JJ NN JJ JJ JJ,6,25,4.1667
+PL501174,listing_01174.png,ML Yearbook Pack of 2 808,6,ml yearbook pack of 2 808,JJ NN NN JJ JJ JJ,6,25,4.1667
+PL501175,listing_01175.png,Blender Pack of 2 462,10,blender pack of 2 462,NN NN JJ JJ JJ,5,21,4.2
+PL501176,listing_01176.png,Cookware Set Pack of 2 433,1,cookware set pack of 2 433,NN JJ NN JJ JJ JJ,6,26,4.3333
+PL501177,listing_01177.png,Football Premium 122,7,football premium 122,NN NN JJ,3,20,6.6667
+PL501178,listing_01178.png,Cricket Bat Premium 568,10,cricket bat premium 568,NN JJ NN JJ,4,23,5.75
+PL501179,listing_01179.png,Dumbbell Set Pack of 2 12,4,dumbbell set pack of 2 12,NN JJ NN JJ JJ JJ,6,25,4.1667
+PL501180,listing_01180.png,Face Serum Certified 211,3,face serum certified 211,NN NN NN JJ,4,24,6.0
+PL501181,listing_01181.png,Data Science Handbook Pack of 2 703,10,data science handbook pack of 2 703,NN NN NN NN JJ JJ JJ,7,35,5.0
+PL501182,listing_01182.png,Blender Original 195,4,blender original 195,NN NN JJ,3,20,6.6667
+PL501183,listing_01183.png,Cookware Set Certified 313,7,cookware set certified 313,NN JJ NN JJ,4,26,6.5
+PL501184,listing_01184.png,LED Monitor Certified 551,2,led monitor certified 551,JJ NN NN JJ,4,25,6.25
+PL501185,listing_01185.png,Wireless Earbuds Imported 744,2,wireless earbuds imported 744,NN NN NN JJ,4,29,7.25
+PL501186,listing_01186.png,Vacuum Cleaner Imported 566,7,vacuum cleaner imported 566,NN NN NN JJ,4,27,6.75
+PL501187,listing_01187.png,Wireless Earbuds Premium 890,2,wireless earbuds premium 890,NN NN NN JJ,4,28,7.0
+PL501188,listing_01188.png,Running Shoes Imported 470,5,running shoes imported 470,NN NN NN JJ,4,26,6.5
+PL501189,listing_01189.png,Cricket Bat Premium 264,10,cricket bat premium 264,NN JJ NN JJ,4,23,5.75
+PL501190,listing_01190.png,Running Shoes Brand New 599,8,running shoes brand new 599,NN NN NN JJ JJ,5,27,5.4
+PL501191,listing_01191.png,Air Fryer Premium 748,7,air fryer premium 748,JJ NN NN JJ,4,21,5.25
+PL501192,listing_01192.png,Football Premium 763,7,football premium 763,NN NN JJ,3,20,6.6667
+PL501193,listing_01193.png,AutoML in Practice Certified 866,4,automl in practice certified 866,NN JJ NN NN JJ,5,32,6.4
+PL501194,listing_01194.png,Dumbbell Set Original 504,10,dumbbell set original 504,NN JJ NN JJ,4,25,6.25
+PL501195,listing_01195.png,Yoga Mat Brand New 136,1,yoga mat brand new 136,NN JJ NN JJ JJ,5,22,4.4
+PL501196,listing_01196.png,Coffee Maker Premium 635,7,coffee maker premium 635,NN NN NN JJ,4,24,6.0
+PL501197,listing_01197.png,Coffee Maker Pack of 2 806,1,coffee maker pack of 2 806,NN NN NN JJ JJ JJ,6,26,4.3333
+PL501198,listing_01198.png,ML Yearbook Imported 491,0,ml yearbook imported 491,JJ NN NN JJ,4,24,6.0
+PL501199,listing_01199.png,Yoga Mat Imported 336,10,yoga mat imported 336,NN JJ NN JJ,4,21,5.25
