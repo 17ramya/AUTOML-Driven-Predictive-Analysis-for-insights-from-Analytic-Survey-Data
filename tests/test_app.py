@@ -8,6 +8,7 @@ skipped automatically when Streamlit is not installed.
 
 from __future__ import annotations
 
+import tempfile
 import unittest
 from pathlib import Path
 
@@ -71,6 +72,27 @@ class DashboardSmokeTests(unittest.TestCase):
         labels = [metric.label for metric in app.metric]
         self.assertIn("Observations", labels)
         self.assertIn("Variables", labels)
+
+    def test_the_eda_report_is_embedded_in_the_page(self) -> None:
+        # Regression test for the AttributeError that blanked all six tabs:
+        # `app.py` imported the *function* `streamlit.components.v1.html` under
+        # the name `components` and then called `components.html(...)`, which a
+        # function cannot have.  Streamlit runs every tab body on every rerun,
+        # so that one line took the whole dashboard down, not just the EDA tab.
+        report = Path(tempfile.mkdtemp()) / "eda_report.html"
+        report.write_text(
+            "<html><body><h1>AUTOML-EDA-MARKER</h1></body></html>", encoding="utf-8"
+        )
+
+        app = AppTest.from_file(str(APP_PATH), default_timeout=240)
+        app.session_state["eda_path"] = str(report)
+        app.run()
+
+        self.assertEqual(list(app.exception), [], "embedding the EDA report crashed the app")
+        self.assertEqual([e.value for e in app.error], [])
+        frames = list(app.get("iframe"))
+        self.assertEqual(len(frames), 1, "the EDA report was not embedded")
+        self.assertIn("AUTOML-EDA-MARKER", frames[0].proto.srcdoc)
 
     def test_training_and_prediction_flow(self) -> None:
         app = self._run()

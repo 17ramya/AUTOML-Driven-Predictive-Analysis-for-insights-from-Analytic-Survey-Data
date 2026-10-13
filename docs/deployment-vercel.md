@@ -256,6 +256,7 @@ to the ASGI app, so the routes stay exactly as declared in `api/index.py`.
 | An install command that is *not* the one in `vercel.json` | The project's **Install Command** is overridden in the dashboard, which wins over `vercel.json` and is invisible to `git grep`. **Project Settings → Build & Deployment → Install Command → clear it** (and check both projects if the repository is deployed twice). |
 | A redeploy keeps failing with the *same* error after the fix | **Redeploy replays that deployment's commit, not the branch tip.** Compare the `Commit:` line at the top of the log with `git rev-parse --short HEAD`: a build that says `Commit: 9d70c61` cannot contain a fix pushed afterwards, however often it is redeployed. Redeploy the deployment *for the current commit* instead, or push any new commit so the tip becomes the newest entry. |
 | The page stays on `Booting the dashboard…` and the banner turns red | Open the browser console. Usual causes: `public/stlite-config.js` missing (the build step did not run) or the CDN files were blocked. Remember `file://` never works - serve `public/` over HTTP. |
+| Every tab shows the same red `AttributeError: 'function' object has no attribute 'html'` | `app.py` imported the *function* `streamlit.components.v1.html` under the name `components` and then called `components.html(...)` - a function has no such attribute. Streamlit executes **every** tab body on every rerun (all six tabs are one script run), so that one line in `eda_tab()` blanked the whole dashboard as soon as an EDA report existed, not just the EDA tab; the traceback is identical on every tab and points at `main()` → `eda_tab()` → the `components.html(...)` call. The import is now the module (`import streamlit.components.v1 as components`) and the preview is rendered by `embed_html_report()`, which degrades to the download button when a runtime cannot create the frame. `components.html` is a plain sandboxed `<iframe>` element of Streamlit's own frontend (no component server), so stlite renders it too. `tests/test_app.py` guards both the embed and the crash. |
 | `CatBoost` is missing from the model list | Expected: no WebAssembly wheel in the browser, and deliberately excluded from the API requirements for size. Install `catboost` locally (and/or add it to `api/requirements.txt`) if you need it server-side. |
 | `410` from `/api/predict` for a `bundle_token` | `/tmp` was recycled - retrain, or upload the `.pkl` your client kept. |
 | Training inside the browser is slower than locally | Expected: `config.N_JOBS` is forced to `1` because WASM has no process pool. |
@@ -332,6 +333,7 @@ server-side stack (CatBoost + `ydata-profiling`) with no client-side download.
 
 ```powershell
 python -m unittest tests.test_vercel_deploy -v   # 36 tests: config, build step, API
+python -m unittest tests.test_app -v            # 6 tests: the dashboard itself, head-less
 python scripts/prepare_vercel_site.py           # rebuild ./public locally
 ```
 

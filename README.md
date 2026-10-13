@@ -81,7 +81,7 @@ AutoML-Project/
 ├── docs/
 │   ├── architecture.md        # module map & data-flow notes
 │   └── deployment-vercel.md   # deployment guide (why the dashboard runs in the browser)
-└── tests/                     # unittest suite (205 tests)
+└── tests/                     # unittest suite (206 tests)
 ```
 
 ---
@@ -479,7 +479,7 @@ python main.py train --tune
 ## Running the tests
 
 ```bash
-python -m unittest discover -s tests -t .          # 205 tests
+python -m unittest discover -s tests -t .          # 206 tests
 python -m unittest tests.test_app -v               # dashboard smoke tests only
 python -m unittest tests.test_config -v            # config + joblib guard only
 python -m unittest tests.test_vercel_deploy -v     # Vercel build step + REST API

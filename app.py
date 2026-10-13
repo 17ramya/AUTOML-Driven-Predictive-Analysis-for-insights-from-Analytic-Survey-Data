@@ -23,7 +23,7 @@ from pathlib import Path
 
 import pandas as pd
 import streamlit as st
-from streamlit.components.v1 import html as components
+import streamlit.components.v1 as components
 
 if __package__ in (None, ""):  # allow `streamlit run app.py` from the repo root
     sys.path.insert(0, str(Path(__file__).resolve().parent))
@@ -193,6 +193,26 @@ def data_tab(frame: pd.DataFrame, source_name: str) -> None:
     )
 
 
+def embed_html_report(html: str, height: int = 600) -> None:
+    """
+    Show the generated EDA report inline, inside a sandboxed iframe.
+
+    ``streamlit.components.v1.html`` is the only supported way to inject a raw
+    HTML document, and it renders through a *custom component*: a runtime that
+    does not provide one raises instead of returning.  The preview is therefore
+    best-effort - the download button above always works - because Streamlit
+    executes **every** tab body on every rerun, so an exception raised here would
+    take all six tabs of the dashboard down with it.
+    """
+    try:
+        components.html(html, height=height, scrolling=True)
+    except Exception as exc:  # pragma: no cover - depends on the runtime
+        st.caption(
+            f"Inline preview unavailable in this runtime ({exc}). "
+            "Use the download button above to open the report."
+        )
+
+
 def eda_tab(frame: pd.DataFrame) -> None:
     st.subheader("Automated exploratory data analysis")
     summary = build_eda_summary(frame)
@@ -216,7 +236,7 @@ def eda_tab(frame: pd.DataFrame) -> None:
                 mime="text/html",
             )
             if len(html) < 1_500_000:
-                components.html(html, height=600, scrolling=True)
+                embed_html_report(html)
             else:
                 st.info("The report is large - use the download button to open it separately.")
 
