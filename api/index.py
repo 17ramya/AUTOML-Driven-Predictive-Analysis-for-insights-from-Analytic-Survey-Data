@@ -74,6 +74,14 @@ app = FastAPI(
         "evaluation -> persistence). The interactive dashboard is served from the same origin as a "
         "WebAssembly build of Streamlit."
     ),
+    # The function is only reachable below `/api` (see the `rewrites` entry in
+    # vercel.json), so FastAPI's defaults - `/docs` and `/openapi.json` - would be
+    # a CDN 404 on Vercel: nothing routes them to the app.  The UI and the schema
+    # therefore live under the same prefix, which is exactly what the discovery
+    # endpoint and `docs/deployment-vercel.md` advertise.
+    docs_url="/api/docs",
+    redoc_url="/api/redoc",
+    openapi_url="/api/openapi.json",
 )
 
 # The API holds no credentials and the dashboard is a public demo, so it is safe

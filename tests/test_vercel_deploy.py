@@ -432,6 +432,19 @@ class ApiEndpointTests(unittest.TestCase):
         self.assertTrue(health["artifacts"]["writable"])
         self.assertIn("Random Forest", health["model_zoo"])
 
+    def test_the_documented_paths_are_the_ones_the_app_serves(self) -> None:
+        # Everything the function serves has to live below `/api`: Vercel routes
+        # only that prefix to it (see the `rewrites` entry in vercel.json), so
+        # FastAPI's defaults - `/docs` and `/openapi.json` - would answer with the
+        # CDN's "X-Vercel-Error: NOT_FOUND" page instead of the app's own UI.  The
+        # discovery endpoint and docs/deployment-vercel.md both advertise
+        # `/api/docs`, and that is the path that has to work.
+        listing = self.client.get("/api").json()
+        self.assertEqual(listing["docs"], "/api/docs")
+        self.assertEqual(self.client.get(listing["docs"]).status_code, 200)
+        self.assertEqual(self.client.get("/api/openapi.json").status_code, 200)
+        self.assertNotEqual(self.client.get("/docs").status_code, 200)
+
     def test_model_zoo_endpoint(self) -> None:
         body = self.client.get("/api/models").json()
         self.assertEqual(body["count"], len(body["models"]))
