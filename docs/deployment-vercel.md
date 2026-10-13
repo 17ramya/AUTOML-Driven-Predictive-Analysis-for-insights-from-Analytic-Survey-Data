@@ -157,13 +157,25 @@ Interactive docs are at `/api/docs`.
 
 | Symptom | Cause / fix |
 | --- | --- |
-| `ModuleNotFoundError: No module named 'src'` in the function logs | The function bundle did not include the package. `vercel.json` already declares `includeFiles: ["src/**", "data/sample/**"]`; confirm the **Root Directory** of the Vercel project is the repository root. |
-| `/api/health` reports `"present": false` for the sample dataset | `data/sample/**` was not bundled - same fix as above, then redeploy. |
+| `Invalid request: functions.api/index.py.includeFiles should be string` | Vercel's schema types `includeFiles` (and `excludeFiles`) as a single glob **string** of ≤256 characters, never an array - declaring `["src/**", "data/sample/**"]` fails the deployment before the build even starts. `vercel.json` now uses `"**/*"`; see the note below the table. |
+| `ModuleNotFoundError: No module named 'src'` in the function logs | The function bundle did not include the package. `vercel.json` declares `includeFiles: "**/*"`, which covers the whole repository; confirm the **Root Directory** of the Vercel project is the repository root. |
+| `/api/health` reports `"present": false` for the sample dataset | `data/sample/` did not reach `/var/task`. `includeFiles: "**/*"` covers it, and `excludeFiles` deliberately never names `src`, `data` or `api` - `tests/test_vercel_deploy.py` guards that. |
 | The build tries to install Streamlit / CatBoost | The project's **Install Command** was overridden in the dashboard. Clear it so `vercel.json`'s `python -m pip install -r deploy/vercel/requirements-api.txt` applies. |
 | The page stays on `Booting the dashboard…` and the banner turns red | Open the browser console. Usual causes: `public/stlite-config.js` missing (the build step did not run) or the CDN files were blocked. Remember `file://` never works - serve `public/` over HTTP. |
 | `CatBoost` is missing from the model list | Expected: no WebAssembly wheel in the browser, and deliberately excluded from the API requirements for size. Install `catboost` locally (and/or add it to `requirements-api.txt`) if you need it server-side. |
 | `410` from `/api/predict` for a `bundle_token` | `/tmp` was recycled - retrain, or upload the `.pkl` your client kept. |
 | Training inside the browser is slower than locally | Expected: `config.N_JOBS` is forced to `1` because WASM has no process pool. |
+
+### Why the function bundles the whole repository
+
+`functions["api/index.py"].includeFiles` is `"**/*"`.  Vercel documents only `*` and
+`**` for these globs, and a pattern that fails to expand leaves files out of the bundle
+*silently*: the deployment still succeeds, but `/api/health` then reports the sample
+dataset as absent and `/api/train` cannot import `src`.  The repository is only ~18 MB
+(the API dependencies dominate the bundle), so the broadest pattern is also the cheapest
+safe one.  `excludeFiles` trims the build output, tests and docs for tidiness only, and
+the test suite forbids it from ever naming `src`, `data` or `api` - a mistake there
+would be a real breakage rather than a bigger download.
 
 ## Other hosts, and when they are a better fit
 
@@ -183,7 +195,7 @@ server-side stack (CatBoost + `ydata-profiling`) with no client-side download.
 ## Verifying a deployment
 
 ```powershell
-python -m unittest tests.test_vercel_deploy -v   # 28 tests: config, build step, API
+python -m unittest tests.test_vercel_deploy -v   # 29 tests: config, build step, API
 python scripts/prepare_vercel_site.py           # rebuild ./public locally
 ```
 

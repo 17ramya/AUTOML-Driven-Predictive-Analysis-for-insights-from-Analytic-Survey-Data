@@ -76,8 +76,28 @@ class VercelProjectConfigTests(unittest.TestCase):
         settings = self.config["functions"]["api/index.py"]
         self.assertLessEqual(settings["maxDuration"], 300)  # Hobby plan maximum
         self.assertLessEqual(settings["memory"], 2048)  # Hobby plan maximum (MB)
-        self.assertIn("src/**", settings["includeFiles"])
-        self.assertIn("data/sample/**", settings["includeFiles"])
+        # Vercel's schema types `includeFiles` as a *string* glob (256 chars max).
+        # An array fails the entire deployment with
+        # "Invalid request: functions.api/index.py.includeFiles should be string".
+        include_files = settings["includeFiles"]
+        self.assertIsInstance(include_files, str)
+        self.assertLessEqual(len(include_files), 256)
+        # `**/*` deliberately covers *everything* rather than the two directories we
+        # happen to need today: the deployment globber only documents `*`/`**`, and a
+        # silent mis-expansion of a cleverer pattern would strip `data/sample` from
+        # the function while still deploying "successfully".  The repository is only
+        # ~18 MB, far below the 250 MB function bundle limit, so the safe glob is
+        # also the cheap one.
+        self.assertEqual(include_files, "**/*")
+
+    def test_the_bundle_exclusions_never_drop_code_or_data(self) -> None:
+        # Exclusions are cosmetic: if the globber ignored them the bundle would
+        # merely be bigger.  Excluding `src` or `data` would instead break the API
+        # at runtime, so those must never appear there.
+        excluded = self.config["functions"]["api/index.py"].get("excludeFiles", "")
+        self.assertNotIn("src", excluded)
+        self.assertNotIn("data", excluded)
+        self.assertNotIn("api", excluded)
 
     def test_framework_detection_is_off(self) -> None:
         # The repository root contains a *Streamlit* `app.py`, which is one of the
