@@ -116,6 +116,18 @@ class VercelProjectConfigTests(unittest.TestCase):
         self.assertNotIn("data", excluded)
         self.assertNotIn("api", excluded)
 
+    def test_the_bundle_excludes_vercels_own_build_scratch_space(self) -> None:
+        # The runtime installs the function's dependencies into the *project directory*
+        # (`.vercel/python/.venv`) and uv caches every wheel there as well
+        # (`.vercel/python/cache/uv`), so `includeFiles: "**/*"` swept both into the
+        # bundle on top of the dependency set.  The build died with
+        # "Total bundle size (920.12 MB) exceeds the maximum function size (500 MB)"
+        # although the dependencies themselves weigh only ~259 MB on manylinux:
+        #   numpy 60 + pandas 39 + scipy 109 + scikit-learn 38 + the web layer ~13.
+        excluded = self.config["functions"]["api/index.py"]["excludeFiles"]
+        for pattern in (".vercel/**", ".git/**"):
+            self.assertIn(pattern, excluded, pattern)
+
     def test_framework_detection_is_off(self) -> None:
         # The repository root contains a *Streamlit* `app.py`, which is one of the
         # file names Vercel auto-detects for Python backends - it must not be

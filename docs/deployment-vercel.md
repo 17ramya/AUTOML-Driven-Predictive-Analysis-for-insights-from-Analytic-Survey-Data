@@ -235,6 +235,7 @@ Interactive docs are at `/api/docs`.
 | The build tries to install Streamlit / CatBoost | Either the **Install Command** was overridden in the dashboard - clear it so `vercel.json`'s `python scripts/prepare_vercel_api_deps.py --apply` applies - or a heavy package was added to `api/requirements.txt`. |
 | `error: externally-managed-environment` while installing | A `pip` install command was added to `vercel.json` or to the dashboard settings. Vercel's build image is a `uv`-managed Python (PEP 668), and the Python runtime installs the function's `api/requirements.txt` with `uv` anyway, so remove the command. |
 | `uv lock` fails inside the function build: `No solution found when resolving dependencies` / `Because pandas==2.1.4 depends on numpy>=1.26.0,<2 and your project depends on numpy==1.25.2` | The function is being built for a **newer interpreter than the pins were validated on**: on Python 3.12 `pandas==2.1.4` requires `numpy>=1.26.0`, and `numpy==1.25.2` has no cp312 wheel at all. Either pin the interpreter the pins support (`api/.python-version`) or raise the numpy pin for the function (`numpy==1.26.4`, still NumPy 1.x for scikit-learn 1.4.2). Reproduce it locally in a second with `uv pip install --dry-run --python-version 3.12 --python-platform x86_64-manylinux_2_28 --only-binary :all: -r api/requirements.txt`. |
+| `Total bundle size (920.12 MB) exceeds the maximum function size (500 MB)` | Vercel's own build scratch space was bundled as *application files*: the Python runtime creates the function's virtual environment inside the project (`.vercel/python/.venv`) and uv caches the wheels next to it (`.vercel/python/cache/uv`), so `includeFiles: "**/*"` picked up ~260 MB of duplicates on top of the ~259 MB dependency set. `excludeFiles` now lists `.vercel/**` and `.git/**`. Sizes can be checked locally with `uv pip install --target <dir> --python-version 3.12 --python-platform x86_64-manylinux_2_28 --only-binary :all: -r api/requirements.txt`. |
 | `No Python version specified in .python-version, pyproject.toml, or Pipfile.lock. Using python version: 3.12` although `.python-version` exists | The file is at the **repository root**, but the runtime reads it from the function's directory upwards and stops at `api/requirements.txt`: move it to `api/.python-version`. Note also that Python 3.11 is no longer offered by Vercel (3.12/3.13/3.14 since 2026-02-02), so a `3.11` pin could not have worked anywhere. |
 | An install command that is *not* the one in `vercel.json` | The project's **Install Command** is overridden in the dashboard, which wins over `vercel.json` and is invisible to `git grep`. **Project Settings → Build & Deployment → Install Command → clear it** (and check both projects if the repository is deployed twice). |
 | A redeploy keeps failing with the *same* error after the fix | **Redeploy replays that deployment's commit, not the branch tip.** Compare the `Commit:` line at the top of the log with `git rev-parse --short HEAD`: a build that says `Commit: 9d70c61` cannot contain a fix pushed afterwards, however often it is redeployed. Redeploy the deployment *for the current commit* instead, or push any new commit so the tip becomes the newest entry. |
@@ -254,6 +255,16 @@ safe one.  `excludeFiles` trims the build output, tests and docs for tidiness on
 the test suite forbids it from ever naming `src`, `data` or `api` - a mistake there
 would be a real breakage rather than a bigger download.
 
+The exception - and the reason `excludeFiles` is not merely cosmetic - is Vercel's own
+build scratch space.  The Python runtime creates the function's virtual environment
+*inside the project directory* (`.vercel/python/.venv`) and uv caches every wheel there
+too (`.vercel/python/cache/uv`), so `includeFiles: "**/*"` swept roughly 260 MB of
+duplicates into the bundle **on top of** the dependency set, and the build failed with
+`Total bundle size (920.12 MB) exceeds the maximum function size (500 MB)` although the
+installed dependencies weigh only ~259 MB on manylinux (numpy 60 + pandas 39 + scipy 109
++ scikit-learn 38 + the web layer ~13).  Excluding `.vercel/**` and `.git/**` brings the
+bundle back to the dependency set plus the ~18 MB repository.
+
 ## Other hosts, and when they are a better fit
 
 The repository is unchanged, so the *server* version of the dashboard still runs
@@ -272,7 +283,7 @@ server-side stack (CatBoost + `ydata-profiling`) with no client-side download.
 ## Verifying a deployment
 
 ```powershell
-python -m unittest tests.test_vercel_deploy -v   # 35 tests: config, build step, API
+python -m unittest tests.test_vercel_deploy -v   # 36 tests: config, build step, API
 python scripts/prepare_vercel_site.py           # rebuild ./public locally
 ```
 

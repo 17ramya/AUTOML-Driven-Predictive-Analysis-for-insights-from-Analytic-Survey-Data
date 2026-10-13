@@ -9,7 +9,7 @@
       "memory": 1024,
       "maxDuration": 300,
       "includeFiles": "**/*",
-      "excludeFiles": "{public/**,tests/**,docs/**,notebooks/**,.vscode/**}"
+      "excludeFiles": "{.vercel/**,.git/**,public/**,tests/**,docs/**,notebooks/**,.vscode/**}"
     }
   },
   "headers": [

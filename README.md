@@ -81,7 +81,7 @@ AutoML-Project/
 ├── docs/
 │   ├── architecture.md        # module map & data-flow notes
 │   └── deployment-vercel.md   # deployment guide (why the dashboard runs in the browser)
-└── tests/                     # unittest suite (202 tests)
+└── tests/                     # unittest suite (203 tests)
 ```
 
 ---
