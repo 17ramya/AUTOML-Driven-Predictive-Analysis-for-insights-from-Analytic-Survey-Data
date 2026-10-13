@@ -103,9 +103,12 @@ class DeploymentFileTests(unittest.TestCase):
         self.assertIn('runpy.run_path(str(ROOT / "app.py")', text)
         self.assertIn("LOKY_MAX_CPU_COUNT", text)
 
-    def test_the_page_loads_stlite_and_the_generated_config(self) -> None:
+    def test_the_page_template_is_parameterised(self) -> None:
         html = PAGE_TEMPLATE.read_text(encoding="utf-8")
-        self.assertIn("@stlite/browser", html)
+        # The stlite URLs are filled in by the build step so the version lives in
+        # exactly one place (`prepare_vercel_site.STLITE_VERSION`).
+        self.assertIn("{{STLITE_JS_URL}}", html)
+        self.assertIn("{{STLITE_CSS_URL}}", html)
         self.assertIn("stlite-config.js", html)
         self.assertIn("window.AUTOML_STLITE", html)
 
@@ -204,6 +207,17 @@ class PrepareSiteTests(unittest.TestCase):
         self.assertTrue((self.output / "index.html").is_file())
         self.assertGreaterEqual(self.summary["published_files"], self.summary["virtual_files"])
         self.assertGreater(self.summary["bytes"], 0)
+
+    def test_the_published_page_pins_one_stlite_version(self) -> None:
+        page = (self.output / "index.html").read_text(encoding="utf-8")
+        self.assertNotIn("{{", page)  # every placeholder was substituted
+        version = self.module.STLITE_VERSION
+        self.assertIn(f"@stlite/browser@{version}/build/stlite.js", page)
+        self.assertIn(f"@stlite/browser@{version}/build/stlite.css", page)
+        # stlite's signature is mount(options, element): the options come first and
+        # the entrypoint is read from them - swapping the arguments makes the page
+        # fail with "The `entrypoint` field is required."
+        self.assertIn("mount(window.AUTOML_STLITE, root)", page)
 
     def test_the_build_is_deterministic(self) -> None:
         with tempfile.TemporaryDirectory() as other:

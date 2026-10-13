@@ -44,6 +44,13 @@ DEFAULT_OUTPUT = PROJECT_ROOT / "public"
 APP_DIR = "stlite"
 ENTRYPOINT = f"{APP_DIR}/bootstrap.py"
 
+# stlite release used by the landing page (npmjs.com/package/@stlite/browser).
+# The page template carries `{{STLITE_JS_URL}}` / `{{STLITE_CSS_URL}}` placeholders
+# so the version is maintained in exactly one place - the same convention the
+# stlite documentation uses for its own static-hosting examples.
+STLITE_VERSION = "1.11.0"
+STLITE_CDN_BASE = f"https://cdn.jsdelivr.net/npm/@stlite/browser@{STLITE_VERSION}/build"
+
 PAGE_TEMPLATE = DEPLOY_DIR / "index.html"
 BOOTSTRAP_TEMPLATE = DEPLOY_DIR / "bootstrap.py"
 PYODIDE_REQUIREMENTS = DEPLOY_DIR / "requirements-pyodide.txt"
@@ -154,7 +161,14 @@ def build_site(output: Path = DEFAULT_OUTPUT, clean: bool = True) -> dict[str, i
         encoding="utf-8",
     )
 
-    shutil.copy2(PAGE_TEMPLATE, output / "index.html")
+    page = (
+        PAGE_TEMPLATE.read_text(encoding="utf-8")
+        .replace("{{STLITE_JS_URL}}", f"{STLITE_CDN_BASE}/stlite.js")
+        .replace("{{STLITE_CSS_URL}}", f"{STLITE_CDN_BASE}/stlite.css")
+    )
+    if "{{" in page:  # a placeholder was added to the template but never filled in
+        raise SystemExit(f"Unsubstituted placeholder in {PAGE_TEMPLATE}.")
+    (output / "index.html").write_text(page, encoding="utf-8")
 
     published = [path for path in output.rglob("*") if path.is_file()]
     return {

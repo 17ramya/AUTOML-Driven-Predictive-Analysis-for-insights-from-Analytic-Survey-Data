@@ -19,10 +19,7 @@
       name="description"
       content="AutoML-driven predictive analysis of analytic survey data: the Streamlit dashboard running fully in the browser (stlite / Pyodide WebAssembly), deployed on Vercel."
     />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/@stlite/browser@0.85.1/build/stlite.css"
-    />
+    <link rel="stylesheet" href="{{STLITE_CSS_URL}}" />
     <style>
       html,
       body {
@@ -108,7 +105,7 @@
 
     <script src="./stlite-config.js"></script>
     <script type="module">
-      import { mount } from "https://cdn.jsdelivr.net/npm/@stlite/browser@0.85.1/build/stlite.js";
+      import { mount } from "{{STLITE_JS_URL}}";
 
       const banner = document.getElementById("boot-banner");
       const root = document.getElementById("root");
@@ -135,7 +132,10 @@
         }
       }, 60000);
 
-      mount(root, window.AUTOML_STLITE).catch((error) => {
+      // stlite's signature is mount(options, containerElement) - the options come
+      // first and the entrypoint is read from them, so the arguments cannot be
+      // swapped.
+      mount(window.AUTOML_STLITE, root).catch((error) => {
         observer.disconnect();
         banner.classList.add("error");
         banner.querySelector("strong").textContent = "The browser build could not start";

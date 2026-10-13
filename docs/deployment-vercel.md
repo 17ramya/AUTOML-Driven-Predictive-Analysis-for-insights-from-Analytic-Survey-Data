@@ -86,6 +86,16 @@ python -m http.server 8000 --directory public
 Opening `public/index.html` straight from the file system does **not** work: the
 browser refuses to fetch the `stlite/` files from `file://` for security reasons.
 
+### Updating the stlite runtime
+
+The page template carries `{{STLITE_JS_URL}}` / `{{STLITE_CSS_URL}}` placeholders
+and the build step fills them from the single `STLITE_VERSION` constant in
+`scripts/prepare_vercel_site.py` (currently `1.11.0`, which bundles Streamlit 1.65
+for WebAssembly).  To upgrade: bump that constant, run
+`python scripts/prepare_vercel_site.py`, and make sure
+`tests.test_vercel_deploy` still passes - it fails if a placeholder is left
+unsubstituted or the two URLs drift onto different versions.
+
 ## Using the API
 
 ```bash
@@ -173,7 +183,7 @@ server-side stack (CatBoost + `ydata-profiling`) with no client-side download.
 ## Verifying a deployment
 
 ```powershell
-python -m unittest tests.test_vercel_deploy -v   # 27 tests: config, build step, API
+python -m unittest tests.test_vercel_deploy -v   # 28 tests: config, build step, API
 python scripts/prepare_vercel_site.py           # rebuild ./public locally
 ```
 
