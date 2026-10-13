@@ -658,15 +658,29 @@ def run_training_pipeline(
     # Retrain the winner on the *entire* dataset ("best_model.fit(X, y)").
     best_model.fit(prepared.x_full, prepared.y_full)
 
-    cv_summary = cross_validate_model(
-        LogisticRegression(max_iter=1000, random_state=random_state),
-        prepared.x_train,
-        prepared.y_train,
-        cv=config.CV_FOLDS_CROSS_VAL,
-    )
+    # The stability summary is a *nice to have*: it must never throw away a run
+    # that has already trained, ranked and (optionally) saved its models.  A
+    # runtime quirk here - e.g. a partial `pyarrow` module upsetting scikit-learn
+    # inside the WebAssembly build - is reported through `cv_summary["error"]`
+    # instead, and the dashboard renders the missing "mean" as nan.
+    try:
+        cv_summary: dict[str, Any] = cross_validate_model(
+            LogisticRegression(max_iter=1000, random_state=random_state),
+            prepared.x_train,
+            prepared.y_train,
+            cv=config.CV_FOLDS_CROSS_VAL,
+        )
+    except Exception as exc:
+        cv_summary = {"error": f"{type(exc).__name__}: {exc}"}
     if verbose:
         print(f"Best model : {best_name}")
-        print(f"5-fold CV  : mean accuracy = {cv_summary['mean']:.4f} (+/- {cv_summary['std']:.4f})")
+        if "mean" in cv_summary:
+            print(
+                f"5-fold CV  : mean accuracy = {cv_summary['mean']:.4f} "
+                f"(+/- {cv_summary['std']:.4f})"
+            )
+        else:
+            print(f"5-fold CV  : unavailable ({cv_summary['error']})")
 
     model_path: Path | None = None
     bundle_path: Path | None = None

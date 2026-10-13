@@ -39,6 +39,7 @@ python -m streamlit run app.py                 # optional interactive dashboard
 | Inference replay of the training preprocessing | `src/predict.py` | scores raw frames, adds probabilities and confidence |
 | Multi-modal image descriptors merged with listing text | `src/image_features.py` | Pillow-based, degrades gracefully when Pillow is absent |
 | Streamlit dashboard + CLI | `app.py`, `main.py` | same pipeline functions, so results always agree |
+| Browser-runtime shim: completes the partial `pyarrow` of stlite so scikit-learn can probe it | `src/compat.py` | called by `deploy/vercel/bootstrap.py`; a no-op wherever pyarrow is complete (local CPython, REST API) |
 | 190+ unit tests (`unittest`, no extra dependency) | `tests/` | deterministic seeded fixtures |
 
 ---
@@ -81,7 +82,7 @@ AutoML-Project/
 ├── docs/
 │   ├── architecture.md        # module map & data-flow notes
 │   └── deployment-vercel.md   # deployment guide (why the dashboard runs in the browser)
-└── tests/                     # unittest suite (211 tests)
+└── tests/                     # unittest suite (217 tests)
 ```
 
 ---
@@ -483,13 +484,14 @@ python main.py train --tune
 | Browser does not open | `python -m streamlit run app.py --server.headless true` and browse to the printed URL |
 | `UserWarning: Could not find the number of physical cores` | handled automatically by `src.config`; see the section above |
 | `Training failed: Every candidate model failed to train. Check the dataset.` in *Train & compare* | The target you selected is a **continuous** column (a price/measurement, e.g. an unnamed `iris.csv` where the last column is a measurement). All models of the zoo are classifiers and scikit-learn rejects a fractional target (`Unknown label type: 'continuous'`), so every candidate is skipped. Select the column that carries the class labels — a categorical column, or an integer code such as 0/1/2. The sidebar warns as soon as a continuous column is selected, and the pipeline names the column in its error message. |
+| `AttributeError: module 'pyarrow' has no attribute 'RecordBatch'` while training in the **browser build** | `pyarrow` is not one of the Python packages Pyodide ships, so the stlite runtime hands Streamlit a partial stand-in module (it defines only `Table`, `Array`, `ChunkedArray`). scikit-learn 1.5+ resolves one name more than that - `pa.RecordBatch` - every time it splits the training data (`cross_val_score`, `GridSearchCV`, `resample`), so any run inside the tab died there, on plain NumPy arrays where pyarrow plays no part. `src/compat.py` completes such a module with placeholder classes and `deploy/vercel/bootstrap.py` calls it before the dashboard starts; local CPython and the REST API are unaffected either way. The 5-fold summary is now optional too, so this class of failure can no longer discard a trained run. |
 
 ---
 
 ## Running the tests
 
 ```bash
-python -m unittest discover -s tests -t .          # 211 tests
+python -m unittest discover -s tests -t .          # 217 tests
 python -m unittest tests.test_app -v               # dashboard smoke tests only
 python -m unittest tests.test_config -v            # config + joblib guard only
 python -m unittest tests.test_vercel_deploy -v     # Vercel build step + REST API

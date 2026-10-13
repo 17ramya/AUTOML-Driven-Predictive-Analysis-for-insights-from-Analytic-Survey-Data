@@ -23,11 +23,15 @@ import base64
 import json
 import os
 import shutil
+import sys
 import tempfile
+import types
 import unittest
 from pathlib import Path
+from unittest import mock
 
 from tests.helpers import PROJECT_ROOT, make_classification_frame
+from src.compat import PYARROW_PROBED_ATTRIBUTES, patch_partial_pyarrow
 
 try:  # pragma: no cover - depends on the local environment
     from fastapi.testclient import TestClient
@@ -197,6 +201,19 @@ class DeploymentFileTests(unittest.TestCase):
         self.assertIn('runpy.run_path(str(ROOT / "app.py")', text)
         self.assertIn("LOKY_MAX_CPU_COUNT", text)
 
+    def test_the_bootstrap_shim_repairs_the_partial_pyarrow_module(self) -> None:
+        # Regression test for the deployed traceback
+        #   AttributeError: module 'pyarrow' has no attribute 'RecordBatch'
+        # raised from sklearn/utils/_indexing.py -> _is_pyarrow_data() while
+        # training.  The repair has to happen in the browser entrypoint, i.e.
+        # *before* the dashboard runs and reaches an estimator.
+        text = BOOTSTRAP.read_text(encoding="utf-8")
+        self.assertIn("from src.compat import patch_partial_pyarrow", text)
+        self.assertLess(
+            text.index("patch_partial_pyarrow()"),
+            text.index('runpy.run_path(str(ROOT / "app.py")'),
+        )
+
     def test_the_page_template_is_parameterised(self) -> None:
         html = PAGE_TEMPLATE.read_text(encoding="utf-8")
         # The stlite URLs are filled in by the build step so the version lives in
@@ -231,6 +248,76 @@ class BrowserRequirementsTests(unittest.TestCase):
             "pillow",
         ):
             self.assertIn(package, self.names)
+
+
+class PyodideCompatTests(unittest.TestCase):
+    """The browser build must survive the *partial* `pyarrow` of the stlite runtime.
+
+    Pyodide 0.28 - what stlite 1.11 runs, and what the deployed page reports as
+    Python 3.13 - has no pyarrow of its own, so the runtime hands Streamlit a
+    stand-in module that implements only the names Streamlit uses.  scikit-learn
+    (1.5+) resolves one name more than that inside its data indexer:
+
+        def _is_pyarrow_data(X):
+            return isinstance(X, (pa.Table, pa.RecordBatch, pa.Array, pa.ChunkedArray))
+
+    which made every `cross_val_score`/`GridSearchCV` call in the tab raise
+    `AttributeError: module 'pyarrow' has no attribute 'RecordBatch'`.
+    """
+
+    @staticmethod
+    def _partial_module(*present: str) -> types.ModuleType:
+        """A pyarrow module that only defines ``present``."""
+        module = types.ModuleType("pyarrow")
+        for name in present:
+            setattr(module, name, type(name, (), {}))
+        return module
+
+    def test_the_names_scikit_learn_probes_are_added(self) -> None:
+        # Exactly the set the stlite runtime provides (no RecordBatch).
+        partial = self._partial_module("Table", "Array", "ChunkedArray")
+
+        with mock.patch.dict(sys.modules, {"pyarrow": partial}):
+            added = patch_partial_pyarrow()
+
+        self.assertEqual(added, ["RecordBatch"])
+        self.assertIsInstance(partial.RecordBatch, type)
+
+        # scikit-learn's probe can now build its tuple and answer "not pyarrow
+        # data" for a NumPy array, as it does with the real library.
+        probe = tuple(getattr(partial, name) for name in PYARROW_PROBED_ATTRIBUTES)
+        self.assertFalse(isinstance(object(), probe))
+
+        # Idempotent: a second call has nothing left to do.
+        with mock.patch.dict(sys.modules, {"pyarrow": partial}):
+            self.assertEqual(patch_partial_pyarrow(), [])
+
+    def test_a_complete_pyarrow_module_is_left_untouched(self) -> None:
+        complete = self._partial_module(*PYARROW_PROBED_ATTRIBUTES)
+
+        with mock.patch.dict(sys.modules, {"pyarrow": complete}):
+            self.assertEqual(patch_partial_pyarrow(), [])
+
+        self.assertEqual(complete.RecordBatch.__name__, "RecordBatch")
+
+    def test_a_missing_pyarrow_module_is_never_installed(self) -> None:
+        # Local CPython and the REST API function ship without pyarrow; nothing
+        # may be created or cached in that case.
+        self.assertEqual(patch_partial_pyarrow("automl_pyarrow_that_does_not_exist"), [])
+        self.assertNotIn("automl_pyarrow_that_does_not_exist", sys.modules)
+
+    def test_a_module_that_refuses_attribute_writes_does_not_raise(self) -> None:
+        # A JS-backed module may be read-only; the run still has to start (the
+        # pipeline then reports the CV summary failure instead of crashing).
+        class ReadOnly:
+            def __getattr__(self, name: str) -> object:
+                raise AttributeError(name)
+
+            def __setattr__(self, name: str, value: object) -> None:
+                raise TypeError(f"{name} is read-only")
+
+        with mock.patch.dict(sys.modules, {"pyarrow": ReadOnly()}):
+            self.assertEqual(patch_partial_pyarrow(), [])
 
 
 class ApiRequirementsTests(unittest.TestCase):
@@ -355,6 +442,9 @@ class PrepareSiteTests(unittest.TestCase):
         self.assertIn("stlite/app.py", mounted)
         self.assertIn("stlite/src/model_training.py", mounted)
         self.assertIn("stlite/src/config.py", mounted)
+        # The pyarrow repair of src/compat.py has to reach the browser too: it is
+        # what keeps scikit-learn's data indexer happy on the stlite runtime.
+        self.assertIn("stlite/src/compat.py", mounted)
         self.assertTrue(
             any(name.endswith("amazon_sales_data_2025.csv") for name in mounted),
             "the bundled sample dataset has to be mounted for the demo to work offline",

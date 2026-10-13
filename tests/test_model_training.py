@@ -361,6 +361,34 @@ class RunTrainingPipelineTests(unittest.TestCase):
         self.assertIn("Every candidate model failed to train", message)
         self.assertIn("Decision Tree -> ValueError: broken on purpose", message)
 
+    def test_a_failed_stability_summary_never_loses_the_run(self) -> None:
+        # The 5-fold summary is decorative: a runtime quirk inside it - the
+        # deployed browser build used to raise here because the stlite runtime's
+        # partial `pyarrow` upsets scikit-learn's data indexer - must not discard a
+        # run whose models have already been trained and ranked.  The reason is
+        # reported through `cv_summary["error"]` and the dashboard prints nan.
+        frame = make_classification_frame(rows=120)
+
+        with mock.patch.object(
+            model_training,
+            "cross_validate_model",
+            side_effect=AttributeError("module 'pyarrow' has no attribute 'RecordBatch'"),
+        ):
+            result = run_training_pipeline(
+                frame,
+                "status",
+                selected_models=["Decision Tree"],
+                save=False,
+                generate_eda=False,
+                verbose=False,
+            )
+
+        self.assertEqual(result.best_model_name, "Decision Tree")
+        self.assertIn("RecordBatch", result.cv_summary["error"])
+        self.assertGreaterEqual(result.best_metrics["accuracy"], 0.6)
+        self.assertIsNone(result.model_path)
+        self.assertEqual(result.to_dict()["cv_summary"], result.cv_summary)
+
     def test_end_to_end_pipeline_persists_model_and_bundle(self) -> None:
         frame = make_classification_frame(rows=240)
         with tempfile.TemporaryDirectory() as tmp:

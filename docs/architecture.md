@@ -65,6 +65,29 @@ training instead of letting all candidates fail with
 `Unknown label type: 'continuous'` - which the dashboard could only report as
 "every candidate model failed".
 
+## `src/compat.py`
+
+* `patch_partial_pyarrow` – completes a *partial* `pyarrow` module with the
+  attributes scikit-learn resolves when it indexes data.
+
+Pyodide 0.28 (what stlite 1.11 runs, and what the deployed page reports as Python
+3.13) ships no `pyarrow` of its own, so the stlite runtime hands Streamlit a
+stand-in module that defines only `Table`, `Array` and `ChunkedArray`.
+scikit-learn 1.5+ probes one name more than that inside
+`sklearn/utils/_indexing.py::_safe_indexing` →
+`sklearn/utils/validation.py::_is_pyarrow_data`, so **every** `cross_val_score`,
+`GridSearchCV` or `resample` call in the tab raised
+`AttributeError: module 'pyarrow' has no attribute 'RecordBatch'` - on plain
+NumPy arrays, where pyarrow plays no part at all.
+`deploy/vercel/bootstrap.py` calls the shim before `app.py` runs; it is a no-op
+wherever pyarrow is installed and complete (local CPython, the REST API) or
+absent.
+
+The second line of defence sits in `run_training_pipeline`: the 5-fold stability
+summary is wrapped in `try`/`except`, so a quirk of the *decorative* step can
+never discard a run whose models are already trained, ranked and saved - the
+reason travels in `cv_summary["error"]` and the dashboard prints `nan`.
+
 ## `src/data_ingestion.py` (Module 1)
 
 | Function | Contract |

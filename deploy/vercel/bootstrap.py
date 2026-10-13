@@ -11,7 +11,11 @@ whole dashboard runs in a single Web Worker on Pyodide (WebAssembly), where:
   has to be switched off;
 * the filesystem is an in-memory one (``/home/pyodide``).  It is perfectly
   writable, so the model bundles, EDA report and downloads keep working;
-* nothing survives a page reload (the memory filesystem is thrown away).
+* nothing survives a page reload (the memory filesystem is thrown away);
+* ``pyarrow`` is *not* Pyodide's Apache Arrow build but a stand-in the stlite
+  runtime provides for Streamlit, and it is missing the one attribute
+  scikit-learn probes when it indexes data.  ``src/compat.py`` repairs it
+  before the dashboard gets a chance to call an estimator.
 
 Instead of forking the dashboard, this thin shim adjusts the runtime settings
 and then executes the **unmodified** ``app.py`` with :func:`runpy.run_path`, so
@@ -35,6 +39,7 @@ if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
 from src import config as _config  # noqa: E402  (needs the sys.path entry above)
+from src.compat import patch_partial_pyarrow  # noqa: E402  (idem)
 
 # --------------------------------------------------------------------------- #
 # Browser-specific runtime adjustments
@@ -47,7 +52,15 @@ _config.N_JOBS = 1
 #    meaningless anyway, so pin it to a single core.
 os.environ.setdefault("LOKY_MAX_CPU_COUNT", "1")
 
-# 3. Streamlit is served from the page itself in this build (no Tornado server),
+# 3. stlite exposes a *partial* `pyarrow` module for Streamlit that lacks the
+#    attribute scikit-learn probes (`pa.RecordBatch`); without this repair every
+#    `cross_val_score`/`GridSearchCV` call in the tab dies with an
+#    AttributeError - see src/compat.py.
+_ADDED_PYARROW_ATTRIBUTES = patch_partial_pyarrow()
+if _ADDED_PYARROW_ATTRIBUTES:
+    print(f"[bootstrap] completed the partial pyarrow module with: {', '.join(_ADDED_PYARROW_ATTRIBUTES)}")
+
+# 4. Streamlit is served from the page itself in this build (no Tornado server),
 #    so the "upload" widgets stream into the worker - nothing else to configure.
 
 # --------------------------------------------------------------------------- #
