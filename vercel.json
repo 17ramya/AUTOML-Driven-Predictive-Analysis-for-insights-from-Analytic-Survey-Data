@@ -8,7 +8,7 @@
     "api/index.py": {
       "memory": 1024,
       "maxDuration": 300,
-      "includeFiles": "**/*",
+      "includeFiles": "{api/**,src/**,data/**,models/**,reports/**}",
       "excludeFiles": "{.vercel/**,.git/**,public/**,tests/**,docs/**,notebooks/**,.vscode/**}"
     }
   },

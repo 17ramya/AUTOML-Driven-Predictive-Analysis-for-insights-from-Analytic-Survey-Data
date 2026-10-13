@@ -99,13 +99,18 @@ class VercelProjectConfigTests(unittest.TestCase):
         include_files = settings["includeFiles"]
         self.assertIsInstance(include_files, str)
         self.assertLessEqual(len(include_files), 256)
-        # `**/*` deliberately covers *everything* rather than the two directories we
-        # happen to need today: the deployment globber only documents `*`/`**`, and a
-        # silent mis-expansion of a cleverer pattern would strip `data/sample` from
-        # the function while still deploying "successfully".  The repository is only
-        # ~18 MB, far below the 250 MB function bundle limit, so the safe glob is
-        # also the cheap one.
-        self.assertEqual(include_files, "**/*")
+        # `**/*` deliberately covered *everything* rather than the directories we
+        # happen to need: the deployment globber leaves files out of the bundle
+        # *silently* when a pattern fails to expand, and `/api/health` then reports
+        # the sample dataset as absent.  It is also wrong, though: Vercel expands the
+        # glob in the build container *after* the Python runtime has created its own
+        # virtual environment and uv cache inside the project directory, so `**/*`
+        # bundled ~640 MB of Vercel's scratch space on top of the dependencies
+        # (see test_the_bundle_cannot_sweep_up_vercels_build_scratch_space).  The
+        # whitelist below is therefore explicit - and guarded, not trusted.
+        self.assertNotIn("**/*", include_files)
+        for directory in ("api/**", "src/**", "data/**"):
+            self.assertIn(directory, include_files)
 
     def test_the_bundle_exclusions_never_drop_code_or_data(self) -> None:
         # Exclusions are cosmetic: if the globber ignored them the bundle would
@@ -116,17 +121,21 @@ class VercelProjectConfigTests(unittest.TestCase):
         self.assertNotIn("data", excluded)
         self.assertNotIn("api", excluded)
 
-    def test_the_bundle_excludes_vercels_own_build_scratch_space(self) -> None:
-        # The runtime installs the function's dependencies into the *project directory*
-        # (`.vercel/python/.venv`) and uv caches every wheel there as well
-        # (`.vercel/python/cache/uv`), so `includeFiles: "**/*"` swept both into the
-        # bundle on top of the dependency set.  The build died with
-        # "Total bundle size (920.12 MB) exceeds the maximum function size (500 MB)"
-        # although the dependencies themselves weigh only ~259 MB on manylinux:
+    def test_the_bundle_cannot_sweep_up_vercels_build_scratch_space(self) -> None:
+        # Vercel expands `includeFiles` in the *build container*, after the Python
+        # runtime has created the function's virtual environment inside the project
+        # directory (`.vercel/python/.venv`) and uv's wheel cache next to it
+        # (`.vercel/python/cache/uv`), and it merges the result into the bundle *after*
+        # `excludeFiles` has been applied - so listing `.vercel/**` there does not help.
+        # `"**/*"` therefore swept ~640 MB of duplicated wheels into a bundle that
+        # already carried the ~259 MB dependency set, and the build failed with
+        #   "Total bundle size (920.13 MB) exceeds the maximum function size (500 MB)"
+        # although the installed dependencies weigh only ~259 MB on manylinux:
         #   numpy 60 + pandas 39 + scipy 109 + scikit-learn 38 + the web layer ~13.
-        excluded = self.config["functions"]["api/index.py"]["excludeFiles"]
-        for pattern in (".vercel/**", ".git/**"):
-            self.assertIn(pattern, excluded, pattern)
+        # Only a whitelist keeps the bundle at source + dependencies.
+        include_files = self.config["functions"]["api/index.py"]["includeFiles"]
+        self.assertFalse(include_files.startswith("**"), include_files)
+        self.assertNotIn(".vercel", include_files)
 
     def test_framework_detection_is_off(self) -> None:
         # The repository root contains a *Streamlit* `app.py`, which is one of the
