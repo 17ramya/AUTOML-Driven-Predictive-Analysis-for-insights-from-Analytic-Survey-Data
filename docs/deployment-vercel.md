@@ -43,15 +43,50 @@ offers the same pipeline without those limits.
 
 | File | Role |
 | --- | --- |
-| `vercel.json` | Project config: build command, install command, `outputDirectory: public`, function memory/duration, and `framework: null` so the root **Streamlit** `app.py` is never mistaken for an API entrypoint. |
-| `.python-version` | Pins the function runtime to Python 3.11 (the pins in `requirements-api.txt` have no 3.13 wheels). |
+| `vercel.json` | Project config: build command, install command (`python scripts/prepare_vercel_api_deps.py --apply`), `outputDirectory: public`, function memory/duration, and `framework: null` so the root **Streamlit** `app.py` is never mistaken for an API entrypoint. |
+| `.python-version` | Pins the function runtime to Python 3.11 (the pins in `api/requirements.txt` have no 3.13 wheels). |
 | `api/index.py` | FastAPI app: `/api`, `/api/health`, `/api/models`, `/api/sample`, `/api/sample/summary`, `/api/train`, `/api/predict`. |
+| `api/requirements.txt` | The function's dependency set - what Vercel installs for `api/index.py` (see [Dependencies](#dependencies-what-vercel-installs-where)). |
 | `scripts/prepare_vercel_site.py` | Build step: copies `app.py`, `src/`, `data/sample/` into `public/stlite/` and generates `public/stlite-config.js`. |
 | `deploy/vercel/index.html` | The landing page (template; copied to `public/index.html`). |
 | `deploy/vercel/bootstrap.py` | The stlite entrypoint shim: disables the process pool and then runs the unmodified `app.py`. |
 | `deploy/vercel/requirements-pyodide.txt` | Packages stlite installs **in the browser**. |
-| `deploy/vercel/requirements-api.txt` | Packages Vercel installs **for the function**. |
+| `scripts/prepare_vercel_api_deps.py` | Install step: points the root `requirements.txt` at `api/requirements.txt` inside the build container only (see [Dependencies](#dependencies-what-vercel-installs-where)). |
 | `deploy/vercel/*` | Never uploaded as-is; the build step copies what it needs into `public/`. |
+
+## Dependencies: what Vercel installs where
+
+Two dependency files, two runtimes - and neither of them is `requirements.txt` at the
+repository root:
+
+| File | Installed by | Into |
+| --- | --- | --- |
+| `api/requirements.txt` | Vercel's Python runtime, with its own `uv` | the `api/index.py` function bundle |
+| `deploy/vercel/requirements-pyodide.txt` | stlite, in the visitor's browser | the Pyodide runtime inside the tab |
+
+The repository-level `requirements.txt` is the **local** stack - `README.md`, Hugging
+Face Spaces and Streamlit Community Cloud install it: roughly 1.5 GB with Streamlit,
+`ydata-profiling` and CatBoost, far above the 500 MB Python bundle limit.  It must
+never reach the function, which is also why the project's *install command* is not a
+`pip` command:
+
+* `python -m pip install -r …` fails on Vercel's build image with
+  `error: externally-managed-environment` (PEP 668): that image's Python is managed by
+  `uv`, so `pip` refuses to modify it;
+* nothing needs to install into the image anyway - Vercel's Python runtime installs
+  the dependency file it discovers for the function itself, with `uv`, into the
+  function bundle.
+
+`vercel.json` therefore runs `python scripts/prepare_vercel_api_deps.py --apply` as
+the install command.  That script copies `api/requirements.txt` over the root
+`requirements.txt` **inside the build container only**, which covers the case where
+the runtime resolves the root file rather than the one next to the function.  Git
+keeps the full local stack; running the script locally without `--apply` only
+reports, and `--apply` prints the `git restore requirements.txt` that undoes it.
+
+To add a server-side dependency, edit `api/requirements.txt` and leave the local
+`requirements.txt` alone.  CatBoost is the usual example: no WebAssembly wheel, but a
+Python function can install it (expect a slower, larger build).
 
 ## Deploy
 
@@ -123,7 +158,7 @@ Interactive docs are at `/api/docs`.
 | --- | --- | --- |
 | Data ingestion (CSV / Excel) | ✅ | ✅ |
 | Automated EDA | Summary cards + dependency-free HTML report (no `ydata-profiling`) | `build_eda_summary` via `/api/sample/summary` (`ydata-profiling` only if you add it) |
-| Model zoo | 13 families - Random Forest, Gradient Boosting, Extra Trees, Decision Tree, Logistic Regression, Ridge, KNN, SVM, Gaussian NB, AdaBoost, LDA, QDA, **XGBoost**, **LightGBM** (CatBoost has no WASM wheel) | Same minus XGBoost/LightGBM/CatBoost (`requirements-api.txt` keeps the bundle small) |
+| Model zoo | 13 families - Random Forest, Gradient Boosting, Extra Trees, Decision Tree, Logistic Regression, Ridge, KNN, SVM, Gaussian NB, AdaBoost, LDA, QDA, **XGBoost**, **LightGBM** (CatBoost has no WASM wheel) | Same minus XGBoost/LightGBM/CatBoost (`api/requirements.txt` keeps the bundle small) |
 | GridSearchCV tuning | ✅ (single-threaded, so slower) | ✅ (`n_jobs` from `src.config`) |
 | Training / comparison / ranking | ✅ | ✅ `/api/train` |
 | Bundle persistence + prediction | ✅ in the tab's memory filesystem | ✅ `/api/train` → `/api/predict` |
@@ -160,9 +195,10 @@ Interactive docs are at `/api/docs`.
 | `Invalid request: functions.api/index.py.includeFiles should be string` | Vercel's schema types `includeFiles` (and `excludeFiles`) as a single glob **string** of ≤256 characters, never an array - declaring `["src/**", "data/sample/**"]` fails the deployment before the build even starts. `vercel.json` now uses `"**/*"`; see the note below the table. |
 | `ModuleNotFoundError: No module named 'src'` in the function logs | The function bundle did not include the package. `vercel.json` declares `includeFiles: "**/*"`, which covers the whole repository; confirm the **Root Directory** of the Vercel project is the repository root. |
 | `/api/health` reports `"present": false` for the sample dataset | `data/sample/` did not reach `/var/task`. `includeFiles: "**/*"` covers it, and `excludeFiles` deliberately never names `src`, `data` or `api` - `tests/test_vercel_deploy.py` guards that. |
-| The build tries to install Streamlit / CatBoost | The project's **Install Command** was overridden in the dashboard. Clear it so `vercel.json`'s `python -m pip install -r deploy/vercel/requirements-api.txt` applies. |
+| The build tries to install Streamlit / CatBoost | Either the **Install Command** was overridden in the dashboard - clear it so `vercel.json`'s `python scripts/prepare_vercel_api_deps.py --apply` applies - or a heavy package was added to `api/requirements.txt`. |
+| `error: externally-managed-environment` while installing | A `pip` install command was added to `vercel.json` or to the dashboard settings. Vercel's build image is a `uv`-managed Python (PEP 668), and the Python runtime installs the function's `api/requirements.txt` with `uv` anyway, so remove the command. |
 | The page stays on `Booting the dashboard…` and the banner turns red | Open the browser console. Usual causes: `public/stlite-config.js` missing (the build step did not run) or the CDN files were blocked. Remember `file://` never works - serve `public/` over HTTP. |
-| `CatBoost` is missing from the model list | Expected: no WebAssembly wheel in the browser, and deliberately excluded from the API requirements for size. Install `catboost` locally (and/or add it to `requirements-api.txt`) if you need it server-side. |
+| `CatBoost` is missing from the model list | Expected: no WebAssembly wheel in the browser, and deliberately excluded from the API requirements for size. Install `catboost` locally (and/or add it to `api/requirements.txt`) if you need it server-side. |
 | `410` from `/api/predict` for a `bundle_token` | `/tmp` was recycled - retrain, or upload the `.pkl` your client kept. |
 | Training inside the browser is slower than locally | Expected: `config.N_JOBS` is forced to `1` because WASM has no process pool. |
 

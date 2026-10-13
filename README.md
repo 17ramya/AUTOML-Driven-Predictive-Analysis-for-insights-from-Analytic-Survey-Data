@@ -55,8 +55,9 @@ AutoML-Project/
 ├── vercel.json                # Vercel project config (static site + Python function)
 ├── .python-version            # pins the function runtime to Python 3.11
 ├── api/
-│   └── index.py               # FastAPI function: /api/health · /api/train · /api/predict
-├── deploy/vercel/             # stlite entrypoint, landing page, two requirement sets
+│   ├── index.py               # FastAPI function: /api/health · /api/train · /api/predict
+│   └── requirements.txt       # slim dependency set the function is built from
+├── deploy/vercel/             # stlite entrypoint, landing page, browser requirements
 ├── src/
 │   ├── config.py              # paths, seeds, metric order, score weights
 │   ├── utils.py               # column-name standardisation & small helpers
@@ -68,8 +69,9 @@ AutoML-Project/
 │   ├── predict.py             # Module 3: bundle inference & model comparison
 │   └── image_features.py      # Module 3: multi-modal image descriptors
 ├── scripts/
-│   ├── make_sample_data.py    # regenerates the bundled datasets (deterministic)
-│   └── prepare_vercel_site.py # builds the static Vercel site (public/)
+│   ├── make_sample_data.py          # regenerates the bundled datasets (deterministic)
+│   ├── prepare_vercel_api_deps.py   # install step: slim deps for the Vercel function
+│   └── prepare_vercel_site.py       # builds the static Vercel site (public/)
 ├── data/
 │   ├── raw/                   # drop your own files here
 │   └── sample/                # amazon_sales_data_2025.csv, product_listings.csv, images/
@@ -78,7 +80,7 @@ AutoML-Project/
 ├── docs/
 │   ├── architecture.md        # module map & data-flow notes
 │   └── deployment-vercel.md   # deployment guide (why the dashboard runs in the browser)
-└── tests/                     # unittest suite (196 tests)
+└── tests/                     # unittest suite (200 tests)
 ```
 
 ---
@@ -331,6 +333,14 @@ same domain.  The complete guide is
 | `/` | the Streamlit dashboard | **in the visitor's browser** — Streamlit + scikit-learn + xgboost + LightGBM compiled to WebAssembly (stlite / Pyodide), so Vercel only serves static files |
 | `/api` | the pipeline as JSON: `/api/health`, `/api/models`, `/api/sample`, `/api/sample/summary`, `/api/train`, `/api/predict` | a Vercel Python Function (`api/index.py`, FastAPI) |
 
+The function is built from **`api/requirements.txt`** (fastapi + numpy/pandas/
+scikit-learn/joblib/openpyxl), never from the ~1.5 GB local `requirements.txt`, which
+stays reserved for local runs and for Spaces/Streamlit Cloud.  `vercel.json`'s install
+command (`scripts/prepare_vercel_api_deps.py --apply`) locks that in, and Vercel's
+runtime then installs the file with its own `uv` — a plain `pip install` install
+command cannot work there (PEP 668).  See
+[the deployment guide](docs/deployment-vercel.md#dependencies-what-vercel-installs-where).
+
 ```powershell
 npx vercel          # preview deployment
 npx vercel --prod   # production URL
@@ -356,6 +366,7 @@ Verify the deployment locally:
 
 ```powershell
 python scripts\prepare_vercel_site.py            # rebuild ./public
+python scripts\prepare_vercel_api_deps.py        # report only: the API dependency swap
 python -m http.server 8000 --directory public    # then open http://localhost:8000
 python -m unittest tests.test_vercel_deploy -v   # config, build step and API
 ```

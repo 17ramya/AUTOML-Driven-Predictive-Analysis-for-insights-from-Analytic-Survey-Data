@@ -13,7 +13,7 @@ a long-running server process), so this deployment has two halves:
 
 Design notes
 ------------
-* **Stateless.**  ``vercel.json`` installs only ``deploy/vercel/requirements-api.txt``
+* **Stateless.**  The function is built from ``api/requirements.txt`` next to it
   (numpy/pandas/scikit-learn/joblib/fastapi) instead of the ~1.5 GB local stack,
   so optional back-ends such as CatBoost are simply absent and
   ``available_model_names()`` reports one model less.  Nothing in ``src/`` has to
@@ -251,7 +251,7 @@ def health() -> dict[str, Any]:
             "model_zoo": names,
             "optional_backends": [name for name in OPTIONAL_MODELS if name in names],
             "notes": [
-                "Only deploy/vercel/requirements-api.txt is installed, so CatBoost is absent by "
+                "Only api/requirements.txt is installed, so CatBoost is absent by "
                 "design; the in-browser dashboard keeps xgboost + lightgbm instead.",
                 "/tmp is the only writable path and is recycled between invocations.",
             ],

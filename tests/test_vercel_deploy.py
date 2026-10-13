@@ -11,7 +11,10 @@ Two artefacts are covered:
 
 The deployment deliberately ships *two* different dependency sets, so several
 tests below exist purely to keep those lists from drifting apart or from gaining
-a package that cannot run where it is installed.
+a package that cannot run where it is installed.  The slim *function* set lives in
+``api/requirements.txt``, and ``scripts/prepare_vercel_api_deps.py`` - the project's
+install command - copies it over the root ``requirements.txt`` inside the build
+container, so the swap is tested here too.
 """
 
 from __future__ import annotations
@@ -19,6 +22,7 @@ from __future__ import annotations
 import base64
 import json
 import os
+import shutil
 import tempfile
 import unittest
 from pathlib import Path
@@ -35,8 +39,9 @@ except Exception:  # pragma: no cover
 DEPLOY_DIR = PROJECT_ROOT / "deploy" / "vercel"
 VERCEL_CONFIG = PROJECT_ROOT / "vercel.json"
 API_ENTRYPOINT = PROJECT_ROOT / "api" / "index.py"
+API_REQUIREMENTS = PROJECT_ROOT / "api" / "requirements.txt"
+API_DEPS_SCRIPT = PROJECT_ROOT / "scripts" / "prepare_vercel_api_deps.py"
 PYODIDE_REQUIREMENTS = DEPLOY_DIR / "requirements-pyodide.txt"
-API_REQUIREMENTS = DEPLOY_DIR / "requirements-api.txt"
 BOOTSTRAP = DEPLOY_DIR / "bootstrap.py"
 PAGE_TEMPLATE = DEPLOY_DIR / "index.html"
 
@@ -69,8 +74,16 @@ class VercelProjectConfigTests(unittest.TestCase):
         self.assertEqual(self.config["buildCommand"], "python scripts/prepare_vercel_site.py")
         self.assertIn("api/index.py", self.config["functions"])
 
-    def test_the_install_command_uses_the_slim_api_requirements(self) -> None:
-        self.assertIn("deploy/vercel/requirements-api.txt", self.config["installCommand"])
+    def test_the_install_command_prepares_the_api_requirements_without_pip(self) -> None:
+        # Vercel's build image is a uv-managed Python: any `pip install` install
+        # command dies with "error: externally-managed-environment" (PEP 668).  The
+        # install step only has to point the root requirements.txt at the slim API
+        # set, because the Python runtime installs the discovered dependency file
+        # with its own uv.
+        command = self.config["installCommand"]
+        self.assertIn("scripts/prepare_vercel_api_deps.py", command)
+        self.assertIn("--apply", command)
+        self.assertNotIn("pip", command)
 
     def test_the_function_stays_inside_the_platform_limits(self) -> None:
         settings = self.config["functions"]["api/index.py"]
@@ -114,7 +127,7 @@ class DeploymentFileTests(unittest.TestCase):
     """The deployable pieces exist and are wired to each other."""
 
     def test_entrypoints_and_templates_are_present(self) -> None:
-        for path in (API_ENTRYPOINT, BOOTSTRAP, PAGE_TEMPLATE, PYODIDE_REQUIREMENTS, API_REQUIREMENTS):
+        for path in (API_ENTRYPOINT, API_DEPS_SCRIPT, BOOTSTRAP, PAGE_TEMPLATE, PYODIDE_REQUIREMENTS, API_REQUIREMENTS):
             self.assertTrue(path.is_file(), path)
 
     def test_the_bootstrap_shim_disables_process_parallelism(self) -> None:
@@ -178,6 +191,65 @@ class ApiRequirementsTests(unittest.TestCase):
     def test_the_heavy_local_stack_is_not_installed(self) -> None:
         for package in ("streamlit", "catboost", "ydata-profiling", "matplotlib", "seaborn", "plotly"):
             self.assertNotIn(package, self.names)
+
+
+class PrepareApiDepsTests(unittest.TestCase):
+    """``scripts/prepare_vercel_api_deps.py`` keeps the *function* deps slim.
+
+    The script is the project's install command: Vercel's build image is a uv-managed
+    Python that refuses ``pip install`` (PEP 668), and the Python runtime installs a
+    function's dependency file itself - so the install step only has to make sure
+    that file and the root ``requirements.txt`` the runtime could resolve instead
+    describe the same small set.
+    """
+
+    @classmethod
+    def setUpClass(cls) -> None:
+        from scripts import prepare_vercel_api_deps
+
+        cls.module = prepare_vercel_api_deps
+
+    def _staged_project(self, root_requirements: str) -> Path:
+        """A throw-away project holding the two files the script reads and writes."""
+        temporary = tempfile.TemporaryDirectory()
+        self.addCleanup(temporary.cleanup)
+        project = Path(temporary.name)
+        (project / "api").mkdir()
+        shutil.copy2(API_REQUIREMENTS, project / "api" / "requirements.txt")
+        (project / "requirements.txt").write_text(root_requirements, encoding="utf-8")
+        return project
+
+    def test_the_swap_replaces_the_local_stack_with_the_api_set(self) -> None:
+        project = self._staged_project("streamlit==1.36.0\ncatboost==1.2.7\n")
+        summary = self.module.apply_api_requirements(project)
+        self.assertTrue(summary["changed"])
+        self.assertTrue(summary["replaced_local_stack"])
+        self.assertEqual(
+            (project / "requirements.txt").read_text(encoding="utf-8"),
+            API_REQUIREMENTS.read_text(encoding="utf-8"),
+        )
+
+    def test_swapping_twice_changes_nothing(self) -> None:
+        project = self._staged_project("streamlit==1.36.0\n")
+        self.module.apply_api_requirements(project)
+        summary = self.module.apply_api_requirements(project)
+        self.assertFalse(summary["changed"])
+        self.assertTrue(summary["up_to_date"])
+
+    def test_a_dry_run_never_writes(self) -> None:
+        project = self._staged_project("streamlit==1.36.0\n")
+        summary = self.module.apply_api_requirements(project, write=False)
+        self.assertFalse(summary["changed"])
+        self.assertFalse(summary["up_to_date"])
+        self.assertIn("streamlit", (project / "requirements.txt").read_text(encoding="utf-8"))
+
+    def test_the_shipped_api_set_lists_no_local_stack_package(self) -> None:
+        # The swap is only safe because `api/requirements.txt` is slim itself:
+        # `ApiRequirementsTests` checks the package list, this checks the script's own
+        # verdict, so a stray `catboost` line can never be copied unnoticed.
+        summary = self.module.apply_api_requirements(PROJECT_ROOT, write=False)
+        self.assertEqual(summary["local_stack_in_api_set"], [])
+        self.assertEqual(summary["packages"], len(read_requirements(API_REQUIREMENTS)))
 
 
 class PrepareSiteTests(unittest.TestCase):
