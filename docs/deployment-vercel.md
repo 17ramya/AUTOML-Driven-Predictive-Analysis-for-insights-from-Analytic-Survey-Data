@@ -43,7 +43,7 @@ offers the same pipeline without those limits.
 
 | File | Role |
 | --- | --- |
-| `vercel.json` | Project config: build command, install command (`python scripts/prepare_vercel_api_deps.py --apply`), `outputDirectory: public`, function memory/duration, and `framework: null` so the root **Streamlit** `app.py` is never mistaken for an API entrypoint. |
+| `vercel.json` | Project config: build command, install command (`python scripts/prepare_vercel_api_deps.py --apply`), `outputDirectory: public`, function memory/duration, the `/api/:path*` rewrite that routes every API path to the function, and `framework: null` so the root **Streamlit** `app.py` is never mistaken for an API entrypoint. |
 | `.python-version` | The **local** interpreter (3.11). Vercel never reads it for the function - see the next row and [Python version](#python-version). |
 | `api/.python-version` | The **function** interpreter (3.12). It has to sit next to the function's `requirements.txt`: Vercel's analysis walks up from the function's directory and stops at the entrypoint's own manifest, so a repository-level version file is ignored. |
 | `api/index.py` | FastAPI app: `/api`, `/api/health`, `/api/models`, `/api/sample`, `/api/sample/summary`, `/api/train`, `/api/predict`. |
@@ -189,6 +189,20 @@ curl -X POST https://<your-app>.vercel.app/api/predict \
 
 Interactive docs are at `/api/docs`.
 
+Every `/api/...` path is handed to the function by a `rewrites` entry in
+`vercel.json`:
+
+```json
+"rewrites": [{ "source": "/api/:path*", "destination": "/api/index" }]
+```
+
+Vercel's file-based routing only maps the entrypoint *itself* (`/api`) - without
+that rewrite every deeper route (`/api/health`, `/api/models`, `/api/docs`)
+falls through to the static site and is answered by the CDN with its own
+`X-Vercel-Error: NOT_FOUND` page, a 404 that never reaches Python and therefore
+never shows up in the function logs.  A rewrite forwards the **original** path
+to the ASGI app, so the routes stay exactly as declared in `api/index.py`.
+
 ## What runs where
 
 | Capability | In-browser dashboard (`/`) | REST API (`/api`) |
@@ -232,6 +246,7 @@ Interactive docs are at `/api/docs`.
 | `Invalid request: functions.api/index.py.includeFiles should be string` | Vercel's schema types `includeFiles` (and `excludeFiles`) as a single glob **string** of ≤256 characters, never an array - declaring `["src/**", "data/sample/**"]` fails the deployment before the build even starts. `vercel.json` now uses the `{api/**,src/**,data/**,models/**,reports/**}` whitelist; see the note below the table. |
 | `ModuleNotFoundError: No module named 'src'` in the function logs | The function bundle did not include the package. `vercel.json` declares the whitelist `includeFiles: "{api/**,src/**,data/**,models/**,reports/**}"`; confirm the **Root Directory** of the Vercel project is the repository root. |
 | `/api/health` reports `"present": false` for the sample dataset | `data/sample/` did not reach `/var/task`. The `includeFiles` whitelist names `data/**`, and `excludeFiles` deliberately never names `src`, `data` or `api` - `tests/test_vercel_deploy.py` guards both. |
+| `/api/health` answers `404` with `X-Vercel-Error: NOT_FOUND` while `/api` works | The `/api/:path*` rewrite is missing from `vercel.json` (or the deployment predates it). File-based routing maps the entrypoint itself but nothing below it, so deeper paths are answered by the CDN and never reach the function - FastAPI's own 404 would read `{"detail":"Not Found"}` instead. `tests/test_vercel_deploy.py` guards the rewrite. |
 | The build tries to install Streamlit / CatBoost | Either the **Install Command** was overridden in the dashboard - clear it so `vercel.json`'s `python scripts/prepare_vercel_api_deps.py --apply` applies - or a heavy package was added to `api/requirements.txt`. |
 | `error: externally-managed-environment` while installing | A `pip` install command was added to `vercel.json` or to the dashboard settings. Vercel's build image is a `uv`-managed Python (PEP 668), and the Python runtime installs the function's `api/requirements.txt` with `uv` anyway, so remove the command. |
 | `uv lock` fails inside the function build: `No solution found when resolving dependencies` / `Because pandas==2.1.4 depends on numpy>=1.26.0,<2 and your project depends on numpy==1.25.2` | The function is being built for a **newer interpreter than the pins were validated on**: on Python 3.12 `pandas==2.1.4` requires `numpy>=1.26.0`, and `numpy==1.25.2` has no cp312 wheel at all. Either pin the interpreter the pins support (`api/.python-version`) or raise the numpy pin for the function (`numpy==1.26.4`, still NumPy 1.x for scikit-learn 1.4.2). Reproduce it locally in a second with `uv pip install --dry-run --python-version 3.12 --python-platform x86_64-manylinux_2_28 --only-binary :all: -r api/requirements.txt`. |
@@ -275,6 +290,18 @@ measurement at dependencies + source, which is what the runtime install path nee
 ~263 MB the build stays below the limit, Vercel packs what fits into the bundle and
 installs the rest into `/tmp/_vc_deps` on the first request (the ephemeral budget is
 500 MB minus a 50 MB margin).
+
+Measured on the production deployment (2026-10): the log now reads
+
+    Using Python 3.12 from api/.python-version
+    Bundle size (273.50 MB) exceeds the standard size; optimizing dependencies.
+    Build Completed in /vercel/output [14s]
+
+i.e. exactly *source + dependencies* (~8 MB of tracked files + ~259 MB of
+manylinux wheels) with no scratch space in the measurement, and `vercel inspect`
+then reports the function at **60.14 MB** - Vercel packs what fits and installs
+the remainder into `/tmp/_vc_deps` on the first request, which is why the first
+`/api/...` call after a cold start is slower than the ones that follow.
 
 `excludeFiles` is kept as belt and braces - and the test suite still forbids it from
 ever naming `src`, `data` or `api`, which would be a real breakage rather than a bigger

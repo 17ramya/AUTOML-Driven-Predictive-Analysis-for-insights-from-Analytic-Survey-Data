@@ -137,6 +137,17 @@ class VercelProjectConfigTests(unittest.TestCase):
         self.assertFalse(include_files.startswith("**"), include_files)
         self.assertNotIn(".vercel", include_files)
 
+    def test_every_api_path_reaches_the_function(self) -> None:
+        # File-based routing maps the entrypoint *itself* (`/api`, and Vercel's
+        # internal `/api/index`) but nothing below it: `/api/health`,
+        # `/api/models` and `/api/docs` were answered by the CDN with
+        # "X-Vercel-Error: NOT_FOUND" on the production deployment, i.e. before
+        # Python was reached at all.  The rewrite hands the whole prefix to the
+        # function, and Vercel forwards the *original* path to the ASGI app, so
+        # the routes keep the exact paths declared in api/index.py.
+        rewrites = {rule["source"]: rule["destination"] for rule in self.config["rewrites"]}
+        self.assertEqual(rewrites.get("/api/:path*"), "/api/index")
+
     def test_framework_detection_is_off(self) -> None:
         # The repository root contains a *Streamlit* `app.py`, which is one of the
         # file names Vercel auto-detects for Python backends - it must not be

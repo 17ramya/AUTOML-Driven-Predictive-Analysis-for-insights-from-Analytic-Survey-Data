@@ -12,6 +12,12 @@
       "excludeFiles": "{.vercel/**,.git/**,public/**,tests/**,docs/**,notebooks/**,.vscode/**}"
     }
   },
+  "rewrites": [
+    {
+      "source": "/api/:path*",
+      "destination": "/api/index"
+    }
+  ],
   "headers": [
     {
       "source": "/stlite/(.*)",
