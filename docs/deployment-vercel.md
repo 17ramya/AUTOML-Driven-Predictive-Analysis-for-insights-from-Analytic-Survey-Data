@@ -44,7 +44,8 @@ offers the same pipeline without those limits.
 | File | Role |
 | --- | --- |
 | `vercel.json` | Project config: build command, install command (`python scripts/prepare_vercel_api_deps.py --apply`), `outputDirectory: public`, function memory/duration, and `framework: null` so the root **Streamlit** `app.py` is never mistaken for an API entrypoint. |
-| `.python-version` | Pins the function runtime to Python 3.11 (the pins in `api/requirements.txt` have no 3.13 wheels). |
+| `.python-version` | The **local** interpreter (3.11). Vercel never reads it for the function - see the next row and [Python version](#python-version). |
+| `api/.python-version` | The **function** interpreter (3.12). It has to sit next to the function's `requirements.txt`: Vercel's analysis walks up from the function's directory and stops at the entrypoint's own manifest, so a repository-level version file is ignored. |
 | `api/index.py` | FastAPI app: `/api`, `/api/health`, `/api/models`, `/api/sample`, `/api/sample/summary`, `/api/train`, `/api/predict`. |
 | `api/requirements.txt` | The function's dependency set - what Vercel installs for `api/index.py` (see [Dependencies](#dependencies-what-vercel-installs-where)). |
 | `scripts/prepare_vercel_site.py` | Build step: copies `app.py`, `src/`, `data/sample/` into `public/stlite/` and generates `public/stlite-config.js`. |
@@ -87,6 +88,42 @@ reports, and `--apply` prints the `git restore requirements.txt` that undoes it.
 To add a server-side dependency, edit `api/requirements.txt` and leave the local
 `requirements.txt` alone.  CatBoost is the usual example: no WebAssembly wheel, but a
 Python function can install it (expect a slower, larger build).
+
+### Python version
+
+Vercel builds its own interpreter image, so the function must be pinned to a version
+Vercel still offers.  Since the
+[3.13/3.14 release](https://vercel.com/changelog/python-3-13-and-3-14-are-now-available)
+(2 Feb 2026) that set is **3.12, 3.13 and 3.14** - Python 3.11 was retired, and the
+default is 3.12 today but is announced to *"switch to Python 3.14 in the coming
+months"*.  `api/.python-version` therefore pins `3.12`.
+
+Three details matter, and each of them cost a failed build:
+
+* **Where the file lives.** The runtime's `discoverPythonPackage({entrypointDir,
+  rootDir})` starts in the **function's** directory (`api/`) and walks towards the
+  repository root, reading `.python-version` from every directory it visits - but it
+  stops at the entrypoint's own manifest.  It finds `api/requirements.txt` first and
+  breaks, so a `.python-version` at the repository root is **never read** for this
+  function.  The log then says *"No Python version specified in .python-version,
+  pyproject.toml, or Pipfile.lock. Using python version: 3.12"* and the default wins.
+* **Why not 3.13/3.14.** `pandas==2.1.4` and `scikit-learn==1.4.2` were released before
+  Python 3.13 and publish no cp313 wheels; the runtime installs with `uv` and expects
+  a wheel, so pinning a newer interpreter would turn a dependency install into a
+  source build (pandas 2.1.4 does not support 3.14 at all).
+* **What it implies for the pins.** On 3.12, `pandas==2.1.4` requires `numpy>=1.26.0`
+  *and* `numpy==1.25.2` has no cp312 wheel, so `uv lock` rejects the dependency set
+  outright.  `api/requirements.txt` therefore pins `numpy==1.26.4` (the last 1.x
+  release, so the NumPy 1.x ABI the scikit-learn 1.4.2 wheel was built against is
+  preserved), while the local `requirements.txt` keeps 1.25.2 for Python 3.11.
+
+The installed set can be checked without deploying:
+
+```powershell
+# resolve the function's dependencies for the interpreter Vercel will use
+uv pip install --dry-run --python-version 3.12 --python-platform x86_64-manylinux_2_28 `
+               --only-binary :all: -r api/requirements.txt
+```
 
 ## Deploy
 
@@ -197,6 +234,8 @@ Interactive docs are at `/api/docs`.
 | `/api/health` reports `"present": false` for the sample dataset | `data/sample/` did not reach `/var/task`. `includeFiles: "**/*"` covers it, and `excludeFiles` deliberately never names `src`, `data` or `api` - `tests/test_vercel_deploy.py` guards that. |
 | The build tries to install Streamlit / CatBoost | Either the **Install Command** was overridden in the dashboard - clear it so `vercel.json`'s `python scripts/prepare_vercel_api_deps.py --apply` applies - or a heavy package was added to `api/requirements.txt`. |
 | `error: externally-managed-environment` while installing | A `pip` install command was added to `vercel.json` or to the dashboard settings. Vercel's build image is a `uv`-managed Python (PEP 668), and the Python runtime installs the function's `api/requirements.txt` with `uv` anyway, so remove the command. |
+| `uv lock` fails inside the function build: `No solution found when resolving dependencies` / `Because pandas==2.1.4 depends on numpy>=1.26.0,<2 and your project depends on numpy==1.25.2` | The function is being built for a **newer interpreter than the pins were validated on**: on Python 3.12 `pandas==2.1.4` requires `numpy>=1.26.0`, and `numpy==1.25.2` has no cp312 wheel at all. Either pin the interpreter the pins support (`api/.python-version`) or raise the numpy pin for the function (`numpy==1.26.4`, still NumPy 1.x for scikit-learn 1.4.2). Reproduce it locally in a second with `uv pip install --dry-run --python-version 3.12 --python-platform x86_64-manylinux_2_28 --only-binary :all: -r api/requirements.txt`. |
+| `No Python version specified in .python-version, pyproject.toml, or Pipfile.lock. Using python version: 3.12` although `.python-version` exists | The file is at the **repository root**, but the runtime reads it from the function's directory upwards and stops at `api/requirements.txt`: move it to `api/.python-version`. Note also that Python 3.11 is no longer offered by Vercel (3.12/3.13/3.14 since 2026-02-02), so a `3.11` pin could not have worked anywhere. |
 | An install command that is *not* the one in `vercel.json` | The project's **Install Command** is overridden in the dashboard, which wins over `vercel.json` and is invisible to `git grep`. **Project Settings → Build & Deployment → Install Command → clear it** (and check both projects if the repository is deployed twice). |
 | A redeploy keeps failing with the *same* error after the fix | **Redeploy replays that deployment's commit, not the branch tip.** Compare the `Commit:` line at the top of the log with `git rev-parse --short HEAD`: a build that says `Commit: 9d70c61` cannot contain a fix pushed afterwards, however often it is redeployed. Redeploy the deployment *for the current commit* instead, or push any new commit so the tip becomes the newest entry. |
 | The page stays on `Booting the dashboard…` and the banner turns red | Open the browser console. Usual causes: `public/stlite-config.js` missing (the build step did not run) or the CDN files were blocked. Remember `file://` never works - serve `public/` over HTTP. |
@@ -233,7 +272,7 @@ server-side stack (CatBoost + `ydata-profiling`) with no client-side download.
 ## Verifying a deployment
 
 ```powershell
-python -m unittest tests.test_vercel_deploy -v   # 29 tests: config, build step, API
+python -m unittest tests.test_vercel_deploy -v   # 35 tests: config, build step, API
 python scripts/prepare_vercel_site.py           # rebuild ./public locally
 ```
 

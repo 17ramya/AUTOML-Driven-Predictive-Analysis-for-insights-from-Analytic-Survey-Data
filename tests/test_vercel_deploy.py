@@ -41,6 +41,10 @@ VERCEL_CONFIG = PROJECT_ROOT / "vercel.json"
 API_ENTRYPOINT = PROJECT_ROOT / "api" / "index.py"
 API_REQUIREMENTS = PROJECT_ROOT / "api" / "requirements.txt"
 API_DEPS_SCRIPT = PROJECT_ROOT / "scripts" / "prepare_vercel_api_deps.py"
+#: The *function's* interpreter pin.  Deliberately next to ``api/requirements.txt``:
+#: Vercel's Python analysis walks up from the function's directory and stops at the
+#: entrypoint's own manifest, so a root-level ``.python-version`` is never read.
+FUNCTION_PYTHON_VERSION = PROJECT_ROOT / "api" / ".python-version"
 PYODIDE_REQUIREMENTS = DEPLOY_DIR / "requirements-pyodide.txt"
 BOOTSTRAP = DEPLOY_DIR / "bootstrap.py"
 PAGE_TEMPLATE = DEPLOY_DIR / "index.html"
@@ -119,15 +123,40 @@ class VercelProjectConfigTests(unittest.TestCase):
         self.assertIsNone(self.config["framework"])
 
     def test_the_python_version_is_pinned(self) -> None:
-        version = (PROJECT_ROOT / ".python-version").read_text(encoding="utf-8").strip()
-        self.assertEqual(version, "3.11")
+        # Two interpreters, two pins: the repository file is the *development*
+        # interpreter, the one next to api/requirements.txt is the *function* runtime.
+        development = (PROJECT_ROOT / ".python-version").read_text(encoding="utf-8").strip()
+        self.assertEqual(development, "3.11")
+        # Vercel offers 3.12, 3.13 and 3.14 (Python 3.11 was retired on 2026-02-02) and
+        # 3.12 is the only one these pins have wheels for: pandas 2.1.4 and
+        # scikit-learn 1.4.2 predate 3.13, and the runtime installs wheels only.
+        # Pinning it also survives the announced default switch to 3.14, which would
+        # try to build pandas 2.1.4 from source and fail.
+        self.assertEqual(FUNCTION_PYTHON_VERSION.read_text(encoding="utf-8").strip(), "3.12")
+
+    def test_the_function_python_version_sits_next_to_the_function(self) -> None:
+        # Vercel's `discoverPythonPackage` walks *from the function's directory* towards
+        # the repository root and stops at the entrypoint's own manifest, so the only
+        # version file it reads for `api/index.py` is the one beside its requirements.
+        # A root-level `.python-version` pinned nothing at all: the build log then reads
+        # "No Python version specified in .python-version, pyproject.toml, or
+        # Pipfile.lock. Using python version: 3.12" and the default wins.
+        self.assertEqual(FUNCTION_PYTHON_VERSION.parent, API_REQUIREMENTS.parent)
 
 
 class DeploymentFileTests(unittest.TestCase):
     """The deployable pieces exist and are wired to each other."""
 
     def test_entrypoints_and_templates_are_present(self) -> None:
-        for path in (API_ENTRYPOINT, API_DEPS_SCRIPT, BOOTSTRAP, PAGE_TEMPLATE, PYODIDE_REQUIREMENTS, API_REQUIREMENTS):
+        for path in (
+            API_ENTRYPOINT,
+            API_REQUIREMENTS,
+            FUNCTION_PYTHON_VERSION,
+            API_DEPS_SCRIPT,
+            BOOTSTRAP,
+            PAGE_TEMPLATE,
+            PYODIDE_REQUIREMENTS,
+        ):
             self.assertTrue(path.is_file(), path)
 
     def test_the_bootstrap_shim_disables_process_parallelism(self) -> None:
@@ -187,6 +216,17 @@ class ApiRequirementsTests(unittest.TestCase):
         for package in ("numpy", "pandas", "scikit-learn", "joblib"):
             self.assertIn(package, self.names)
             self.assertTrue(any(entry.startswith(f"{package}==") for entry in self.entries), package)
+
+    def test_the_numpy_pin_supports_the_function_interpreter(self) -> None:
+        # The function runs Python 3.12 (api/.python-version).  On 3.12 `pandas==2.1.4`
+        # requires `numpy>=1.26.0`, and `numpy==1.25.2` has no cp312 wheel at all, so
+        # `uv lock` cannot resolve the set - keep the pin at or above that floor, and
+        # below 2.0, because the scikit-learn 1.4.2 wheel is built against NumPy 1.x.
+        pin = next((entry for entry in self.entries if entry.startswith("numpy==")), None)
+        self.assertIsNotNone(pin, "the function's numpy pin has to stay explicit")
+        major, minor = (int(part) for part in pin.split("==")[1].split(".")[:2])
+        self.assertEqual(major, 1)
+        self.assertGreaterEqual(minor, 26)
 
     def test_the_heavy_local_stack_is_not_installed(self) -> None:
         for package in ("streamlit", "catboost", "ydata-profiling", "matplotlib", "seaborn", "plotly"):

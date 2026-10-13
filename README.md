@@ -53,8 +53,9 @@ AutoML-Project/
 ├── README.md
 ├── GIT_GUIDE.md               # git/GitHub walk-through for this repository
 ├── vercel.json                # Vercel project config (static site + Python function)
-├── .python-version            # pins the function runtime to Python 3.11
+├── .python-version            # local interpreter pin (Python 3.11; Vercel ignores it)
 ├── api/
+│   ├── .python-version        # function runtime on Vercel (Python 3.12)
 │   ├── index.py               # FastAPI function: /api/health · /api/train · /api/predict
 │   └── requirements.txt       # slim dependency set the function is built from
 ├── deploy/vercel/             # stlite entrypoint, landing page, browser requirements
@@ -80,7 +81,7 @@ AutoML-Project/
 ├── docs/
 │   ├── architecture.md        # module map & data-flow notes
 │   └── deployment-vercel.md   # deployment guide (why the dashboard runs in the browser)
-└── tests/                     # unittest suite (200 tests)
+└── tests/                     # unittest suite (202 tests)
 ```
 
 ---
@@ -338,7 +339,11 @@ scikit-learn/joblib/openpyxl), never from the ~1.5 GB local `requirements.txt`, 
 stays reserved for local runs and for Spaces/Streamlit Cloud.  `vercel.json`'s install
 command (`scripts/prepare_vercel_api_deps.py --apply`) locks that in, and Vercel's
 runtime then installs the file with its own `uv` — a plain `pip install` install
-command cannot work there (PEP 668).  See
+command cannot work there (PEP 668).  The function's interpreter is pinned separately
+in `api/.python-version` (Python 3.12 - Vercel's oldest supported version since 3.11 was
+retired, and the newest one these pins have wheels for); on 3.12 `pandas==2.1.4`
+requires `numpy>=1.26.0`, so the function pins `numpy==1.26.4` while the local file
+keeps 1.25.2.  See
 [the deployment guide](docs/deployment-vercel.md#dependencies-what-vercel-installs-where).
 
 ```powershell
