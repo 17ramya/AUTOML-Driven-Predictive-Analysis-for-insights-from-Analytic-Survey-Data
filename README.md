@@ -39,7 +39,7 @@ python -m streamlit run app.py                 # optional interactive dashboard
 | Inference replay of the training preprocessing | `src/predict.py` | scores raw frames, adds probabilities and confidence |
 | Multi-modal image descriptors merged with listing text | `src/image_features.py` | Pillow-based, degrades gracefully when Pillow is absent |
 | Streamlit dashboard + CLI | `app.py`, `main.py` | same pipeline functions, so results always agree |
-| 150+ unit tests (`unittest`, no extra dependency) | `tests/` | deterministic seeded fixtures |
+| 190+ unit tests (`unittest`, no extra dependency) | `tests/` | deterministic seeded fixtures |
 
 ---
 
@@ -52,6 +52,11 @@ AutoML-Project/
 ├── requirements.txt
 ├── README.md
 ├── GIT_GUIDE.md               # git/GitHub walk-through for this repository
+├── vercel.json                # Vercel project config (static site + Python function)
+├── .python-version            # pins the function runtime to Python 3.11
+├── api/
+│   └── index.py               # FastAPI function: /api/health · /api/train · /api/predict
+├── deploy/vercel/             # stlite entrypoint, landing page, two requirement sets
 ├── src/
 │   ├── config.py              # paths, seeds, metric order, score weights
 │   ├── utils.py               # column-name standardisation & small helpers
@@ -63,15 +68,17 @@ AutoML-Project/
 │   ├── predict.py             # Module 3: bundle inference & model comparison
 │   └── image_features.py      # Module 3: multi-modal image descriptors
 ├── scripts/
-│   └── make_sample_data.py    # regenerates the bundled datasets (deterministic)
+│   ├── make_sample_data.py    # regenerates the bundled datasets (deterministic)
+│   └── prepare_vercel_site.py # builds the static Vercel site (public/)
 ├── data/
 │   ├── raw/                   # drop your own files here
 │   └── sample/                # amazon_sales_data_2025.csv, product_listings.csv, images/
 ├── models/                    # created at runtime (best model + bundle)
 ├── reports/                   # created at runtime (EDA html, comparison csv, predictions)
 ├── docs/
-│   └── architecture.md        # module map & data-flow notes
-└── tests/                     # unittest suite (150+ tests)
+│   ├── architecture.md        # module map & data-flow notes
+│   └── deployment-vercel.md   # deployment guide (why the dashboard runs in the browser)
+└── tests/                     # unittest suite (194 tests)
 ```
 
 ---
@@ -313,6 +320,48 @@ to stop it.
 The app and the CLI call the *same* `run_training_pipeline`, so a model trained in
 the UI is byte-for-byte the model produced by `python main.py train`.
 
+## Deployment (Vercel)
+
+One Vercel project serves the dashboard at `/` and a REST API at `/api` from the
+same domain.  The complete guide is
+[`docs/deployment-vercel.md`](docs/deployment-vercel.md).
+
+| Path | What it is | Where it runs |
+| ---- | ---------- | ------------- |
+| `/` | the Streamlit dashboard | **in the visitor's browser** — Streamlit + scikit-learn + xgboost + LightGBM compiled to WebAssembly (stlite / Pyodide), so Vercel only serves static files |
+| `/api` | the pipeline as JSON: `/api/health`, `/api/models`, `/api/sample`, `/api/sample/summary`, `/api/train`, `/api/predict` | a Vercel Python Function (`api/index.py`, FastAPI) |
+
+```powershell
+npx vercel          # preview deployment
+npx vercel --prod   # production URL
+```
+
+**Why the dashboard is not served by a function.**  Vercel functions are
+request-scoped, while Streamlit needs a long-lived server that owns its
+per-session WebSocket state; a deployment's filesystem is read-only except
+`/tmp`, and this project's `requirements.txt` (~1.5 GB with `ydata-profiling` and
+the gradient-boosting back-ends) is far above the 250 MB / 500 MB-Python bundle
+limit.  Running the dashboard on WebAssembly sidesteps all four constraints, and
+the bundled sample data is mounted into the page, so the demo needs no backend at
+all.  `src/` is untouched: only `catboost` (no WASM wheel) and `ydata-profiling`
+drop out of the browser build, and both were already optional — the dashboard
+still trains 13 model families and the EDA tab falls back to the dependency-free
+report.
+
+**If you need the full server-side stack** (CatBoost + `ydata-profiling`), the
+unchanged repository also runs on Hugging Face Spaces or Streamlit Community
+Cloud, which install `requirements.txt` on a normal Python runtime.
+
+Verify the deployment locally:
+
+```powershell
+python scripts\prepare_vercel_site.py            # rebuild ./public
+python -m http.server 8000 --directory public    # then open http://localhost:8000
+python -m unittest tests.test_vercel_deploy -v   # config, build step and API
+```
+
+---
+
 ## Troubleshooting
 
 ### `streamlit : The term 'streamlit' is not recognized ...`
@@ -414,9 +463,10 @@ python main.py train --tune
 ## Running the tests
 
 ```bash
-python -m unittest discover -s tests -t .          # 165+ tests
+python -m unittest discover -s tests -t .          # 194 tests
 python -m unittest tests.test_app -v               # dashboard smoke tests only
 python -m unittest tests.test_config -v            # config + joblib guard only
+python -m unittest tests.test_vercel_deploy -v     # Vercel build step + REST API
 python -m unittest tests.test_preprocessing -v     # one module
 ```
 
@@ -424,7 +474,10 @@ The suite covers the configuration and the joblib parallelism guard, ingestion,
 header standardisation, ID detection, imputation, encoding, scaling, the model
 zoo, metrics, ranking, bundle persistence, inference round-trips, image features,
 the EDA fallback report, the sample-data generator and the Streamlit app (via
-`streamlit.testing.v1.AppTest`).  It runs offline in well under a minute and needs
+`streamlit.testing.v1.AppTest`).  `tests/test_vercel_deploy.py` covers the Vercel
+deployment on top of that: `vercel.json`, both requirement lists, the static-site
+build step and every REST endpoint (that class is skipped when FastAPI is not
+installed).  It runs offline in well under a minute and needs
 no extra test framework.
 
 ---

@@ -1,0 +1,28 @@
+# --------------------------------------------------------------------------- #
+# Packages installed *inside the visitor's browser* by the stlite dashboard.
+# --------------------------------------------------------------------------- #
+# stlite ships its own Streamlit build, and every line below must have either a
+# prebuilt Pyodide wheel or a pure-Python wheel on PyPI.  Anything that needs to
+# compile C/C++ at install time (catboost), or that drags in a JIT/llvmlite
+# stack (ydata-profiling -> numba), cannot be used - those two are therefore
+# deliberately absent and `src/` skips them automatically:
+#
+#   * `available_model_names()`  -> CatBoost silently drops out of the model zoo
+#   * `profile_report_available()` -> the dependency-free fallback EDA report is
+#     generated instead of a ydata-profiling report
+#
+# Prebuilt Pyodide wheels (checked against https://pyodide.org):
+numpy
+pandas
+scikit-learn
+joblib
+xgboost
+lightgbm
+Pillow
+
+# Pure-Python wheels resolved from PyPI by micropip:
+openpyxl
+
+# NOTE: matplotlib / seaborn / plotly are intentionally not listed - the
+# dashboard itself does not import them, they were only pulled in as
+# ydata-profiling's plotting back-ends.

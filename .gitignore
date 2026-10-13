@@ -31,6 +31,14 @@ app_tests.txt
 !data/raw/.gitkeep
 
 # ------------------------------------------------------------------ #
+# Vercel deployment (docs/deployment-vercel.md)
+# ------------------------------------------------------------------ #
+# `public/` is produced by `python scripts/prepare_vercel_site.py` - on Vercel
+# itself it is rebuilt during the build step, so it never belongs in git.
+public/
+.vercel/
+
+# ------------------------------------------------------------------ #
 # Editors / OS
 # ------------------------------------------------------------------ #
 .vscode/

@@ -1,0 +1,30 @@
+# --------------------------------------------------------------------------- #
+# Dependencies of the Vercel Python Function (`api/index.py`).
+# --------------------------------------------------------------------------- #
+# `vercel.json` points the project's *install command* at this file instead of
+# the repository-level `requirements.txt`, because that one installs the full
+# local stack (~1.5 GB: Streamlit + ydata-profiling + catboost + plotting
+# libraries) while a Vercel function bundle is limited to 500 MB for Python.
+#
+# The dashboard does *not* use this file - it is only the server-side API that
+# does (see docs/deployment-vercel.md).  Nothing else changes: `src/` already
+# imports every optional back-end defensively, so `available_model_names()` just
+# reports one fewer model inside the function.
+
+# Web layer.  `python-multipart` is the ASGI multipart parser that FastAPI needs
+# for the `UploadFile` endpoints; it has no pinned upper bound.
+fastapi==0.110.2
+python-multipart
+
+# Science stack, pinned to the versions the project was built and validated
+# with (same pins as the repository-level requirements.txt).
+numpy==1.25.2
+pandas==2.1.4
+scikit-learn==1.4.2
+joblib==1.3.2
+
+# Excel ingestion for the upload endpoints (.xlsx / .xls).
+openpyxl==3.1.2
+
+# Deliberately omitted for size: streamlit, ydata-profiling, catboost, xgboost,
+# lightgbm, matplotlib, seaborn, plotly.

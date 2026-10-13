@@ -1,0 +1,353 @@
+"""
+Unit tests for the Vercel deployment target.
+============================================
+
+Two artefacts are covered:
+
+* the **static in-browser dashboard** - ``vercel.json``, the Pyodide requirement
+  list, and everything ``scripts/prepare_vercel_site.py`` generates;
+* the **REST API** - ``api/index.py`` exercised through ``TestClient`` (skipped
+  when FastAPI is not installed in the local environment).
+
+The deployment deliberately ships *two* different dependency sets, so several
+tests below exist purely to keep those lists from drifting apart or from gaining
+a package that cannot run where it is installed.
+"""
+
+from __future__ import annotations
+
+import base64
+import json
+import os
+import tempfile
+import unittest
+from pathlib import Path
+
+from tests.helpers import PROJECT_ROOT, make_classification_frame
+
+try:  # pragma: no cover - depends on the local environment
+    from fastapi.testclient import TestClient
+
+    FASTAPI_AVAILABLE = True
+except Exception:  # pragma: no cover
+    FASTAPI_AVAILABLE = False
+
+DEPLOY_DIR = PROJECT_ROOT / "deploy" / "vercel"
+VERCEL_CONFIG = PROJECT_ROOT / "vercel.json"
+API_ENTRYPOINT = PROJECT_ROOT / "api" / "index.py"
+PYODIDE_REQUIREMENTS = DEPLOY_DIR / "requirements-pyodide.txt"
+API_REQUIREMENTS = DEPLOY_DIR / "requirements-api.txt"
+BOOTSTRAP = DEPLOY_DIR / "bootstrap.py"
+PAGE_TEMPLATE = DEPLOY_DIR / "index.html"
+
+#: Everything that must never be listed for the browser build.
+BROWSER_UNSUPPORTED = ("streamlit", "catboost", "ydata-profiling", "numba")
+
+
+def read_requirements(path: Path) -> list[str]:
+    """Package names listed in a requirements file (comments/blanks removed)."""
+    entries: list[str] = []
+    for raw in path.read_text(encoding="utf-8").splitlines():
+        line = raw.split("#", 1)[0].strip()
+        if line:
+            entries.append(line)
+    return entries
+
+
+def package_name(entry: str) -> str:
+    return entry.split("==")[0].split(">=")[0].split("<")[0].strip().lower()
+
+
+class VercelProjectConfigTests(unittest.TestCase):
+    """``vercel.json`` has to publish the static site *and* the Python function."""
+
+    def setUp(self) -> None:
+        self.config = json.loads(VERCEL_CONFIG.read_text(encoding="utf-8"))
+
+    def test_static_site_and_function_are_both_configured(self) -> None:
+        self.assertEqual(self.config["outputDirectory"], "public")
+        self.assertEqual(self.config["buildCommand"], "python scripts/prepare_vercel_site.py")
+        self.assertIn("api/index.py", self.config["functions"])
+
+    def test_the_install_command_uses_the_slim_api_requirements(self) -> None:
+        self.assertIn("deploy/vercel/requirements-api.txt", self.config["installCommand"])
+
+    def test_the_function_stays_inside_the_platform_limits(self) -> None:
+        settings = self.config["functions"]["api/index.py"]
+        self.assertLessEqual(settings["maxDuration"], 300)  # Hobby plan maximum
+        self.assertLessEqual(settings["memory"], 2048)  # Hobby plan maximum (MB)
+        self.assertIn("src/**", settings["includeFiles"])
+        self.assertIn("data/sample/**", settings["includeFiles"])
+
+    def test_framework_detection_is_off(self) -> None:
+        # The repository root contains a *Streamlit* `app.py`, which is one of the
+        # file names Vercel auto-detects for Python backends - it must not be
+        # mistaken for the API entrypoint.
+        self.assertIsNone(self.config["framework"])
+
+    def test_the_python_version_is_pinned(self) -> None:
+        version = (PROJECT_ROOT / ".python-version").read_text(encoding="utf-8").strip()
+        self.assertEqual(version, "3.11")
+
+
+class DeploymentFileTests(unittest.TestCase):
+    """The deployable pieces exist and are wired to each other."""
+
+    def test_entrypoints_and_templates_are_present(self) -> None:
+        for path in (API_ENTRYPOINT, BOOTSTRAP, PAGE_TEMPLATE, PYODIDE_REQUIREMENTS, API_REQUIREMENTS):
+            self.assertTrue(path.is_file(), path)
+
+    def test_the_bootstrap_shim_disables_process_parallelism(self) -> None:
+        text = BOOTSTRAP.read_text(encoding="utf-8")
+        self.assertIn("_config.N_JOBS = 1", text)
+        self.assertIn('runpy.run_path(str(ROOT / "app.py")', text)
+        self.assertIn("LOKY_MAX_CPU_COUNT", text)
+
+    def test_the_page_loads_stlite_and_the_generated_config(self) -> None:
+        html = PAGE_TEMPLATE.read_text(encoding="utf-8")
+        self.assertIn("@stlite/browser", html)
+        self.assertIn("stlite-config.js", html)
+        self.assertIn("window.AUTOML_STLITE", html)
+
+
+class BrowserRequirementsTests(unittest.TestCase):
+    """Packages installed inside the visitor's browser must be Pyodide-compatible."""
+
+    def setUp(self) -> None:
+        self.entries = read_requirements(PYODIDE_REQUIREMENTS)
+        self.names = {package_name(entry) for entry in self.entries}
+
+    def test_uninstallable_or_unnecessary_packages_are_absent(self) -> None:
+        for package in BROWSER_UNSUPPORTED:
+            self.assertNotIn(package, self.names)
+
+    def test_the_model_zoo_survives_in_the_browser(self) -> None:
+        # scikit-learn ships a Pyodide wheel, and so do xgboost + lightgbm: only
+        # CatBoost and ydata-profiling drop out of the in-browser build.
+        for package in (
+            "scikit-learn",
+            "xgboost",
+            "lightgbm",
+            "pandas",
+            "numpy",
+            "joblib",
+            "pillow",
+        ):
+            self.assertIn(package, self.names)
+
+
+class ApiRequirementsTests(unittest.TestCase):
+    """The function bundle has to stay small but complete."""
+
+    def setUp(self) -> None:
+        self.entries = read_requirements(API_REQUIREMENTS)
+        self.names = {package_name(entry) for entry in self.entries}
+
+    def test_fastapi_upload_support_is_installed(self) -> None:
+        self.assertIn("fastapi", self.names)
+        self.assertIn("python-multipart", self.names)
+
+    def test_the_science_stack_is_pinned(self) -> None:
+        for package in ("numpy", "pandas", "scikit-learn", "joblib"):
+            self.assertIn(package, self.names)
+            self.assertTrue(any(entry.startswith(f"{package}==") for entry in self.entries), package)
+
+    def test_the_heavy_local_stack_is_not_installed(self) -> None:
+        for package in ("streamlit", "catboost", "ydata-profiling", "matplotlib", "seaborn", "plotly"):
+            self.assertNotIn(package, self.names)
+
+
+class PrepareSiteTests(unittest.TestCase):
+    """``scripts/prepare_vercel_site.py`` mirrors the dashboard into the static site."""
+
+    @classmethod
+    def setUpClass(cls) -> None:
+        from scripts import prepare_vercel_site
+
+        cls.module = prepare_vercel_site
+        cls._temporary = tempfile.TemporaryDirectory()
+        cls.output = Path(cls._temporary.name) / "public"
+        cls.summary = prepare_vercel_site.build_site(cls.output)
+
+        generated = (cls.output / "stlite-config.js").read_text(encoding="utf-8")
+        payload = generated.split("window.AUTOML_STLITE = ", 1)[1].strip().rstrip(";")
+        cls.config = json.loads(payload)
+
+    @classmethod
+    def tearDownClass(cls) -> None:
+        cls._temporary.cleanup()
+
+    def test_every_mounted_file_exists_on_disk(self) -> None:
+        for mounted, spec in self.config["files"].items():
+            path = self.output / mounted
+            self.assertTrue(path.is_file(), mounted)
+            self.assertEqual(spec["url"], f"./{mounted}")
+
+    def test_the_dashboard_and_its_package_are_mounted(self) -> None:
+        mounted = set(self.config["files"])
+        self.assertIn("stlite/app.py", mounted)
+        self.assertIn("stlite/src/model_training.py", mounted)
+        self.assertIn("stlite/src/config.py", mounted)
+        self.assertTrue(
+            any(name.endswith("amazon_sales_data_2025.csv") for name in mounted),
+            "the bundled sample dataset has to be mounted for the demo to work offline",
+        )
+
+    def test_the_entrypoint_is_the_bootstrap_shim(self) -> None:
+        self.assertEqual(self.config["entrypoint"], "stlite/bootstrap.py")
+        self.assertIn(self.config["entrypoint"], self.config["files"])
+
+    def test_requirements_come_from_the_single_source_of_truth(self) -> None:
+        self.assertEqual(self.config["requirements"], read_requirements(PYODIDE_REQUIREMENTS))
+
+    def test_the_page_is_published_and_the_summary_is_reported(self) -> None:
+        self.assertTrue((self.output / "index.html").is_file())
+        self.assertGreaterEqual(self.summary["published_files"], self.summary["virtual_files"])
+        self.assertGreater(self.summary["bytes"], 0)
+
+    def test_the_build_is_deterministic(self) -> None:
+        with tempfile.TemporaryDirectory() as other:
+            self.module.build_site(Path(other) / "public")
+            first = (self.output / "stlite-config.js").read_text(encoding="utf-8")
+            second = (Path(other) / "public" / "stlite-config.js").read_text(encoding="utf-8")
+        self.assertEqual(first, second)
+
+    def test_unsupported_packages_stop_the_build(self) -> None:
+        with self.assertRaises(SystemExit):
+            self.module.validate_requirements(["catboost==1.2.7"])
+        self.module.validate_requirements(["scikit-learn", "xgboost"])
+
+
+@unittest.skipUnless(FASTAPI_AVAILABLE, "fastapi is not installed in this environment")
+class ApiEndpointTests(unittest.TestCase):
+    """``api/index.py`` served through Starlette's ``TestClient``."""
+
+    @classmethod
+    def setUpClass(cls) -> None:
+        import importlib.util
+
+        cls._temporary = tempfile.TemporaryDirectory()
+        # Keep the artefacts of the test runs out of the real temp directory.
+        os.environ["AUTOML_API_ARTIFACT_DIR"] = str(Path(cls._temporary.name) / "artifacts")
+
+        spec = importlib.util.spec_from_file_location("automl_vercel_api", API_ENTRYPOINT)
+        module = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(module)
+        cls.api = module
+        cls.client = TestClient(module.app)
+
+    @classmethod
+    def tearDownClass(cls) -> None:
+        cls._temporary.cleanup()
+
+    @staticmethod
+    def _csv_upload(frame, name: str = "orders.csv") -> dict:
+        return {"file": (name, frame.to_csv(index=False).encode("utf-8"), "text/csv")}
+
+    def test_discovery_and_health(self) -> None:
+        listing = self.client.get("/api")
+        self.assertEqual(listing.status_code, 200)
+        self.assertIn("POST /api/train", listing.json()["endpoints"])
+
+        health = self.client.get("/api/health").json()
+        self.assertEqual(health["status"], "ok", health)
+        self.assertTrue(health["artifacts"]["writable"])
+        self.assertIn("Random Forest", health["model_zoo"])
+
+    def test_model_zoo_endpoint(self) -> None:
+        body = self.client.get("/api/models").json()
+        self.assertEqual(body["count"], len(body["models"]))
+        self.assertIn("Logistic Regression", body["models"])
+
+    def test_sample_summary_and_csv(self) -> None:
+        summary = self.client.get("/api/sample/summary", params={"rows": 5})
+        self.assertEqual(summary.status_code, 200, summary.text)
+        payload = summary.json()
+        self.assertGreater(payload["summary"]["observations"], 0)
+        self.assertEqual(len(payload["head"]), 5)
+
+        csv = self.client.get("/api/sample", params={"rows": 3})
+        self.assertEqual(csv.status_code, 200)
+        self.assertEqual(len(csv.text.strip().splitlines()), 4)  # header + 3 records
+
+    def _train(self, frame, **overrides) -> dict:
+        data = {
+            "target": "Status",
+            "models": "Random Forest,Decision Tree",
+            "tune": "false",
+            "cv": "2",
+        }
+        data.update(overrides)
+        response = self.client.post("/api/train", files=self._csv_upload(frame, "orders.csv"), data=data)
+        self.assertEqual(response.status_code, 200, response.text)
+        return response.json()
+
+    def test_train_returns_metrics_a_ranking_and_a_bundle(self) -> None:
+        body = self._train(make_classification_frame(rows=120), return_bundle="true")
+        self.assertIn(body["best_model"], {"Random Forest", "Decision Tree"})
+        self.assertEqual(len(body["comparison"]), 2)
+        self.assertIn("accuracy", body["comparison"][0])
+        self.assertGreater(body["rows"]["train"], 0)
+        self.assertEqual(body["artifacts"]["bundle_token"], "automl_bundle.pkl")
+        self.assertTrue(body["bundle_base64"])
+
+    def test_predict_with_an_uploaded_bundle(self) -> None:
+        frame = make_classification_frame(rows=90)
+        trained = self._train(frame, models="Decision Tree", return_bundle="true")
+        bundle_bytes = base64.b64decode(trained["bundle_base64"])
+
+        response = self.client.post(
+            "/api/predict",
+            files={
+                "data": ("new.csv", frame.to_csv(index=False).encode("utf-8"), "text/csv"),
+                "bundle": ("automl_bundle.pkl", bundle_bytes, "application/octet-stream"),
+            },
+            data={"limit": "5"},
+        )
+        self.assertEqual(response.status_code, 200, response.text)
+        body = response.json()
+        self.assertTrue(body["bundle_source"].startswith("upload:"))
+        self.assertEqual(len(body["rows"]), 5)
+        self.assertIn("prediction", body["columns"])
+
+    def test_predict_falls_back_to_a_sample_trained_model(self) -> None:
+        frame = make_classification_frame(rows=40)
+        response = self.client.post(
+            "/api/predict",
+            files={"data": ("rows.csv", frame.to_csv(index=False).encode("utf-8"), "text/csv")},
+            data={"limit": "3", "target": "Status"},
+        )
+        self.assertEqual(response.status_code, 200, response.text)
+        body = response.json()
+        self.assertIn("sample", body["bundle_source"])
+        self.assertEqual(len(body["rows"]), 3)
+
+    def test_invalid_input_is_reported_as_a_client_error(self) -> None:
+        frame = make_classification_frame(rows=30)
+
+        unknown_model = self.client.post(
+            "/api/train",
+            files={"file": ("orders.csv", frame.to_csv(index=False).encode("utf-8"), "text/csv")},
+            data={"target": "Status", "models": "Turbo Learner"},
+        )
+        self.assertEqual(unknown_model.status_code, 400)
+        self.assertIn("Turbo Learner", unknown_model.json()["detail"])
+
+        bad_target = self.client.post(
+            "/api/train",
+            files={"file": ("orders.csv", frame.to_csv(index=False).encode("utf-8"), "text/csv")},
+            data={"target": "not_a_column", "models": "Decision Tree"},
+        )
+        self.assertEqual(bad_target.status_code, 400)
+
+        escape = self.client.post(
+            "/api/predict",
+            files={"data": ("rows.csv", frame.to_csv(index=False).encode("utf-8"), "text/csv")},
+            data={"bundle_token": "../secrets.pkl"},
+        )
+        self.assertEqual(escape.status_code, 400)
+
+
+if __name__ == "__main__":  # pragma: no cover
+    unittest.main()
+

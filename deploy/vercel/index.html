@@ -1,0 +1,149 @@
+<!doctype html>
+<!--
+  Landing page of the Vercel deployment.
+
+  This file is the *template*: `scripts/prepare_vercel_site.py` copies it to
+  `public/index.html` and drops the generated `public/stlite-config.js` (the
+  files/requirements/entrypoint map) next to it.  The heavy lifting is done by
+  stlite, which runs this Streamlit dashboard - and scikit-learn, xgboost and
+  lightgbm - entirely inside the visitor's browser on Pyodide/WebAssembly, so
+  Vercel only has to serve static files.
+-->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>AutoML Predictive Analytics - in-browser dashboard</title>
+    <meta
+      name="description"
+      content="AutoML-driven predictive analysis of analytic survey data: the Streamlit dashboard running fully in the browser (stlite / Pyodide WebAssembly), deployed on Vercel."
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@stlite/browser@0.85.1/build/stlite.css"
+    />
+    <style>
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+        background: #ffffff;
+      }
+      #boot-banner {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 9999;
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        padding: 12px 18px;
+        font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        font-size: 14px;
+        line-height: 1.45;
+        color: #0b3d91;
+        background: #eef4ff;
+        border-bottom: 1px solid #c7dbff;
+        transition: opacity 0.35s ease;
+      }
+      #boot-banner.hidden {
+        opacity: 0;
+        pointer-events: none;
+      }
+      #boot-banner.error {
+        color: #7f1d1d;
+        background: #fef2f2;
+        border-bottom-color: #fecaca;
+      }
+      #boot-banner .spinner {
+        flex: 0 0 auto;
+        width: 18px;
+        height: 18px;
+        border: 2px solid #b9cdf5;
+        border-top-color: #0b3d91;
+        border-radius: 50%;
+        animation: spin 0.9s linear infinite;
+      }
+      #boot-banner.error .spinner {
+        display: none;
+      }
+      #boot-banner strong {
+        display: block;
+      }
+      #boot-banner .detail {
+        color: #37507e;
+      }
+      #boot-banner code {
+        font-family: Consolas, "Courier New", monospace;
+        font-size: 12px;
+      }
+      @keyframes spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="boot-banner" role="status" aria-live="polite">
+      <span class="spinner" aria-hidden="true"></span>
+      <div>
+        <strong>Booting the dashboard inside your browser&hellip;</strong>
+        <span class="detail">
+          Streamlit, scikit-learn, xgboost and LightGBM are downloaded as WebAssembly
+          (about 40&nbsp;MB on the first visit) and then run locally, so the initial load can take
+          up to a minute. Your dataset never leaves this tab.
+        </span>
+      </div>
+    </div>
+
+    <div id="root"></div>
+
+    <noscript>
+      This dashboard is a WebAssembly build of Streamlit and needs JavaScript enabled.
+      The server-side API is available at <code>/api</code> without it.
+    </noscript>
+
+    <script src="./stlite-config.js"></script>
+    <script type="module">
+      import { mount } from "https://cdn.jsdelivr.net/npm/@stlite/browser@0.85.1/build/stlite.js";
+
+      const banner = document.getElementById("boot-banner");
+      const root = document.getElementById("root");
+
+      function hideBanner() {
+        banner.classList.add("hidden");
+        window.setTimeout(() => banner.remove(), 400);
+      }
+
+      // The dashboard is ready as soon as Streamlit paints its first element.
+      const observer = new MutationObserver(() => {
+        if (root.childElementCount > 0) {
+          observer.disconnect();
+          hideBanner();
+        }
+      });
+      observer.observe(root, { childList: true });
+
+      // Don't keep a frozen banner forever if something goes wrong silently.
+      window.setTimeout(() => {
+        if (root.childElementCount === 0) {
+          banner.querySelector(".detail").textContent =
+            "Still downloading the Python runtime - a slow connection can stretch this to a few minutes.";
+        }
+      }, 60000);
+
+      mount(root, window.AUTOML_STLITE).catch((error) => {
+        observer.disconnect();
+        banner.classList.add("error");
+        banner.querySelector("strong").textContent = "The browser build could not start";
+        banner.querySelector(".detail").textContent =
+          "This usually means the WebAssembly runtime or a Python wheel could not be fetched. " +
+          "Reload the page, or use the server-side API documented in docs/deployment-vercel.md. (" +
+          (error && error.message ? error.message : error) + ")";
+      });
+    </script>
+  </body>
+</html>
