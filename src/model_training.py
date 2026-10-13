@@ -56,7 +56,7 @@ from sklearn.discriminant_analysis import (
 
 from . import config
 from .preprocessing import PreparedDataset, prepare_dataset
-from .utils import ensure_directory, round_metrics, safe_filename
+from .utils import ensure_directory, is_continuous_numeric, round_metrics, safe_filename
 
 __all__ = [
     "TrainingResult",
@@ -338,9 +338,16 @@ def train_and_evaluate_models(
     tune: bool = False,
     cv: int = config.CV_FOLDS,
     verbose: bool = True,
+    errors: dict[str, str] | None = None,
 ) -> tuple[dict[str, BaseEstimator], dict[str, dict[str, float]], dict[str, dict[str, Any]]]:
     """
     Train and score every candidate model.
+
+    A candidate that raises is skipped - one broken estimator must not take the
+    whole run down - and when ``errors`` is given the reason is recorded in it as
+    ``{model name: "ErrorType: message"}``.  :func:`run_training_pipeline` passes
+    such a dictionary so that a *total* failure can be explained instead of
+    reporting only "every candidate model failed".
 
     Returns
     -------
@@ -379,6 +386,8 @@ def train_and_evaluate_models(
                     f"time={metrics['training_time']:.3f}s"
                 )
         except Exception as exc:  # keep going even when a single estimator fails
+            if errors is not None:
+                errors[name] = f"{type(exc).__name__}: {exc}"
             if verbose:
                 print(f"  [skipped] {name}: {exc}")
 
@@ -546,6 +555,26 @@ class TrainingResult:
 # --------------------------------------------------------------------------- #
 # End-to-end pipeline
 # --------------------------------------------------------------------------- #
+def _continuous_target_message(prepared: PreparedDataset) -> str:
+    """
+    Explain the ``Unknown label type: 'continuous'`` dead end in the user's terms.
+
+    ``prepare_dataset`` leaves a numeric target numeric on purpose (numeric class
+    codes are common), but every estimator of the zoo is a *classifier*, and
+    scikit-learn rejects a target with fractional values outright.  Without this
+    check all candidates fail one after another and the dashboard can only say
+    "every candidate model failed", which tells the user nothing about the fix.
+    """
+    values = pd.to_numeric(pd.Series(prepared.y_full), errors="coerce").dropna()
+    samples = ", ".join(f"{value:g}" for value in sorted(values.unique())[:4])
+    return (
+        f"Target column '{prepared.target_name}' holds continuous numbers "
+        f"({values.nunique()} distinct values, e.g. {samples}), so no classifier can learn "
+        "from it. Pick the column that carries the class labels in the sidebar - a "
+        "categorical column, or an integer code such as 0/1/2."
+    )
+
+
 def run_training_pipeline(
     df: pd.DataFrame,
     target_column: str,
@@ -576,6 +605,12 @@ def run_training_pipeline(
         random_state=random_state,
     )
 
+    # Fail fast, with the column name, when the target cannot be classified at
+    # all: running thirteen doomed fits only hides the reason (see
+    # `_continuous_target_message`).
+    if is_continuous_numeric(prepared.y_full):
+        raise ValueError(_continuous_target_message(prepared))
+
     eda_file: Path | None = None
     if generate_eda:
         from .eda import generate_eda_report  # local import avoids a heavy import cost
@@ -595,6 +630,7 @@ def run_training_pipeline(
             f"{prepared.n_classes} classes) ..."
         )
 
+    failures: dict[str, str] = {}
     trained_models, performance, tuning_info = train_and_evaluate_models(
         models,
         prepared.x_train,
@@ -604,10 +640,17 @@ def run_training_pipeline(
         tune=tune,
         cv=cv,
         verbose=verbose,
+        errors=failures,
     )
 
     if not performance:
-        raise RuntimeError("Every candidate model failed to train. Check the dataset.")
+        reason = " | ".join(
+            f"{name} -> {message}" for name, message in list(failures.items())[:3]
+        )
+        raise RuntimeError(
+            "Every candidate model failed to train. Check the dataset."
+            + (f" Underlying error: {reason}" if reason else "")
+        )
 
     best_name, _ = select_best_model(performance)
     best_model = trained_models[best_name]

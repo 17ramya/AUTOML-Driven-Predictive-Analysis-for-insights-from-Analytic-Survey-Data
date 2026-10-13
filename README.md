@@ -81,7 +81,7 @@ AutoML-Project/
 ├── docs/
 │   ├── architecture.md        # module map & data-flow notes
 │   └── deployment-vercel.md   # deployment guide (why the dashboard runs in the browser)
-└── tests/                     # unittest suite (206 tests)
+└── tests/                     # unittest suite (211 tests)
 ```
 
 ---
@@ -168,6 +168,15 @@ Any CSV/XLSX file can be used instead — either drop it into `data/raw/`, pass 
 to the CLI with `--input`, or upload it in the dashboard.  Headers are
 standardised automatically, so `"Total Sales ($)"`, `"Total Sales"` and
 `"total_sales"` all work.
+
+The target has to be a **label column**.  The model zoo holds classifiers only, so
+a continuous column — a price, a measurement, anything with fractional values —
+cannot be predicted: scikit-learn rejects it with `Unknown label type:
+'continuous'` and *every* candidate fails.  `run_training_pipeline` detects that
+case and reports the offending column (with its distinct values) instead of running
+a dozen doomed fits, and the dashboard warns in the sidebar as soon as you select
+such a column.  Integer codes (`0`/`1`/`2`) and categorical columns are valid
+targets.
 
 ---
 
@@ -473,13 +482,14 @@ python main.py train --tune
 | Port 8501 already in use | `python -m streamlit run app.py --server.port 8502` |
 | Browser does not open | `python -m streamlit run app.py --server.headless true` and browse to the printed URL |
 | `UserWarning: Could not find the number of physical cores` | handled automatically by `src.config`; see the section above |
+| `Training failed: Every candidate model failed to train. Check the dataset.` in *Train & compare* | The target you selected is a **continuous** column (a price/measurement, e.g. an unnamed `iris.csv` where the last column is a measurement). All models of the zoo are classifiers and scikit-learn rejects a fractional target (`Unknown label type: 'continuous'`), so every candidate is skipped. Select the column that carries the class labels — a categorical column, or an integer code such as 0/1/2. The sidebar warns as soon as a continuous column is selected, and the pipeline names the column in its error message. |
 
 ---
 
 ## Running the tests
 
 ```bash
-python -m unittest discover -s tests -t .          # 206 tests
+python -m unittest discover -s tests -t .          # 211 tests
 python -m unittest tests.test_app -v               # dashboard smoke tests only
 python -m unittest tests.test_config -v            # config + joblib guard only
 python -m unittest tests.test_vercel_deploy -v     # Vercel build step + REST API

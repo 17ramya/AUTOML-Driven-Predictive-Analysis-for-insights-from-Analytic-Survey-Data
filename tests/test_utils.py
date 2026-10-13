@@ -20,6 +20,7 @@ from src.utils import (
     get_file_extension,
     human_readable_bytes,
     is_categorical,
+    is_continuous_numeric,
     numeric_columns,
     read_text_file,
     round_metrics,
@@ -96,6 +97,19 @@ class DataFrameHelperTests(unittest.TestCase):
         self.assertTrue(is_categorical(self.frame["Status"]))
         self.assertTrue(is_categorical(pd.Series([True, False])))
         self.assertFalse(is_categorical(self.frame["Price"]))
+
+    def test_is_continuous_numeric(self) -> None:
+        # Only a column with fractional values is "continuous" for scikit-learn;
+        # integer codes and non-numeric columns are valid classification targets.
+        self.assertTrue(is_continuous_numeric(self.frame["Price"]))
+        self.assertTrue(is_continuous_numeric(pd.Series([0.5, 1.0, 2.0])))
+
+        self.assertFalse(is_continuous_numeric(self.frame["Status"]))
+        self.assertFalse(is_continuous_numeric(self.frame["Quantity"]))
+        self.assertFalse(is_continuous_numeric(pd.Series([0, 1, 2])))
+        self.assertFalse(is_continuous_numeric(pd.Series([0.0, 1.0, 2.0])))
+        self.assertFalse(is_continuous_numeric(pd.Series([True, False])))
+        self.assertFalse(is_continuous_numeric(pd.Series([float("nan"), float("nan")])))
 
     def test_numeric_and_categorical_columns(self) -> None:
         numeric = numeric_columns(self.frame)

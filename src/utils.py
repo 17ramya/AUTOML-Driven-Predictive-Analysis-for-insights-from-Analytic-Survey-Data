@@ -95,6 +95,34 @@ def is_categorical(series: pd.Series) -> bool:
     return False
 
 
+def is_continuous_numeric(series: pd.Series) -> bool:
+    """
+    True when ``series`` holds *continuous* numbers rather than class labels.
+
+    This mirrors the rule scikit-learn applies to a target (``type_of_target``):
+    a numeric column counts as continuous as soon as one of its values is not a
+    whole number.  Every estimator of the model zoo is a classifier, and a
+    classifier refuses such a target with
+
+        ValueError: Unknown label type: 'continuous'
+
+    so the dashboard and ``model_training.run_training_pipeline`` use this helper
+    to name the offending column *before* training, instead of letting thirteen
+    candidates fail and reporting only "every candidate model failed".
+
+    Integer-coded labels (``0`` / ``1`` / ``2``), booleans and non-numeric columns
+    are never reported as continuous.
+    """
+    if pd.api.types.is_bool_dtype(series) or not pd.api.types.is_numeric_dtype(series):
+        return False
+
+    values = pd.to_numeric(series, errors="coerce").to_numpy(dtype="float64")
+    finite = values[np.isfinite(values)]
+    if finite.size == 0:  # an empty / all-missing column is not "continuous"
+        return False
+    return bool(np.any(finite != np.floor(finite)))
+
+
 def numeric_columns(df: pd.DataFrame, exclude: Iterable[str] = ()) -> list[str]:
     """Names of the numeric columns of ``df`` (excluding ``exclude``)."""
     excluded = set(exclude)

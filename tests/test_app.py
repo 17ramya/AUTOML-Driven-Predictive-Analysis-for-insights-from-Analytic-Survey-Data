@@ -94,6 +94,22 @@ class DashboardSmokeTests(unittest.TestCase):
         self.assertEqual(len(frames), 1, "the EDA report was not embedded")
         self.assertIn("AUTOML-EDA-MARKER", frames[0].proto.srcdoc)
 
+    def test_a_continuous_target_is_explained_instead_of_trained(self) -> None:
+        # Regression test for the deployed "Training failed: Every candidate model
+        # failed to train. Check the dataset.": `Total Sales` is a continuous column,
+        # so every classifier refuses it with `Unknown label type: 'continuous'`.
+        # The dashboard must name the problem up front and not offer the doomed run.
+        app = self._run()
+        app.sidebar.selectbox[0].set_value("Total Sales").run()
+
+        self.assertEqual(list(app.exception), [])
+        self.assertEqual([e.value for e in app.error], [], "the dashboard reported an error")
+        messages = " ".join(warning.value for warning in app.warning)
+        self.assertIn("holds continuous numbers", messages)
+        self.assertIsNone(
+            _button(app, "Train and compare models"), "a doomed training run was offered"
+        )
+
     def test_training_and_prediction_flow(self) -> None:
         app = self._run()
         app.sidebar.multiselect[1].set_value(["Decision Tree"]).run()

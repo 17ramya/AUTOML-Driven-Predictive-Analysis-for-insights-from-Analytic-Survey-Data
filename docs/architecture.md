@@ -53,9 +53,17 @@ recent Windows builds break — that is why `config` must be imported before any
 
 * `standardize_column_name` / `standardize_column_names` – `"Total Sales ($)"` → `"total_sales"`
 * `ensure_directory`, `get_file_extension`, `safe_filename`
-* `is_categorical`, `numeric_columns`, `categorical_columns`
+* `is_categorical`, `is_continuous_numeric`, `numeric_columns`, `categorical_columns`
 * `dataframe_to_html`, `human_readable_bytes`, `dataframe_memory_usage`
 * `round_metrics`, `format_metrics`, `read_text_file`
+
+`is_continuous_numeric` mirrors the rule scikit-learn applies to a target
+(`type_of_target`: a numeric column is "continuous" as soon as one value is not a
+whole number).  Every estimator of the zoo is a classifier, so
+`run_training_pipeline` uses it to name a continuous target column *before*
+training instead of letting all candidates fail with
+`Unknown label type: 'continuous'` - which the dashboard could only report as
+"every candidate model failed".
 
 ## `src/data_ingestion.py` (Module 1)
 

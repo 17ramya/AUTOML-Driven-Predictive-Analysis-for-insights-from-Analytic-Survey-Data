@@ -35,7 +35,7 @@ from src.image_features import build_multimodal_dataset, image_pillow_available
 from src.model_training import available_model_names, load_bundle, run_training_pipeline
 from src.predict import compare_saved_models, model_metadata, predict_with_bundle
 from src.preprocessing import PreprocessingError, resolve_column
-from src.utils import format_metrics
+from src.utils import format_metrics, is_continuous_numeric
 
 st.set_page_config(
     page_title="AutoML Predictive Analytics",
@@ -118,6 +118,16 @@ def sidebar_controls(frame: pd.DataFrame | None) -> dict[str, object]:
         index=columns.index(default_target) if default_target in columns else 0,
         help="The column the models have to predict.",
     )
+
+    # A continuous column can never be predicted by the classifier zoo, so the
+    # user is told *before* pressing "Train" instead of after thirteen failed
+    # fits (see `model_training.run_training_pipeline`).
+    if frame is not None and target in frame.columns and is_continuous_numeric(frame[target]):
+        st.sidebar.warning(
+            f"🎯 `{target}` holds continuous numbers "
+            f"({int(frame[target].nunique())} distinct values), so it cannot be predicted "
+            "by a classifier. Choose the column that carries the class labels."
+        )
 
     default_drop = [c for c in config.DEFAULT_DROP_COLUMNS if c in columns]
     drop = st.sidebar.multiselect(
@@ -259,6 +269,15 @@ def training_tab(frame: pd.DataFrame, options: dict[str, object]) -> None:
         "Every model is trained on the same 80/20 split, scored with accuracy, precision, "
         "recall, F1, MCC, kappa and AUC, then ranked by the composite overall score."
     )
+
+    target = str(options["target"])
+    if target in frame.columns and is_continuous_numeric(frame[target]):
+        st.warning(
+            f"**{target}** holds continuous numbers, so there is nothing for a classifier to "
+            "predict. Pick the column that carries the class labels in the sidebar - a "
+            "categorical column, or an integer code such as 0/1/2 - and press Train again."
+        )
+        return
 
     if not options["models"]:
         st.info("Select at least one model in the sidebar.")

@@ -8,6 +8,7 @@ from __future__ import annotations
 import tempfile
 import unittest
 from pathlib import Path
+from unittest import mock
 
 import numpy as np
 import pandas as pd
@@ -15,7 +16,7 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.tree import DecisionTreeClassifier
 
 from tests.helpers import make_binary_frame, make_classification_frame
-from src import config
+from src import config, model_training
 from src.model_training import (
     PERFORMANCE_METRIC_KEYS,
     available_model_names,
@@ -211,6 +212,27 @@ class TuningTests(unittest.TestCase):
         self.assertNotIn("Broken", trained)
         self.assertIn("Extra Trees", performance)
 
+    def test_errors_dictionary_records_why_a_candidate_was_skipped(self) -> None:
+        # The dashboard trains with `verbose=False`, so the reason a candidate was
+        # dropped has to travel back through the `errors` out-parameter - otherwise
+        # a total failure can only be reported as "every candidate model failed".
+        broken = LogisticRegression(penalty="l1", solver="lbfgs", max_iter=50)
+        models = [("Broken", broken), ("Extra Trees", DecisionTreeClassifier(random_state=0))]
+        errors: dict[str, str] = {}
+        trained, _performance, _ = train_and_evaluate_models(
+            models,
+            self.prepared.x_train,
+            self.prepared.y_train,
+            self.prepared.x_test,
+            self.prepared.y_test,
+            verbose=False,
+            errors=errors,
+        )
+
+        self.assertIn("Extra Trees", trained)
+        self.assertEqual(list(errors), ["Broken"])
+        self.assertIn("ValueError", errors["Broken"])
+
     def test_cross_validation_summary(self) -> None:
         summary = cross_validate_model(
             DecisionTreeClassifier(random_state=0),
@@ -292,6 +314,53 @@ class PersistenceTests(unittest.TestCase):
 
 
 class RunTrainingPipelineTests(unittest.TestCase):
+    def test_a_continuous_target_is_named_before_training(self) -> None:
+        # Regression test for the deployed "Training failed: Every candidate model
+        # failed to train. Check the dataset." When the picked target is a
+        # continuous column, *every* classifier refuses it with
+        # `Unknown label type: 'continuous'`; the pipeline now says which column is
+        # wrong and how to fix it instead of running a dozen doomed fits.
+        frame = make_classification_frame(rows=120)
+
+        with self.assertRaises(ValueError) as caught:
+            run_training_pipeline(
+                frame,
+                "Total Sales ($)",
+                selected_models=["Decision Tree"],
+                save=False,
+                generate_eda=False,
+                verbose=False,
+            )
+
+        message = str(caught.exception)
+        self.assertIn("total_sales", message)
+        self.assertIn("continuous numbers", message)
+        self.assertIn("class labels", message)
+
+    def test_a_total_failure_reports_the_underlying_error(self) -> None:
+        frame = make_classification_frame(rows=120)
+
+        def every_candidate_raises(models, *args, **kwargs):
+            for name, _estimator in models:
+                kwargs["errors"][name] = "ValueError: broken on purpose"
+            return {}, {}, {}
+
+        with mock.patch.object(
+            model_training, "train_and_evaluate_models", side_effect=every_candidate_raises
+        ), self.assertRaises(RuntimeError) as caught:
+            run_training_pipeline(
+                frame,
+                "status",
+                selected_models=["Decision Tree"],
+                save=False,
+                generate_eda=False,
+                verbose=False,
+            )
+
+        message = str(caught.exception)
+        self.assertIn("Every candidate model failed to train", message)
+        self.assertIn("Decision Tree -> ValueError: broken on purpose", message)
+
     def test_end_to_end_pipeline_persists_model_and_bundle(self) -> None:
         frame = make_classification_frame(rows=240)
         with tempfile.TemporaryDirectory() as tmp:
